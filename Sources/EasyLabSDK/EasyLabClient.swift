@@ -6,14 +6,14 @@
 // frontends never talk to the agent directly.
 //
 // Usage:
-//   let client = try EasyLabClient(baseUrl: "https://easylab.example.com", token: "...")
+//   let client = EasyLabClient(baseUrl: "https://easylab.example.com", token: "...")
 //   let repos = try await client.lab.listRepos(request: .init())
 import Connect
 import Foundation
 
 /// Interceptor that adds an `Authorization: Bearer <token>` header to every
 /// outbound request (both unary and streaming).
-final class BearerInterceptor: UnaryInterceptor, StreamInterceptor {
+final class BearerInterceptor: UnaryInterceptor, StreamInterceptor, Sendable {
     private let token: String
 
     init(token: String) {
@@ -66,7 +66,7 @@ public final class EasyLabClient: Sendable {
         baseUrl: String,
         token: String,
         httpClient: HTTPClientInterface = URLSessionHTTPClient()
-    ) throws {
+    ) {
         let host = baseUrl.hasSuffix("/")
             ? String(baseUrl.dropLast())
             : baseUrl
