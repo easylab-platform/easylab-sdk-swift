@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 /// LabService covers the revision-native repo + filesystem surface.
-public protocol Easylab_V1_LabServiceClientInterface: Sendable {
+internal protocol Easylab_V1_LabServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `health`(request: Easylab_V1_HealthRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_HealthResponse>
@@ -89,171 +89,171 @@ public protocol Easylab_V1_LabServiceClientInterface: Sendable {
 }
 
 /// Concrete implementation of `Easylab_V1_LabServiceClientInterface`.
-public final class Easylab_V1_LabServiceClient: Easylab_V1_LabServiceClientInterface, Sendable {
+internal final class Easylab_V1_LabServiceClient: Easylab_V1_LabServiceClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
-    public init(client: Connect.ProtocolClientInterface) {
+    internal init(client: Connect.ProtocolClientInterface) {
         self.client = client
     }
 
     @available(iOS 13, *)
-    public func `health`(request: Easylab_V1_HealthRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_HealthResponse> {
+    internal func `health`(request: Easylab_V1_HealthRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_HealthResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Health", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `status`(request: Easylab_V1_StatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_StatusResponse> {
+    internal func `status`(request: Easylab_V1_StatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_StatusResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Status", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listRepos`(request: Easylab_V1_ListReposRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListReposResponse> {
+    internal func `listRepos`(request: Easylab_V1_ListReposRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListReposResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/ListRepos", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `createRepo`(request: Easylab_V1_CreateRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateRepoResponse> {
+    internal func `createRepo`(request: Easylab_V1_CreateRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateRepoResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/CreateRepo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deleteRepo`(request: Easylab_V1_DeleteRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteRepoResponse> {
+    internal func `deleteRepo`(request: Easylab_V1_DeleteRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteRepoResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/DeleteRepo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `ensureRepo`(request: Easylab_V1_EnsureRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_EnsureRepoResponse> {
+    internal func `ensureRepo`(request: Easylab_V1_EnsureRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_EnsureRepoResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/EnsureRepo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `ensureOrg`(request: Easylab_V1_EnsureOrgRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_EnsureOrgResponse> {
+    internal func `ensureOrg`(request: Easylab_V1_EnsureOrgRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_EnsureOrgResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/EnsureOrg", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `forkRepo`(request: Easylab_V1_ForkRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ForkRepoResponse> {
+    internal func `forkRepo`(request: Easylab_V1_ForkRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ForkRepoResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/ForkRepo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `cloneRepo`(request: Easylab_V1_CloneRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CloneRepoResponse> {
+    internal func `cloneRepo`(request: Easylab_V1_CloneRepoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CloneRepoResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/CloneRepo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `tree`(request: Easylab_V1_TreeRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_TreeResponse> {
+    internal func `tree`(request: Easylab_V1_TreeRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_TreeResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Tree", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `readBlob`(request: Easylab_V1_ReadBlobRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ReadBlobResponse> {
+    internal func `readBlob`(request: Easylab_V1_ReadBlobRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ReadBlobResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/ReadBlob", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `writeBlob`(request: Easylab_V1_WriteBlobRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_WriteBlobResponse> {
+    internal func `writeBlob`(request: Easylab_V1_WriteBlobRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_WriteBlobResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/WriteBlob", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `log`(request: Easylab_V1_LogRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_LogResponse> {
+    internal func `log`(request: Easylab_V1_LogRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_LogResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Log", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `tags`(request: Easylab_V1_TagsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_TagsResponse> {
+    internal func `tags`(request: Easylab_V1_TagsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_TagsResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Tags", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `branches`(request: Easylab_V1_BranchesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BranchesResponse> {
+    internal func `branches`(request: Easylab_V1_BranchesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BranchesResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Branches", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `revisions`(request: Easylab_V1_RevisionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RevisionsResponse> {
+    internal func `revisions`(request: Easylab_V1_RevisionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RevisionsResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Revisions", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `diff`(request: Easylab_V1_DiffRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DiffResponse> {
+    internal func `diff`(request: Easylab_V1_DiffRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DiffResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Diff", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `blame`(request: Easylab_V1_BlameRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BlameResponse> {
+    internal func `blame`(request: Easylab_V1_BlameRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BlameResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Blame", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deleteBranch`(request: Easylab_V1_DeleteBranchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteBranchResponse> {
+    internal func `deleteBranch`(request: Easylab_V1_DeleteBranchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteBranchResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/DeleteBranch", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `createBranch`(request: Easylab_V1_CreateBranchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateBranchResponse> {
+    internal func `createBranch`(request: Easylab_V1_CreateBranchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateBranchResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/CreateBranch", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `fileHistory`(request: Easylab_V1_FileHistoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_FileHistoryResponse> {
+    internal func `fileHistory`(request: Easylab_V1_FileHistoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_FileHistoryResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/FileHistory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `search`(request: Easylab_V1_SearchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SearchResponse> {
+    internal func `search`(request: Easylab_V1_SearchRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SearchResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Search", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `graph`(request: Easylab_V1_GraphRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GraphResponse> {
+    internal func `graph`(request: Easylab_V1_GraphRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GraphResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Graph", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `compare`(request: Easylab_V1_CompareRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CompareResponse> {
+    internal func `compare`(request: Easylab_V1_CompareRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CompareResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Compare", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `rebase`(request: Easylab_V1_RebaseRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RebaseResponse> {
+    internal func `rebase`(request: Easylab_V1_RebaseRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RebaseResponse> {
         return await self.client.unary(path: "/easylab.v1.LabService/Rebase", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
-    public enum Metadata {
-        public enum Methods {
-            public static let health = Connect.MethodSpec(name: "Health", service: "easylab.v1.LabService", type: .unary)
-            public static let status = Connect.MethodSpec(name: "Status", service: "easylab.v1.LabService", type: .unary)
-            public static let listRepos = Connect.MethodSpec(name: "ListRepos", service: "easylab.v1.LabService", type: .unary)
-            public static let createRepo = Connect.MethodSpec(name: "CreateRepo", service: "easylab.v1.LabService", type: .unary)
-            public static let deleteRepo = Connect.MethodSpec(name: "DeleteRepo", service: "easylab.v1.LabService", type: .unary)
-            public static let ensureRepo = Connect.MethodSpec(name: "EnsureRepo", service: "easylab.v1.LabService", type: .unary)
-            public static let ensureOrg = Connect.MethodSpec(name: "EnsureOrg", service: "easylab.v1.LabService", type: .unary)
-            public static let forkRepo = Connect.MethodSpec(name: "ForkRepo", service: "easylab.v1.LabService", type: .unary)
-            public static let cloneRepo = Connect.MethodSpec(name: "CloneRepo", service: "easylab.v1.LabService", type: .unary)
-            public static let tree = Connect.MethodSpec(name: "Tree", service: "easylab.v1.LabService", type: .unary)
-            public static let readBlob = Connect.MethodSpec(name: "ReadBlob", service: "easylab.v1.LabService", type: .unary)
-            public static let writeBlob = Connect.MethodSpec(name: "WriteBlob", service: "easylab.v1.LabService", type: .unary)
-            public static let log = Connect.MethodSpec(name: "Log", service: "easylab.v1.LabService", type: .unary)
-            public static let tags = Connect.MethodSpec(name: "Tags", service: "easylab.v1.LabService", type: .unary)
-            public static let branches = Connect.MethodSpec(name: "Branches", service: "easylab.v1.LabService", type: .unary)
-            public static let revisions = Connect.MethodSpec(name: "Revisions", service: "easylab.v1.LabService", type: .unary)
-            public static let diff = Connect.MethodSpec(name: "Diff", service: "easylab.v1.LabService", type: .unary)
-            public static let blame = Connect.MethodSpec(name: "Blame", service: "easylab.v1.LabService", type: .unary)
-            public static let deleteBranch = Connect.MethodSpec(name: "DeleteBranch", service: "easylab.v1.LabService", type: .unary)
-            public static let createBranch = Connect.MethodSpec(name: "CreateBranch", service: "easylab.v1.LabService", type: .unary)
-            public static let fileHistory = Connect.MethodSpec(name: "FileHistory", service: "easylab.v1.LabService", type: .unary)
-            public static let search = Connect.MethodSpec(name: "Search", service: "easylab.v1.LabService", type: .unary)
-            public static let graph = Connect.MethodSpec(name: "Graph", service: "easylab.v1.LabService", type: .unary)
-            public static let compare = Connect.MethodSpec(name: "Compare", service: "easylab.v1.LabService", type: .unary)
-            public static let rebase = Connect.MethodSpec(name: "Rebase", service: "easylab.v1.LabService", type: .unary)
+    internal enum Metadata {
+        internal enum Methods {
+            internal static let health = Connect.MethodSpec(name: "Health", service: "easylab.v1.LabService", type: .unary)
+            internal static let status = Connect.MethodSpec(name: "Status", service: "easylab.v1.LabService", type: .unary)
+            internal static let listRepos = Connect.MethodSpec(name: "ListRepos", service: "easylab.v1.LabService", type: .unary)
+            internal static let createRepo = Connect.MethodSpec(name: "CreateRepo", service: "easylab.v1.LabService", type: .unary)
+            internal static let deleteRepo = Connect.MethodSpec(name: "DeleteRepo", service: "easylab.v1.LabService", type: .unary)
+            internal static let ensureRepo = Connect.MethodSpec(name: "EnsureRepo", service: "easylab.v1.LabService", type: .unary)
+            internal static let ensureOrg = Connect.MethodSpec(name: "EnsureOrg", service: "easylab.v1.LabService", type: .unary)
+            internal static let forkRepo = Connect.MethodSpec(name: "ForkRepo", service: "easylab.v1.LabService", type: .unary)
+            internal static let cloneRepo = Connect.MethodSpec(name: "CloneRepo", service: "easylab.v1.LabService", type: .unary)
+            internal static let tree = Connect.MethodSpec(name: "Tree", service: "easylab.v1.LabService", type: .unary)
+            internal static let readBlob = Connect.MethodSpec(name: "ReadBlob", service: "easylab.v1.LabService", type: .unary)
+            internal static let writeBlob = Connect.MethodSpec(name: "WriteBlob", service: "easylab.v1.LabService", type: .unary)
+            internal static let log = Connect.MethodSpec(name: "Log", service: "easylab.v1.LabService", type: .unary)
+            internal static let tags = Connect.MethodSpec(name: "Tags", service: "easylab.v1.LabService", type: .unary)
+            internal static let branches = Connect.MethodSpec(name: "Branches", service: "easylab.v1.LabService", type: .unary)
+            internal static let revisions = Connect.MethodSpec(name: "Revisions", service: "easylab.v1.LabService", type: .unary)
+            internal static let diff = Connect.MethodSpec(name: "Diff", service: "easylab.v1.LabService", type: .unary)
+            internal static let blame = Connect.MethodSpec(name: "Blame", service: "easylab.v1.LabService", type: .unary)
+            internal static let deleteBranch = Connect.MethodSpec(name: "DeleteBranch", service: "easylab.v1.LabService", type: .unary)
+            internal static let createBranch = Connect.MethodSpec(name: "CreateBranch", service: "easylab.v1.LabService", type: .unary)
+            internal static let fileHistory = Connect.MethodSpec(name: "FileHistory", service: "easylab.v1.LabService", type: .unary)
+            internal static let search = Connect.MethodSpec(name: "Search", service: "easylab.v1.LabService", type: .unary)
+            internal static let graph = Connect.MethodSpec(name: "Graph", service: "easylab.v1.LabService", type: .unary)
+            internal static let compare = Connect.MethodSpec(name: "Compare", service: "easylab.v1.LabService", type: .unary)
+            internal static let rebase = Connect.MethodSpec(name: "Rebase", service: "easylab.v1.LabService", type: .unary)
         }
     }
 }
 
 /// OpsService covers the dev/deploy surface (services, sandboxes, builds).
-public protocol Easylab_V1_OpsServiceClientInterface: Sendable {
+internal protocol Easylab_V1_OpsServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `opsStatus`(request: Easylab_V1_OpsStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_OpsStatusResponse>
@@ -298,9 +298,6 @@ public protocol Easylab_V1_OpsServiceClientInterface: Sendable {
     func `build`(request: Easylab_V1_BuildRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_BuildResponse>
 
     @available(iOS 13, *)
-    func `run`(request: Easylab_V1_RunRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_RunResponse>
-
-    @available(iOS 13, *)
     func `taskLog`(headers: Connect.Headers) -> any Connect.ServerOnlyAsyncStreamInterface<Easylab_V1_TaskLogRequest, Easylab_V1_TaskLogResponse>
 
     @available(iOS 13, *)
@@ -308,123 +305,117 @@ public protocol Easylab_V1_OpsServiceClientInterface: Sendable {
 }
 
 /// Concrete implementation of `Easylab_V1_OpsServiceClientInterface`.
-public final class Easylab_V1_OpsServiceClient: Easylab_V1_OpsServiceClientInterface, Sendable {
+internal final class Easylab_V1_OpsServiceClient: Easylab_V1_OpsServiceClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
-    public init(client: Connect.ProtocolClientInterface) {
+    internal init(client: Connect.ProtocolClientInterface) {
         self.client = client
     }
 
     @available(iOS 13, *)
-    public func `opsStatus`(request: Easylab_V1_OpsStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_OpsStatusResponse> {
+    internal func `opsStatus`(request: Easylab_V1_OpsStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_OpsStatusResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/OpsStatus", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listNamespaces`(request: Easylab_V1_ListNamespacesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListNamespacesResponse> {
+    internal func `listNamespaces`(request: Easylab_V1_ListNamespacesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListNamespacesResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/ListNamespaces", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listServices`(request: Easylab_V1_ListServicesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListServicesResponse> {
+    internal func `listServices`(request: Easylab_V1_ListServicesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListServicesResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/ListServices", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getService`(request: Easylab_V1_GetServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GetServiceResponse> {
+    internal func `getService`(request: Easylab_V1_GetServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GetServiceResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/GetService", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `launchService`(request: Easylab_V1_LaunchServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_LaunchServiceResponse> {
+    internal func `launchService`(request: Easylab_V1_LaunchServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_LaunchServiceResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/LaunchService", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deleteService`(request: Easylab_V1_DeleteServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteServiceResponse> {
+    internal func `deleteService`(request: Easylab_V1_DeleteServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteServiceResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/DeleteService", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `scaleService`(request: Easylab_V1_ScaleServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ScaleServiceResponse> {
+    internal func `scaleService`(request: Easylab_V1_ScaleServiceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ScaleServiceResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/ScaleService", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `sandboxExec`(request: Easylab_V1_SandboxExecRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxExecResponse> {
+    internal func `sandboxExec`(request: Easylab_V1_SandboxExecRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxExecResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/SandboxExec", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `sandboxRead`(request: Easylab_V1_SandboxReadRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxReadResponse> {
+    internal func `sandboxRead`(request: Easylab_V1_SandboxReadRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxReadResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/SandboxRead", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `sandboxWrite`(request: Easylab_V1_SandboxWriteRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxWriteResponse> {
+    internal func `sandboxWrite`(request: Easylab_V1_SandboxWriteRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxWriteResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/SandboxWrite", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `sandboxJobKill`(request: Easylab_V1_SandboxJobKillRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxJobKillResponse> {
+    internal func `sandboxJobKill`(request: Easylab_V1_SandboxJobKillRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SandboxJobKillResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/SandboxJobKill", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listTasks`(request: Easylab_V1_ListTasksRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListTasksResponse> {
+    internal func `listTasks`(request: Easylab_V1_ListTasksRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListTasksResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/ListTasks", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getTask`(request: Easylab_V1_GetTaskRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GetTaskResponse> {
+    internal func `getTask`(request: Easylab_V1_GetTaskRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GetTaskResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/GetTask", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `build`(request: Easylab_V1_BuildRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BuildResponse> {
+    internal func `build`(request: Easylab_V1_BuildRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_BuildResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/Build", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `run`(request: Easylab_V1_RunRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RunResponse> {
-        return await self.client.unary(path: "/easylab.v1.OpsService/Run", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @available(iOS 13, *)
-    public func `taskLog`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Easylab_V1_TaskLogRequest, Easylab_V1_TaskLogResponse> {
+    internal func `taskLog`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Easylab_V1_TaskLogRequest, Easylab_V1_TaskLogResponse> {
         return self.client.serverOnlyStream(path: "/easylab.v1.OpsService/TaskLog", headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `sync`(request: Easylab_V1_SyncRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SyncResponse> {
+    internal func `sync`(request: Easylab_V1_SyncRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SyncResponse> {
         return await self.client.unary(path: "/easylab.v1.OpsService/Sync", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
-    public enum Metadata {
-        public enum Methods {
-            public static let opsStatus = Connect.MethodSpec(name: "OpsStatus", service: "easylab.v1.OpsService", type: .unary)
-            public static let listNamespaces = Connect.MethodSpec(name: "ListNamespaces", service: "easylab.v1.OpsService", type: .unary)
-            public static let listServices = Connect.MethodSpec(name: "ListServices", service: "easylab.v1.OpsService", type: .unary)
-            public static let getService = Connect.MethodSpec(name: "GetService", service: "easylab.v1.OpsService", type: .unary)
-            public static let launchService = Connect.MethodSpec(name: "LaunchService", service: "easylab.v1.OpsService", type: .unary)
-            public static let deleteService = Connect.MethodSpec(name: "DeleteService", service: "easylab.v1.OpsService", type: .unary)
-            public static let scaleService = Connect.MethodSpec(name: "ScaleService", service: "easylab.v1.OpsService", type: .unary)
-            public static let sandboxExec = Connect.MethodSpec(name: "SandboxExec", service: "easylab.v1.OpsService", type: .unary)
-            public static let sandboxRead = Connect.MethodSpec(name: "SandboxRead", service: "easylab.v1.OpsService", type: .unary)
-            public static let sandboxWrite = Connect.MethodSpec(name: "SandboxWrite", service: "easylab.v1.OpsService", type: .unary)
-            public static let sandboxJobKill = Connect.MethodSpec(name: "SandboxJobKill", service: "easylab.v1.OpsService", type: .unary)
-            public static let listTasks = Connect.MethodSpec(name: "ListTasks", service: "easylab.v1.OpsService", type: .unary)
-            public static let getTask = Connect.MethodSpec(name: "GetTask", service: "easylab.v1.OpsService", type: .unary)
-            public static let build = Connect.MethodSpec(name: "Build", service: "easylab.v1.OpsService", type: .unary)
-            public static let run = Connect.MethodSpec(name: "Run", service: "easylab.v1.OpsService", type: .unary)
-            public static let taskLog = Connect.MethodSpec(name: "TaskLog", service: "easylab.v1.OpsService", type: .serverStream)
-            public static let sync = Connect.MethodSpec(name: "Sync", service: "easylab.v1.OpsService", type: .unary)
+    internal enum Metadata {
+        internal enum Methods {
+            internal static let opsStatus = Connect.MethodSpec(name: "OpsStatus", service: "easylab.v1.OpsService", type: .unary)
+            internal static let listNamespaces = Connect.MethodSpec(name: "ListNamespaces", service: "easylab.v1.OpsService", type: .unary)
+            internal static let listServices = Connect.MethodSpec(name: "ListServices", service: "easylab.v1.OpsService", type: .unary)
+            internal static let getService = Connect.MethodSpec(name: "GetService", service: "easylab.v1.OpsService", type: .unary)
+            internal static let launchService = Connect.MethodSpec(name: "LaunchService", service: "easylab.v1.OpsService", type: .unary)
+            internal static let deleteService = Connect.MethodSpec(name: "DeleteService", service: "easylab.v1.OpsService", type: .unary)
+            internal static let scaleService = Connect.MethodSpec(name: "ScaleService", service: "easylab.v1.OpsService", type: .unary)
+            internal static let sandboxExec = Connect.MethodSpec(name: "SandboxExec", service: "easylab.v1.OpsService", type: .unary)
+            internal static let sandboxRead = Connect.MethodSpec(name: "SandboxRead", service: "easylab.v1.OpsService", type: .unary)
+            internal static let sandboxWrite = Connect.MethodSpec(name: "SandboxWrite", service: "easylab.v1.OpsService", type: .unary)
+            internal static let sandboxJobKill = Connect.MethodSpec(name: "SandboxJobKill", service: "easylab.v1.OpsService", type: .unary)
+            internal static let listTasks = Connect.MethodSpec(name: "ListTasks", service: "easylab.v1.OpsService", type: .unary)
+            internal static let getTask = Connect.MethodSpec(name: "GetTask", service: "easylab.v1.OpsService", type: .unary)
+            internal static let build = Connect.MethodSpec(name: "Build", service: "easylab.v1.OpsService", type: .unary)
+            internal static let taskLog = Connect.MethodSpec(name: "TaskLog", service: "easylab.v1.OpsService", type: .serverStream)
+            internal static let sync = Connect.MethodSpec(name: "Sync", service: "easylab.v1.OpsService", type: .unary)
         }
     }
 }
 
 /// RegistryService covers the package registry surface.
-public protocol Easylab_V1_RegistryServiceClientInterface: Sendable {
+internal protocol Easylab_V1_RegistryServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `listPackageTypes`(request: Easylab_V1_ListPackageTypesRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ListPackageTypesResponse>
@@ -446,51 +437,51 @@ public protocol Easylab_V1_RegistryServiceClientInterface: Sendable {
 }
 
 /// Concrete implementation of `Easylab_V1_RegistryServiceClientInterface`.
-public final class Easylab_V1_RegistryServiceClient: Easylab_V1_RegistryServiceClientInterface, Sendable {
+internal final class Easylab_V1_RegistryServiceClient: Easylab_V1_RegistryServiceClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
-    public init(client: Connect.ProtocolClientInterface) {
+    internal init(client: Connect.ProtocolClientInterface) {
         self.client = client
     }
 
     @available(iOS 13, *)
-    public func `listPackageTypes`(request: Easylab_V1_ListPackageTypesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPackageTypesResponse> {
+    internal func `listPackageTypes`(request: Easylab_V1_ListPackageTypesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPackageTypesResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/ListPackageTypes", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listPackages`(request: Easylab_V1_ListPackagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPackagesResponse> {
+    internal func `listPackages`(request: Easylab_V1_ListPackagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPackagesResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/ListPackages", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `packageVersions`(request: Easylab_V1_PackageVersionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_PackageVersionsResponse> {
+    internal func `packageVersions`(request: Easylab_V1_PackageVersionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_PackageVersionsResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/PackageVersions", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deletePackage`(request: Easylab_V1_DeletePackageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeletePackageResponse> {
+    internal func `deletePackage`(request: Easylab_V1_DeletePackageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeletePackageResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/DeletePackage", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deletePackageVersion`(request: Easylab_V1_DeletePackageVersionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeletePackageVersionResponse> {
+    internal func `deletePackageVersion`(request: Easylab_V1_DeletePackageVersionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeletePackageVersionResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/DeletePackageVersion", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listPublishSpecs`(request: Easylab_V1_ListPublishSpecsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPublishSpecsResponse> {
+    internal func `listPublishSpecs`(request: Easylab_V1_ListPublishSpecsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListPublishSpecsResponse> {
         return await self.client.unary(path: "/easylab.v1.RegistryService/ListPublishSpecs", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
-    public enum Metadata {
-        public enum Methods {
-            public static let listPackageTypes = Connect.MethodSpec(name: "ListPackageTypes", service: "easylab.v1.RegistryService", type: .unary)
-            public static let listPackages = Connect.MethodSpec(name: "ListPackages", service: "easylab.v1.RegistryService", type: .unary)
-            public static let packageVersions = Connect.MethodSpec(name: "PackageVersions", service: "easylab.v1.RegistryService", type: .unary)
-            public static let deletePackage = Connect.MethodSpec(name: "DeletePackage", service: "easylab.v1.RegistryService", type: .unary)
-            public static let deletePackageVersion = Connect.MethodSpec(name: "DeletePackageVersion", service: "easylab.v1.RegistryService", type: .unary)
-            public static let listPublishSpecs = Connect.MethodSpec(name: "ListPublishSpecs", service: "easylab.v1.RegistryService", type: .unary)
+    internal enum Metadata {
+        internal enum Methods {
+            internal static let listPackageTypes = Connect.MethodSpec(name: "ListPackageTypes", service: "easylab.v1.RegistryService", type: .unary)
+            internal static let listPackages = Connect.MethodSpec(name: "ListPackages", service: "easylab.v1.RegistryService", type: .unary)
+            internal static let packageVersions = Connect.MethodSpec(name: "PackageVersions", service: "easylab.v1.RegistryService", type: .unary)
+            internal static let deletePackage = Connect.MethodSpec(name: "DeletePackage", service: "easylab.v1.RegistryService", type: .unary)
+            internal static let deletePackageVersion = Connect.MethodSpec(name: "DeletePackageVersion", service: "easylab.v1.RegistryService", type: .unary)
+            internal static let listPublishSpecs = Connect.MethodSpec(name: "ListPublishSpecs", service: "easylab.v1.RegistryService", type: .unary)
         }
     }
 }

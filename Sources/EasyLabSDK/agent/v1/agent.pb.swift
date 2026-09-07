@@ -21,1604 +21,1604 @@ fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobu
 }
 
 /// Session is a row in the agent session table.
-public nonisolated struct Agent_V1_Session: @unchecked Sendable {
+nonisolated struct Agent_V1_Session: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var name: String {
+  var name: String {
     get {_storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  public var model: String {
+  var model: String {
     get {_storage._model}
     set {_uniqueStorage()._model = newValue}
   }
 
-  public var preset: String {
+  var preset: String {
     get {_storage._preset}
     set {_uniqueStorage()._preset = newValue}
   }
 
-  public var tipID: String {
+  var tipID: String {
     get {_storage._tipID}
     set {_uniqueStorage()._tipID = newValue}
   }
 
-  public var maxTurns: Int32 {
+  var maxTurns: Int32 {
     get {_storage._maxTurns}
     set {_uniqueStorage()._maxTurns = newValue}
   }
 
-  public var systemPrompt: String {
+  var systemPrompt: String {
     get {_storage._systemPrompt}
     set {_uniqueStorage()._systemPrompt = newValue}
   }
 
-  public var inputTokens: Int32 {
+  var inputTokens: Int32 {
     get {_storage._inputTokens}
     set {_uniqueStorage()._inputTokens = newValue}
   }
 
-  public var outputTokens: Int32 {
+  var outputTokens: Int32 {
     get {_storage._outputTokens}
     set {_uniqueStorage()._outputTokens = newValue}
   }
 
-  public var totalTokens: Int32 {
+  var totalTokens: Int32 {
     get {_storage._totalTokens}
     set {_uniqueStorage()._totalTokens = newValue}
   }
 
-  public var lastInputTokens: Int32 {
+  var lastInputTokens: Int32 {
     get {_storage._lastInputTokens}
     set {_uniqueStorage()._lastInputTokens = newValue}
   }
 
-  public var lastOutputTokens: Int32 {
+  var lastOutputTokens: Int32 {
     get {_storage._lastOutputTokens}
     set {_uniqueStorage()._lastOutputTokens = newValue}
   }
 
-  public var createdAt: String {
+  var createdAt: String {
     get {_storage._createdAt}
     set {_uniqueStorage()._createdAt = newValue}
   }
 
-  public var updatedAt: String {
+  var updatedAt: String {
     get {_storage._updatedAt}
     set {_uniqueStorage()._updatedAt = newValue}
   }
 
-  public var lastUsedAt: String {
+  var lastUsedAt: String {
     get {_storage._lastUsedAt}
     set {_uniqueStorage()._lastUsedAt = newValue}
   }
 
-  public var locale: String {
+  var locale: String {
     get {_storage._locale}
     set {_uniqueStorage()._locale = newValue}
   }
 
   /// UI aggregates.
-  public var org: String {
+  var org: String {
     get {_storage._org}
     set {_uniqueStorage()._org = newValue}
   }
 
-  public var repo: String {
+  var repo: String {
     get {_storage._repo}
     set {_uniqueStorage()._repo = newValue}
   }
 
-  public var branch: String {
+  var branch: String {
     get {_storage._branch}
     set {_uniqueStorage()._branch = newValue}
   }
 
-  public var unreadCount: Int32 {
+  var unreadCount: Int32 {
     get {_storage._unreadCount}
     set {_uniqueStorage()._unreadCount = newValue}
   }
 
-  public var lastMessageAt: String {
+  var lastMessageAt: String {
     get {_storage._lastMessageAt}
     set {_uniqueStorage()._lastMessageAt = newValue}
   }
 
-  public var lastMessagePreview: String {
+  var lastMessagePreview: String {
     get {_storage._lastMessagePreview}
     set {_uniqueStorage()._lastMessagePreview = newValue}
   }
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Message row (bare).
-public nonisolated struct Agent_V1_Message: Sendable {
+nonisolated struct Agent_V1_Message: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var role: String = String()
+  var role: String = String()
 
-  public var prevID: String = String()
+  var prevID: String = String()
 
-  public var createdAt: String = String()
+  var createdAt: String = String()
 
-  public var parts: [Agent_V1_Part] = []
+  var parts: [Agent_V1_Part] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// A tool/text part body. `data` is the JSON/plain payload.
-public nonisolated struct Agent_V1_Part: Sendable {
+nonisolated struct Agent_V1_Part: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var messageID: String = String()
+  var messageID: String = String()
 
-  public var type: String = String()
+  var type: String = String()
 
-  public var seq: Int32 = 0
+  var seq: Int32 = 0
 
-  public var data: String = String()
+  var data: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Mailbox entry.
-public nonisolated struct Agent_V1_MailboxEntry: Sendable {
+nonisolated struct Agent_V1_MailboxEntry: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var sessionName: String = String()
+  var sessionName: String = String()
 
-  public var msgType: String = String()
+  var msgType: String = String()
 
-  public var payload: String = String()
+  var payload: String = String()
 
-  public var effectiveAt: String = String()
+  var effectiveAt: String = String()
 
-  public var status: String = String()
+  var status: String = String()
 
-  public var createdAt: String = String()
+  var createdAt: String = String()
 
-  public var consumedAt: String = String()
+  var consumedAt: String = String()
 
-  public var seq: Int64 = 0
+  var seq: Int64 = 0
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Worksheet row.
-public nonisolated struct Agent_V1_Worksheet: Sendable {
+nonisolated struct Agent_V1_Worksheet: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var sessionName: String = String()
+  var sessionName: String = String()
 
-  public var extID: String = String()
+  var extID: String = String()
 
-  public var action: String = String()
+  var action: String = String()
 
-  public var args: String = String()
+  var args: String = String()
 
-  public var title: String = String()
+  var title: String = String()
 
-  public var originCallID: String = String()
+  var originCallID: String = String()
 
-  public var status: String = String()
+  var status: String = String()
 
-  public var createdAt: String = String()
+  var createdAt: String = String()
 
-  public var decidedAt: String = String()
+  var decidedAt: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Preset row.
-public nonisolated struct Agent_V1_Preset: Sendable {
+nonisolated struct Agent_V1_Preset: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var systemPrompt: String = String()
+  var systemPrompt: String = String()
 
-  public var systemPromptI18N: String = String()
+  var systemPromptI18N: String = String()
 
-  public var tools: [String] = []
+  var tools: [String] = []
 
-  public var maxTurns: Int32 = 0
+  var maxTurns: Int32 = 0
 
-  public var isSystem: Bool = false
+  var isSystem: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Provider row.
-public nonisolated struct Agent_V1_Provider: Sendable {
+nonisolated struct Agent_V1_Provider: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var providerID: String = String()
+  var providerID: String = String()
 
-  public var apiType: String = String()
+  var apiType: String = String()
 
-  public var baseURL: String = String()
+  var baseURL: String = String()
 
-  public var apiKey: String = String()
+  var apiKey: String = String()
 
-  public var headers: Dictionary<String,String> = [:]
+  var headers: Dictionary<String,String> = [:]
 
-  public var models: [String] = []
+  var models: [String] = []
 
-  public var updatedAt: String = String()
+  var updatedAt: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Provider model entry.
-public nonisolated struct Agent_V1_ProviderModel: Sendable {
+nonisolated struct Agent_V1_ProviderModel: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// Tool discovery entry.
-public nonisolated struct Agent_V1_ToolInfo: Sendable {
+nonisolated struct Agent_V1_ToolInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var description_p: String = String()
+  var description_p: String = String()
 
-  public var category: String = String()
+  var category: String = String()
 
-  public var parameters: SwiftProtobuf.Google_Protobuf_Struct {
+  var parameters: SwiftProtobuf.Google_Protobuf_Struct {
     get {_parameters ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_parameters = newValue}
   }
   /// Returns true if `parameters` has been explicitly set.
-  public var hasParameters: Bool {self._parameters != nil}
+  var hasParameters: Bool {self._parameters != nil}
   /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
-  public mutating func clearParameters() {self._parameters = nil}
+  mutating func clearParameters() {self._parameters = nil}
 
-  public var configFields: [Agent_V1_ToolConfigField] = []
+  var configFields: [Agent_V1_ToolConfigField] = []
 
-  public var requiredConfig: [String] = []
+  var requiredConfig: [String] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _parameters: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
 
 /// Declared config knob for a tool/extension.
-public nonisolated struct Agent_V1_ToolConfigField: Sendable {
+nonisolated struct Agent_V1_ToolConfigField: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var type: String = String()
+  var type: String = String()
 
-  public var enumValues: [String] = []
+  var enumValues: [String] = []
 
-  public var `default`: SwiftProtobuf.Google_Protobuf_Value {
+  var `default`: SwiftProtobuf.Google_Protobuf_Value {
     get {_default ?? SwiftProtobuf.Google_Protobuf_Value()}
     set {_default = newValue}
   }
   /// Returns true if ``default`` has been explicitly set.
-  public var hasDefault: Bool {self._default != nil}
+  var hasDefault: Bool {self._default != nil}
   /// Clears the value of ``default``. Subsequent reads from it will return its default value.
-  public mutating func clearDefault() {self._default = nil}
+  mutating func clearDefault() {self._default = nil}
 
-  public var description_p: String = String()
+  var description_p: String = String()
 
-  public var scope: String = String()
+  var scope: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _default: SwiftProtobuf.Google_Protobuf_Value? = nil
 }
 
 /// A tool's configured value.
-public nonisolated struct Agent_V1_ToolConfig: Sendable {
+nonisolated struct Agent_V1_ToolConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var values: Dictionary<String,SwiftProtobuf.Google_Protobuf_Value> = [:]
+  var values: Dictionary<String,SwiftProtobuf.Google_Protobuf_Value> = [:]
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// SSE-ish stream event emitted by Prompt streaming.
-public nonisolated struct Agent_V1_PromptResponse: Sendable {
+nonisolated struct Agent_V1_PromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// status | text-delta | tool-call | tool-result | error | turn-complete
-  public var event: String = String()
+  var event: String = String()
 
-  public var params: Dictionary<String,String> = [:]
+  var params: Dictionary<String,String> = [:]
 
-  public var eid: String = String()
+  var eid: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 /// WatchSession streams live session events (the Connect replacement for the
 /// SSE /stream endpoint): turn deltas, tool calls, errors and completions.
-public nonisolated struct Agent_V1_WatchSessionRequest: Sendable {
+nonisolated struct Agent_V1_WatchSessionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_WatchSessionResponse: Sendable {
+nonisolated struct Agent_V1_WatchSessionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var event: String = String()
+  var event: String = String()
 
-  public var params: SwiftProtobuf.Google_Protobuf_Struct {
+  var params: SwiftProtobuf.Google_Protobuf_Struct {
     get {_params ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  public var hasParams: Bool {self._params != nil}
+  var hasParams: Bool {self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  public mutating func clearParams() {self._params = nil}
+  mutating func clearParams() {self._params = nil}
 
-  public var eid: String = String()
+  var eid: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _params: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
 
 /// A file reference (attachment).
-public nonisolated struct Agent_V1_FileRef: Sendable {
+nonisolated struct Agent_V1_FileRef: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var mime: String = String()
+  var mime: String = String()
 
-  public var size: Int32 = 0
+  var size: Int32 = 0
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListSessionsRequest: Sendable {
+nonisolated struct Agent_V1_ListSessionsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListSessionsResponse: Sendable {
+nonisolated struct Agent_V1_ListSessionsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var sessions: [Agent_V1_Session] = []
+  var sessions: [Agent_V1_Session] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_CreateSessionRequest: Sendable {
+nonisolated struct Agent_V1_CreateSessionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var model: String = String()
+  var model: String = String()
 
-  public var preset: String = String()
+  var preset: String = String()
 
-  public var org: String = String()
+  var org: String = String()
 
-  public var repo: String = String()
+  var repo: String = String()
 
-  public var branch: String = String()
+  var branch: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_CreateSessionResponse: Sendable {
+nonisolated struct Agent_V1_CreateSessionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var sessionName: String = String()
+  var sessionName: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetSessionRequest: Sendable {
+nonisolated struct Agent_V1_GetSessionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetSessionResponse: Sendable {
+nonisolated struct Agent_V1_GetSessionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_DeleteSessionRequest: Sendable {
+nonisolated struct Agent_V1_DeleteSessionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DeleteSessionResponse: Sendable {
+nonisolated struct Agent_V1_DeleteSessionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListMessagesRequest: Sendable {
+nonisolated struct Agent_V1_ListMessagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var limit: Int32 = 0
+  var limit: Int32 = 0
 
-  public var before: String = String()
+  var before: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListMessagesResponse: Sendable {
+nonisolated struct Agent_V1_ListMessagesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var messages: [Agent_V1_Message] = []
+  var messages: [Agent_V1_Message] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_PromptRequest: Sendable {
+nonisolated struct Agent_V1_PromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var prompt: String = String()
+  var prompt: String = String()
 
-  public var attachments: [Agent_V1_FileRef] = []
+  var attachments: [Agent_V1_FileRef] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ForkRequest: Sendable {
+nonisolated struct Agent_V1_ForkRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var messageID: String = String()
+  var messageID: String = String()
 
-  public var preset: String = String()
+  var preset: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ForkResponse: Sendable {
+nonisolated struct Agent_V1_ForkResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_RenameRequest: Sendable {
+nonisolated struct Agent_V1_RenameRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_RenameResponse: Sendable {
+nonisolated struct Agent_V1_RenameResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_SetModelRequest: Sendable {
+nonisolated struct Agent_V1_SetModelRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var model: String = String()
+  var model: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_SetModelResponse: Sendable {
+nonisolated struct Agent_V1_SetModelResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_UndoRequest: Sendable {
+nonisolated struct Agent_V1_UndoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var messageID: String = String()
+  var messageID: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_UndoResponse: Sendable {
+nonisolated struct Agent_V1_UndoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_StateRequest: Sendable {
+nonisolated struct Agent_V1_StateRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_StateResponse: Sendable {
+nonisolated struct Agent_V1_StateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var state: SwiftProtobuf.Google_Protobuf_Struct {
+  var state: SwiftProtobuf.Google_Protobuf_Struct {
     get {_state ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_state = newValue}
   }
   /// Returns true if `state` has been explicitly set.
-  public var hasState: Bool {self._state != nil}
+  var hasState: Bool {self._state != nil}
   /// Clears the value of `state`. Subsequent reads from it will return its default value.
-  public mutating func clearState() {self._state = nil}
+  mutating func clearState() {self._state = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _state: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
 
-public nonisolated struct Agent_V1_MailboxRequest: Sendable {
+nonisolated struct Agent_V1_MailboxRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_MailboxResponse: Sendable {
+nonisolated struct Agent_V1_MailboxResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var mailbox: [Agent_V1_MailboxEntry] = []
+  var mailbox: [Agent_V1_MailboxEntry] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_UpdateSettingsRequest: Sendable {
+nonisolated struct Agent_V1_UpdateSettingsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var model: String = String()
+  var model: String = String()
 
-  public var preset: String = String()
+  var preset: String = String()
 
-  public var maxTurns: Int32 = 0
+  var maxTurns: Int32 = 0
 
-  public var systemPrompt: String = String()
+  var systemPrompt: String = String()
 
-  public var locale: String = String()
+  var locale: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_UpdateSettingsResponse: Sendable {
+nonisolated struct Agent_V1_UpdateSettingsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var session: Agent_V1_Session {
+  var session: Agent_V1_Session {
     get {_session ?? Agent_V1_Session()}
     set {_session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  public var hasSession: Bool {self._session != nil}
+  var hasSession: Bool {self._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  public mutating func clearSession() {self._session = nil}
+  mutating func clearSession() {self._session = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _session: Agent_V1_Session? = nil
 }
 
-public nonisolated struct Agent_V1_InterruptRequest: Sendable {
+nonisolated struct Agent_V1_InterruptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_InterruptResponse: Sendable {
+nonisolated struct Agent_V1_InterruptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var interrupted: Bool = false
+  var interrupted: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_CompactRequest: Sendable {
+nonisolated struct Agent_V1_CompactRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_CompactResponse: Sendable {
+nonisolated struct Agent_V1_CompactResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListProvidersRequest: Sendable {
+nonisolated struct Agent_V1_ListProvidersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListProvidersResponse: Sendable {
+nonisolated struct Agent_V1_ListProvidersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var providers: [Agent_V1_Provider] = []
+  var providers: [Agent_V1_Provider] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListProvidersCatalogRequest: Sendable {
+nonisolated struct Agent_V1_ListProvidersCatalogRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListProvidersCatalogResponse: Sendable {
+nonisolated struct Agent_V1_ListProvidersCatalogResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var providers: Dictionary<String,Agent_V1_CatalogProvider> = [:]
+  var providers: Dictionary<String,Agent_V1_CatalogProvider> = [:]
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_CatalogProvider: Sendable {
+nonisolated struct Agent_V1_CatalogProvider: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var api: String = String()
+  var api: String = String()
 
-  public var npm: String = String()
+  var npm: String = String()
 
-  public var env: [String] = []
+  var env: [String] = []
 
-  public var models: Dictionary<String,SwiftProtobuf.Google_Protobuf_Value> = [:]
+  var models: Dictionary<String,SwiftProtobuf.Google_Protobuf_Value> = [:]
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_RegisterProviderRequest: Sendable {
+nonisolated struct Agent_V1_RegisterProviderRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var provider: Agent_V1_Provider {
+  var provider: Agent_V1_Provider {
     get {_provider ?? Agent_V1_Provider()}
     set {_provider = newValue}
   }
   /// Returns true if `provider` has been explicitly set.
-  public var hasProvider: Bool {self._provider != nil}
+  var hasProvider: Bool {self._provider != nil}
   /// Clears the value of `provider`. Subsequent reads from it will return its default value.
-  public mutating func clearProvider() {self._provider = nil}
+  mutating func clearProvider() {self._provider = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _provider: Agent_V1_Provider? = nil
 }
 
-public nonisolated struct Agent_V1_RegisterProviderResponse: Sendable {
+nonisolated struct Agent_V1_RegisterProviderResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DeleteProviderRequest: Sendable {
+nonisolated struct Agent_V1_DeleteProviderRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var providerID: String = String()
+  var providerID: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DeleteProviderResponse: Sendable {
+nonisolated struct Agent_V1_DeleteProviderResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_TestProviderRequest: Sendable {
+nonisolated struct Agent_V1_TestProviderRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var providerID: String = String()
+  var providerID: String = String()
 
-  public var apiType: String = String()
+  var apiType: String = String()
 
-  public var baseURL: String = String()
+  var baseURL: String = String()
 
-  public var apiKey: String = String()
+  var apiKey: String = String()
 
-  public var model: String = String()
+  var model: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_TestProviderResponse: Sendable {
+nonisolated struct Agent_V1_TestProviderResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var result: String = String()
+  var result: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListModelsRequest: Sendable {
+nonisolated struct Agent_V1_ListModelsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListModelsResponse: Sendable {
+nonisolated struct Agent_V1_ListModelsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var models: [Agent_V1_ModelInfo] = []
+  var models: [Agent_V1_ModelInfo] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ModelInfo: Sendable {
+nonisolated struct Agent_V1_ModelInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListPresetsRequest: Sendable {
+nonisolated struct Agent_V1_ListPresetsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListPresetsResponse: Sendable {
+nonisolated struct Agent_V1_ListPresetsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var presets: [Agent_V1_Preset] = []
+  var presets: [Agent_V1_Preset] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_UpsertPresetRequest: Sendable {
+nonisolated struct Agent_V1_UpsertPresetRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var preset: Agent_V1_Preset {
+  var preset: Agent_V1_Preset {
     get {_preset ?? Agent_V1_Preset()}
     set {_preset = newValue}
   }
   /// Returns true if `preset` has been explicitly set.
-  public var hasPreset: Bool {self._preset != nil}
+  var hasPreset: Bool {self._preset != nil}
   /// Clears the value of `preset`. Subsequent reads from it will return its default value.
-  public mutating func clearPreset() {self._preset = nil}
+  mutating func clearPreset() {self._preset = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _preset: Agent_V1_Preset? = nil
 }
 
-public nonisolated struct Agent_V1_UpsertPresetResponse: Sendable {
+nonisolated struct Agent_V1_UpsertPresetResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DeletePresetRequest: Sendable {
+nonisolated struct Agent_V1_DeletePresetRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DeletePresetResponse: Sendable {
+nonisolated struct Agent_V1_DeletePresetResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_PreviewPresetRequest: Sendable {
+nonisolated struct Agent_V1_PreviewPresetRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_PreviewPresetResponse: Sendable {
+nonisolated struct Agent_V1_PreviewPresetResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var template: String = String()
+  var template: String = String()
 
-  public var rendered: String = String()
+  var rendered: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetConfigRequest: Sendable {
+nonisolated struct Agent_V1_GetConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var key: String = String()
+  var key: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetConfigResponse: Sendable {
+nonisolated struct Agent_V1_GetConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var key: String = String()
+  var key: String = String()
 
-  public var value: String = String()
+  var value: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_SetConfigRequest: Sendable {
+nonisolated struct Agent_V1_SetConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var key: String = String()
+  var key: String = String()
 
-  public var value: String = String()
+  var value: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_SetConfigResponse: Sendable {
+nonisolated struct Agent_V1_SetConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListToolsRequest: Sendable {
+nonisolated struct Agent_V1_ListToolsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var locale: String = String()
+  var locale: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListToolsResponse: Sendable {
+nonisolated struct Agent_V1_ListToolsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var tools: [Agent_V1_ToolInfo] = []
+  var tools: [Agent_V1_ToolInfo] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetToolConfigRequest: Sendable {
+nonisolated struct Agent_V1_GetToolConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetToolConfigResponse: Sendable {
+nonisolated struct Agent_V1_GetToolConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var config: Agent_V1_ToolConfig {
+  var config: Agent_V1_ToolConfig {
     get {_config ?? Agent_V1_ToolConfig()}
     set {_config = newValue}
   }
   /// Returns true if `config` has been explicitly set.
-  public var hasConfig: Bool {self._config != nil}
+  var hasConfig: Bool {self._config != nil}
   /// Clears the value of `config`. Subsequent reads from it will return its default value.
-  public mutating func clearConfig() {self._config = nil}
+  mutating func clearConfig() {self._config = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _config: Agent_V1_ToolConfig? = nil
 }
 
-public nonisolated struct Agent_V1_SetToolConfigRequest: Sendable {
+nonisolated struct Agent_V1_SetToolConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var config: SwiftProtobuf.Google_Protobuf_Struct {
+  var config: SwiftProtobuf.Google_Protobuf_Struct {
     get {_config ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_config = newValue}
   }
   /// Returns true if `config` has been explicitly set.
-  public var hasConfig: Bool {self._config != nil}
+  var hasConfig: Bool {self._config != nil}
   /// Clears the value of `config`. Subsequent reads from it will return its default value.
-  public mutating func clearConfig() {self._config = nil}
+  mutating func clearConfig() {self._config = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _config: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
 
-public nonisolated struct Agent_V1_SetToolConfigResponse: Sendable {
+nonisolated struct Agent_V1_SetToolConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_SetExtensionConfigRequest: Sendable {
+nonisolated struct Agent_V1_SetExtensionConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var extID: String = String()
+  var extID: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var value: SwiftProtobuf.Google_Protobuf_Value {
+  var value: SwiftProtobuf.Google_Protobuf_Value {
     get {_value ?? SwiftProtobuf.Google_Protobuf_Value()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  public var hasValue: Bool {self._value != nil}
+  var hasValue: Bool {self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
-  public mutating func clearValue() {self._value = nil}
+  mutating func clearValue() {self._value = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _value: SwiftProtobuf.Google_Protobuf_Value? = nil
 }
 
-public nonisolated struct Agent_V1_SetExtensionConfigResponse: Sendable {
+nonisolated struct Agent_V1_SetExtensionConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_UploadFileRequest: Sendable {
+nonisolated struct Agent_V1_UploadFileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var file: Agent_V1_FileRef {
+  var file: Agent_V1_FileRef {
     get {_file ?? Agent_V1_FileRef()}
     set {_file = newValue}
   }
   /// Returns true if `file` has been explicitly set.
-  public var hasFile: Bool {self._file != nil}
+  var hasFile: Bool {self._file != nil}
   /// Clears the value of `file`. Subsequent reads from it will return its default value.
-  public mutating func clearFile() {self._file = nil}
+  mutating func clearFile() {self._file = nil}
 
-  public var data: String = String()
+  var data: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _file: Agent_V1_FileRef? = nil
 }
 
-public nonisolated struct Agent_V1_UploadFileResponse: Sendable {
+nonisolated struct Agent_V1_UploadFileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_IngestFileRequest: Sendable {
+nonisolated struct Agent_V1_IngestFileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var data: String = String()
+  var data: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var mime: String = String()
+  var mime: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_IngestFileResponse: Sendable {
+nonisolated struct Agent_V1_IngestFileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetFileRequest: Sendable {
+nonisolated struct Agent_V1_GetFileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetFileResponse: Sendable {
+nonisolated struct Agent_V1_GetFileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var data: String = String()
+  var data: String = String()
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var mime: String = String()
+  var mime: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetFileMetaRequest: Sendable {
+nonisolated struct Agent_V1_GetFileMetaRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: String = String()
+  var code: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetFileMetaResponse: Sendable {
+nonisolated struct Agent_V1_GetFileMetaResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var mime: String = String()
+  var mime: String = String()
 
-  public var size: Int32 = 0
+  var size: Int32 = 0
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListWorksheetsRequest: Sendable {
+nonisolated struct Agent_V1_ListWorksheetsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_ListWorksheetsResponse: Sendable {
+nonisolated struct Agent_V1_ListWorksheetsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var worksheets: [Agent_V1_Worksheet] = []
+  var worksheets: [Agent_V1_Worksheet] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DecideWorksheetRequest: Sendable {
+nonisolated struct Agent_V1_DecideWorksheetRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  var id: String = String()
 
-  public var wid: String = String()
+  var wid: String = String()
 
-  public var decision: String = String()
+  var decision: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_DecideWorksheetResponse: Sendable {
+nonisolated struct Agent_V1_DecideWorksheetResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetAgentConfigRequest: Sendable {
+nonisolated struct Agent_V1_GetAgentConfigRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_GetAgentConfigResponse: Sendable {
+nonisolated struct Agent_V1_GetAgentConfigResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var config: SwiftProtobuf.Google_Protobuf_Struct {
+  var config: SwiftProtobuf.Google_Protobuf_Struct {
     get {_config ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_config = newValue}
   }
   /// Returns true if `config` has been explicitly set.
-  public var hasConfig: Bool {self._config != nil}
+  var hasConfig: Bool {self._config != nil}
   /// Clears the value of `config`. Subsequent reads from it will return its default value.
-  public mutating func clearConfig() {self._config = nil}
+  mutating func clearConfig() {self._config = nil}
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   fileprivate var _config: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
 
-public nonisolated struct Agent_V1_HealthRequest: Sendable {
+nonisolated struct Agent_V1_HealthRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
-public nonisolated struct Agent_V1_HealthResponse: Sendable {
+nonisolated struct Agent_V1_HealthResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var ok: Bool = false
+  var ok: Bool = false
 
-  public var name: String = String()
+  var name: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1626,8 +1626,8 @@ public nonisolated struct Agent_V1_HealthResponse: Sendable {
 fileprivate nonisolated let _protobuf_package = "agent.v1"
 
 nonisolated extension Agent_V1_Session: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Session"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}model\0\u{1}preset\0\u{3}tip_id\0\u{3}max_turns\0\u{3}system_prompt\0\u{3}input_tokens\0\u{3}output_tokens\0\u{3}total_tokens\0\u{3}last_input_tokens\0\u{3}last_output_tokens\0\u{3}created_at\0\u{3}updated_at\0\u{3}last_used_at\0\u{1}locale\0\u{1}org\0\u{1}repo\0\u{1}branch\0\u{3}unread_count\0\u{3}last_message_at\0\u{3}last_message_preview\0")
+  static let protoMessageName: String = _protobuf_package + ".Session"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}model\0\u{1}preset\0\u{3}tip_id\0\u{3}max_turns\0\u{3}system_prompt\0\u{3}input_tokens\0\u{3}output_tokens\0\u{3}total_tokens\0\u{3}last_input_tokens\0\u{3}last_output_tokens\0\u{3}created_at\0\u{3}updated_at\0\u{3}last_used_at\0\u{1}locale\0\u{1}org\0\u{1}repo\0\u{1}branch\0\u{3}unread_count\0\u{3}last_message_at\0\u{3}last_message_preview\0")
 
   fileprivate class _StorageClass {
     var _name: String = String()
@@ -1692,7 +1692,7 @@ nonisolated extension Agent_V1_Session: SwiftProtobuf.Message, SwiftProtobuf._Me
     return _storage
   }
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1727,7 +1727,7 @@ nonisolated extension Agent_V1_Session: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -1796,7 +1796,7 @@ nonisolated extension Agent_V1_Session: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Session, rhs: Agent_V1_Session) -> Bool {
+  static func ==(lhs: Agent_V1_Session, rhs: Agent_V1_Session) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1832,10 +1832,10 @@ nonisolated extension Agent_V1_Session: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 nonisolated extension Agent_V1_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Message"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}role\0\u{3}prev_id\0\u{3}created_at\0\u{1}parts\0")
+  static let protoMessageName: String = _protobuf_package + ".Message"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}role\0\u{3}prev_id\0\u{3}created_at\0\u{1}parts\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1851,7 +1851,7 @@ nonisolated extension Agent_V1_Message: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -1870,7 +1870,7 @@ nonisolated extension Agent_V1_Message: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Message, rhs: Agent_V1_Message) -> Bool {
+  static func ==(lhs: Agent_V1_Message, rhs: Agent_V1_Message) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.role != rhs.role {return false}
     if lhs.prevID != rhs.prevID {return false}
@@ -1882,10 +1882,10 @@ nonisolated extension Agent_V1_Message: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 nonisolated extension Agent_V1_Part: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Part"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}message_id\0\u{1}type\0\u{1}seq\0\u{1}data\0")
+  static let protoMessageName: String = _protobuf_package + ".Part"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}message_id\0\u{1}type\0\u{1}seq\0\u{1}data\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1901,7 +1901,7 @@ nonisolated extension Agent_V1_Part: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -1920,7 +1920,7 @@ nonisolated extension Agent_V1_Part: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Part, rhs: Agent_V1_Part) -> Bool {
+  static func ==(lhs: Agent_V1_Part, rhs: Agent_V1_Part) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.messageID != rhs.messageID {return false}
     if lhs.type != rhs.type {return false}
@@ -1932,10 +1932,10 @@ nonisolated extension Agent_V1_Part: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 nonisolated extension Agent_V1_MailboxEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".MailboxEntry"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}session_name\0\u{3}msg_type\0\u{1}payload\0\u{3}effective_at\0\u{1}status\0\u{3}created_at\0\u{3}consumed_at\0\u{1}seq\0")
+  static let protoMessageName: String = _protobuf_package + ".MailboxEntry"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}session_name\0\u{3}msg_type\0\u{1}payload\0\u{3}effective_at\0\u{1}status\0\u{3}created_at\0\u{3}consumed_at\0\u{1}seq\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1955,7 +1955,7 @@ nonisolated extension Agent_V1_MailboxEntry: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -1986,7 +1986,7 @@ nonisolated extension Agent_V1_MailboxEntry: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_MailboxEntry, rhs: Agent_V1_MailboxEntry) -> Bool {
+  static func ==(lhs: Agent_V1_MailboxEntry, rhs: Agent_V1_MailboxEntry) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.sessionName != rhs.sessionName {return false}
     if lhs.msgType != rhs.msgType {return false}
@@ -2002,10 +2002,10 @@ nonisolated extension Agent_V1_MailboxEntry: SwiftProtobuf.Message, SwiftProtobu
 }
 
 nonisolated extension Agent_V1_Worksheet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Worksheet"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}session_name\0\u{3}ext_id\0\u{1}action\0\u{1}args\0\u{1}title\0\u{3}origin_call_id\0\u{1}status\0\u{3}created_at\0\u{3}decided_at\0")
+  static let protoMessageName: String = _protobuf_package + ".Worksheet"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}session_name\0\u{3}ext_id\0\u{1}action\0\u{1}args\0\u{1}title\0\u{3}origin_call_id\0\u{1}status\0\u{3}created_at\0\u{3}decided_at\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2026,7 +2026,7 @@ nonisolated extension Agent_V1_Worksheet: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2060,7 +2060,7 @@ nonisolated extension Agent_V1_Worksheet: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Worksheet, rhs: Agent_V1_Worksheet) -> Bool {
+  static func ==(lhs: Agent_V1_Worksheet, rhs: Agent_V1_Worksheet) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.sessionName != rhs.sessionName {return false}
     if lhs.extID != rhs.extID {return false}
@@ -2077,10 +2077,10 @@ nonisolated extension Agent_V1_Worksheet: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 nonisolated extension Agent_V1_Preset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Preset"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}system_prompt\0\u{3}system_prompt_i18n\0\u{1}tools\0\u{3}max_turns\0\u{3}is_system\0")
+  static let protoMessageName: String = _protobuf_package + ".Preset"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}system_prompt\0\u{3}system_prompt_i18n\0\u{1}tools\0\u{3}max_turns\0\u{3}is_system\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2097,7 +2097,7 @@ nonisolated extension Agent_V1_Preset: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2119,7 +2119,7 @@ nonisolated extension Agent_V1_Preset: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Preset, rhs: Agent_V1_Preset) -> Bool {
+  static func ==(lhs: Agent_V1_Preset, rhs: Agent_V1_Preset) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.systemPrompt != rhs.systemPrompt {return false}
     if lhs.systemPromptI18N != rhs.systemPromptI18N {return false}
@@ -2132,10 +2132,10 @@ nonisolated extension Agent_V1_Preset: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Provider"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}headers\0\u{1}models\0\u{3}updated_at\0")
+  static let protoMessageName: String = _protobuf_package + ".Provider"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}headers\0\u{1}models\0\u{3}updated_at\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2153,7 +2153,7 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.providerID.isEmpty {
       try visitor.visitSingularStringField(value: self.providerID, fieldNumber: 1)
     }
@@ -2178,7 +2178,7 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_Provider, rhs: Agent_V1_Provider) -> Bool {
+  static func ==(lhs: Agent_V1_Provider, rhs: Agent_V1_Provider) -> Bool {
     if lhs.providerID != rhs.providerID {return false}
     if lhs.apiType != rhs.apiType {return false}
     if lhs.baseURL != rhs.baseURL {return false}
@@ -2192,10 +2192,10 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ProviderModel"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
+  static let protoMessageName: String = _protobuf_package + ".ProviderModel"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2208,7 +2208,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2218,7 +2218,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ProviderModel, rhs: Agent_V1_ProviderModel) -> Bool {
+  static func ==(lhs: Agent_V1_ProviderModel, rhs: Agent_V1_ProviderModel) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2227,10 +2227,10 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
 }
 
 nonisolated extension Agent_V1_ToolInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ToolInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}description\0\u{1}category\0\u{1}parameters\0\u{3}config_fields\0\u{3}required_config\0")
+  static let protoMessageName: String = _protobuf_package + ".ToolInfo"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}description\0\u{1}category\0\u{1}parameters\0\u{3}config_fields\0\u{3}required_config\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2247,7 +2247,7 @@ nonisolated extension Agent_V1_ToolInfo: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2273,7 +2273,7 @@ nonisolated extension Agent_V1_ToolInfo: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ToolInfo, rhs: Agent_V1_ToolInfo) -> Bool {
+  static func ==(lhs: Agent_V1_ToolInfo, rhs: Agent_V1_ToolInfo) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.category != rhs.category {return false}
@@ -2286,10 +2286,10 @@ nonisolated extension Agent_V1_ToolInfo: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 nonisolated extension Agent_V1_ToolConfigField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ToolConfigField"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}type\0\u{3}enum_values\0\u{2}\u{3}default\0\u{1}description\0\u{1}scope\0")
+  static let protoMessageName: String = _protobuf_package + ".ToolConfigField"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}type\0\u{3}enum_values\0\u{2}\u{3}default\0\u{1}description\0\u{1}scope\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2306,7 +2306,7 @@ nonisolated extension Agent_V1_ToolConfigField: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2332,7 +2332,7 @@ nonisolated extension Agent_V1_ToolConfigField: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ToolConfigField, rhs: Agent_V1_ToolConfigField) -> Bool {
+  static func ==(lhs: Agent_V1_ToolConfigField, rhs: Agent_V1_ToolConfigField) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.type != rhs.type {return false}
     if lhs.enumValues != rhs.enumValues {return false}
@@ -2345,10 +2345,10 @@ nonisolated extension Agent_V1_ToolConfigField: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_ToolConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ToolConfig"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
+  static let protoMessageName: String = _protobuf_package + ".ToolConfig"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2360,14 +2360,14 @@ nonisolated extension Agent_V1_ToolConfig: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.Google_Protobuf_Value>.self, value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ToolConfig, rhs: Agent_V1_ToolConfig) -> Bool {
+  static func ==(lhs: Agent_V1_ToolConfig, rhs: Agent_V1_ToolConfig) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2375,10 +2375,10 @@ nonisolated extension Agent_V1_ToolConfig: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 nonisolated extension Agent_V1_PromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".PromptResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}event\0\u{1}params\0\u{1}eid\0")
+  static let protoMessageName: String = _protobuf_package + ".PromptResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}event\0\u{1}params\0\u{1}eid\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2392,7 +2392,7 @@ nonisolated extension Agent_V1_PromptResponse: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.event.isEmpty {
       try visitor.visitSingularStringField(value: self.event, fieldNumber: 1)
     }
@@ -2405,7 +2405,7 @@ nonisolated extension Agent_V1_PromptResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_PromptResponse, rhs: Agent_V1_PromptResponse) -> Bool {
+  static func ==(lhs: Agent_V1_PromptResponse, rhs: Agent_V1_PromptResponse) -> Bool {
     if lhs.event != rhs.event {return false}
     if lhs.params != rhs.params {return false}
     if lhs.eid != rhs.eid {return false}
@@ -2415,10 +2415,10 @@ nonisolated extension Agent_V1_PromptResponse: SwiftProtobuf.Message, SwiftProto
 }
 
 nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".WatchSessionRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".WatchSessionRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2430,14 +2430,14 @@ nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_WatchSessionRequest, rhs: Agent_V1_WatchSessionRequest) -> Bool {
+  static func ==(lhs: Agent_V1_WatchSessionRequest, rhs: Agent_V1_WatchSessionRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2445,10 +2445,10 @@ nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_WatchSessionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".WatchSessionResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}event\0\u{1}params\0\u{1}eid\0")
+  static let protoMessageName: String = _protobuf_package + ".WatchSessionResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}event\0\u{1}params\0\u{1}eid\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2462,7 +2462,7 @@ nonisolated extension Agent_V1_WatchSessionResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2479,7 +2479,7 @@ nonisolated extension Agent_V1_WatchSessionResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_WatchSessionResponse, rhs: Agent_V1_WatchSessionResponse) -> Bool {
+  static func ==(lhs: Agent_V1_WatchSessionResponse, rhs: Agent_V1_WatchSessionResponse) -> Bool {
     if lhs.event != rhs.event {return false}
     if lhs._params != rhs._params {return false}
     if lhs.eid != rhs.eid {return false}
@@ -2489,10 +2489,10 @@ nonisolated extension Agent_V1_WatchSessionResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_FileRef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FileRef"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}name\0\u{1}mime\0\u{1}size\0")
+  static let protoMessageName: String = _protobuf_package + ".FileRef"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}name\0\u{1}mime\0\u{1}size\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2507,7 +2507,7 @@ nonisolated extension Agent_V1_FileRef: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.code.isEmpty {
       try visitor.visitSingularStringField(value: self.code, fieldNumber: 1)
     }
@@ -2523,7 +2523,7 @@ nonisolated extension Agent_V1_FileRef: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_FileRef, rhs: Agent_V1_FileRef) -> Bool {
+  static func ==(lhs: Agent_V1_FileRef, rhs: Agent_V1_FileRef) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.name != rhs.name {return false}
     if lhs.mime != rhs.mime {return false}
@@ -2534,29 +2534,29 @@ nonisolated extension Agent_V1_FileRef: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 nonisolated extension Agent_V1_ListSessionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListSessionsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".ListSessionsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListSessionsRequest, rhs: Agent_V1_ListSessionsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListSessionsRequest, rhs: Agent_V1_ListSessionsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_ListSessionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListSessionsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sessions\0")
+  static let protoMessageName: String = _protobuf_package + ".ListSessionsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sessions\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2568,14 +2568,14 @@ nonisolated extension Agent_V1_ListSessionsResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessions.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.sessions, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListSessionsResponse, rhs: Agent_V1_ListSessionsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListSessionsResponse, rhs: Agent_V1_ListSessionsResponse) -> Bool {
     if lhs.sessions != rhs.sessions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2583,10 +2583,10 @@ nonisolated extension Agent_V1_ListSessionsResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_CreateSessionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CreateSessionRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}model\0\u{1}preset\0\u{1}org\0\u{1}repo\0\u{1}branch\0")
+  static let protoMessageName: String = _protobuf_package + ".CreateSessionRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}model\0\u{1}preset\0\u{1}org\0\u{1}repo\0\u{1}branch\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2603,7 +2603,7 @@ nonisolated extension Agent_V1_CreateSessionRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -2625,7 +2625,7 @@ nonisolated extension Agent_V1_CreateSessionRequest: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_CreateSessionRequest, rhs: Agent_V1_CreateSessionRequest) -> Bool {
+  static func ==(lhs: Agent_V1_CreateSessionRequest, rhs: Agent_V1_CreateSessionRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.model != rhs.model {return false}
     if lhs.preset != rhs.preset {return false}
@@ -2638,10 +2638,10 @@ nonisolated extension Agent_V1_CreateSessionRequest: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_CreateSessionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CreateSessionResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{3}session_name\0")
+  static let protoMessageName: String = _protobuf_package + ".CreateSessionResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{3}session_name\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2654,7 +2654,7 @@ nonisolated extension Agent_V1_CreateSessionResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -2664,7 +2664,7 @@ nonisolated extension Agent_V1_CreateSessionResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_CreateSessionResponse, rhs: Agent_V1_CreateSessionResponse) -> Bool {
+  static func ==(lhs: Agent_V1_CreateSessionResponse, rhs: Agent_V1_CreateSessionResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.sessionName != rhs.sessionName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2673,10 +2673,10 @@ nonisolated extension Agent_V1_CreateSessionResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_GetSessionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetSessionRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".GetSessionRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2688,14 +2688,14 @@ nonisolated extension Agent_V1_GetSessionRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetSessionRequest, rhs: Agent_V1_GetSessionRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetSessionRequest, rhs: Agent_V1_GetSessionRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2703,10 +2703,10 @@ nonisolated extension Agent_V1_GetSessionRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_GetSessionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetSessionResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".GetSessionResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2718,7 +2718,7 @@ nonisolated extension Agent_V1_GetSessionResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2729,7 +2729,7 @@ nonisolated extension Agent_V1_GetSessionResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetSessionResponse, rhs: Agent_V1_GetSessionResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetSessionResponse, rhs: Agent_V1_GetSessionResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2737,10 +2737,10 @@ nonisolated extension Agent_V1_GetSessionResponse: SwiftProtobuf.Message, SwiftP
 }
 
 nonisolated extension Agent_V1_DeleteSessionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteSessionRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".DeleteSessionRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2752,14 +2752,14 @@ nonisolated extension Agent_V1_DeleteSessionRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeleteSessionRequest, rhs: Agent_V1_DeleteSessionRequest) -> Bool {
+  static func ==(lhs: Agent_V1_DeleteSessionRequest, rhs: Agent_V1_DeleteSessionRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2767,10 +2767,10 @@ nonisolated extension Agent_V1_DeleteSessionRequest: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_DeleteSessionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteSessionResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".DeleteSessionResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2782,14 +2782,14 @@ nonisolated extension Agent_V1_DeleteSessionResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeleteSessionResponse, rhs: Agent_V1_DeleteSessionResponse) -> Bool {
+  static func ==(lhs: Agent_V1_DeleteSessionResponse, rhs: Agent_V1_DeleteSessionResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2797,10 +2797,10 @@ nonisolated extension Agent_V1_DeleteSessionResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListMessagesRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}limit\0\u{1}before\0")
+  static let protoMessageName: String = _protobuf_package + ".ListMessagesRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}limit\0\u{1}before\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2814,7 +2814,7 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2827,7 +2827,7 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListMessagesRequest, rhs: Agent_V1_ListMessagesRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListMessagesRequest, rhs: Agent_V1_ListMessagesRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.limit != rhs.limit {return false}
     if lhs.before != rhs.before {return false}
@@ -2837,10 +2837,10 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListMessagesResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}messages\0")
+  static let protoMessageName: String = _protobuf_package + ".ListMessagesResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}messages\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2853,7 +2853,7 @@ nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -2863,7 +2863,7 @@ nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListMessagesResponse, rhs: Agent_V1_ListMessagesResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListMessagesResponse, rhs: Agent_V1_ListMessagesResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.messages != rhs.messages {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2872,10 +2872,10 @@ nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_PromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".PromptRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}prompt\0\u{1}attachments\0")
+  static let protoMessageName: String = _protobuf_package + ".PromptRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}prompt\0\u{1}attachments\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2889,7 +2889,7 @@ nonisolated extension Agent_V1_PromptRequest: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2902,7 +2902,7 @@ nonisolated extension Agent_V1_PromptRequest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_PromptRequest, rhs: Agent_V1_PromptRequest) -> Bool {
+  static func ==(lhs: Agent_V1_PromptRequest, rhs: Agent_V1_PromptRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.prompt != rhs.prompt {return false}
     if lhs.attachments != rhs.attachments {return false}
@@ -2912,10 +2912,10 @@ nonisolated extension Agent_V1_PromptRequest: SwiftProtobuf.Message, SwiftProtob
 }
 
 nonisolated extension Agent_V1_ForkRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ForkRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}message_id\0\u{1}preset\0")
+  static let protoMessageName: String = _protobuf_package + ".ForkRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}message_id\0\u{1}preset\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2930,7 +2930,7 @@ nonisolated extension Agent_V1_ForkRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -2946,7 +2946,7 @@ nonisolated extension Agent_V1_ForkRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ForkRequest, rhs: Agent_V1_ForkRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ForkRequest, rhs: Agent_V1_ForkRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.messageID != rhs.messageID {return false}
@@ -2957,10 +2957,10 @@ nonisolated extension Agent_V1_ForkRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 nonisolated extension Agent_V1_ForkResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ForkResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".ForkResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2972,7 +2972,7 @@ nonisolated extension Agent_V1_ForkResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2983,7 +2983,7 @@ nonisolated extension Agent_V1_ForkResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ForkResponse, rhs: Agent_V1_ForkResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ForkResponse, rhs: Agent_V1_ForkResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2991,10 +2991,10 @@ nonisolated extension Agent_V1_ForkResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 nonisolated extension Agent_V1_RenameRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RenameRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
+  static let protoMessageName: String = _protobuf_package + ".RenameRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3007,7 +3007,7 @@ nonisolated extension Agent_V1_RenameRequest: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3017,7 +3017,7 @@ nonisolated extension Agent_V1_RenameRequest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_RenameRequest, rhs: Agent_V1_RenameRequest) -> Bool {
+  static func ==(lhs: Agent_V1_RenameRequest, rhs: Agent_V1_RenameRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3026,10 +3026,10 @@ nonisolated extension Agent_V1_RenameRequest: SwiftProtobuf.Message, SwiftProtob
 }
 
 nonisolated extension Agent_V1_RenameResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RenameResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".RenameResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3041,7 +3041,7 @@ nonisolated extension Agent_V1_RenameResponse: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3052,7 +3052,7 @@ nonisolated extension Agent_V1_RenameResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_RenameResponse, rhs: Agent_V1_RenameResponse) -> Bool {
+  static func ==(lhs: Agent_V1_RenameResponse, rhs: Agent_V1_RenameResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3060,10 +3060,10 @@ nonisolated extension Agent_V1_RenameResponse: SwiftProtobuf.Message, SwiftProto
 }
 
 nonisolated extension Agent_V1_SetModelRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetModelRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}model\0")
+  static let protoMessageName: String = _protobuf_package + ".SetModelRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}model\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3076,7 +3076,7 @@ nonisolated extension Agent_V1_SetModelRequest: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3086,7 +3086,7 @@ nonisolated extension Agent_V1_SetModelRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetModelRequest, rhs: Agent_V1_SetModelRequest) -> Bool {
+  static func ==(lhs: Agent_V1_SetModelRequest, rhs: Agent_V1_SetModelRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.model != rhs.model {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3095,10 +3095,10 @@ nonisolated extension Agent_V1_SetModelRequest: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_SetModelResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetModelResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".SetModelResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3110,7 +3110,7 @@ nonisolated extension Agent_V1_SetModelResponse: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3121,7 +3121,7 @@ nonisolated extension Agent_V1_SetModelResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetModelResponse, rhs: Agent_V1_SetModelResponse) -> Bool {
+  static func ==(lhs: Agent_V1_SetModelResponse, rhs: Agent_V1_SetModelResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3129,10 +3129,10 @@ nonisolated extension Agent_V1_SetModelResponse: SwiftProtobuf.Message, SwiftPro
 }
 
 nonisolated extension Agent_V1_UndoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UndoRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}message_id\0")
+  static let protoMessageName: String = _protobuf_package + ".UndoRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}message_id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3145,7 +3145,7 @@ nonisolated extension Agent_V1_UndoRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3155,7 +3155,7 @@ nonisolated extension Agent_V1_UndoRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UndoRequest, rhs: Agent_V1_UndoRequest) -> Bool {
+  static func ==(lhs: Agent_V1_UndoRequest, rhs: Agent_V1_UndoRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.messageID != rhs.messageID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3164,10 +3164,10 @@ nonisolated extension Agent_V1_UndoRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 nonisolated extension Agent_V1_UndoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UndoResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".UndoResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3179,7 +3179,7 @@ nonisolated extension Agent_V1_UndoResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3190,7 +3190,7 @@ nonisolated extension Agent_V1_UndoResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UndoResponse, rhs: Agent_V1_UndoResponse) -> Bool {
+  static func ==(lhs: Agent_V1_UndoResponse, rhs: Agent_V1_UndoResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3198,10 +3198,10 @@ nonisolated extension Agent_V1_UndoResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 nonisolated extension Agent_V1_StateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".StateRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".StateRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3213,14 +3213,14 @@ nonisolated extension Agent_V1_StateRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_StateRequest, rhs: Agent_V1_StateRequest) -> Bool {
+  static func ==(lhs: Agent_V1_StateRequest, rhs: Agent_V1_StateRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3228,10 +3228,10 @@ nonisolated extension Agent_V1_StateRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 nonisolated extension Agent_V1_StateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".StateResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}state\0")
+  static let protoMessageName: String = _protobuf_package + ".StateResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}state\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3243,7 +3243,7 @@ nonisolated extension Agent_V1_StateResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3254,7 +3254,7 @@ nonisolated extension Agent_V1_StateResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_StateResponse, rhs: Agent_V1_StateResponse) -> Bool {
+  static func ==(lhs: Agent_V1_StateResponse, rhs: Agent_V1_StateResponse) -> Bool {
     if lhs._state != rhs._state {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3262,10 +3262,10 @@ nonisolated extension Agent_V1_StateResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 nonisolated extension Agent_V1_MailboxRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".MailboxRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".MailboxRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3277,14 +3277,14 @@ nonisolated extension Agent_V1_MailboxRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_MailboxRequest, rhs: Agent_V1_MailboxRequest) -> Bool {
+  static func ==(lhs: Agent_V1_MailboxRequest, rhs: Agent_V1_MailboxRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3292,10 +3292,10 @@ nonisolated extension Agent_V1_MailboxRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 nonisolated extension Agent_V1_MailboxResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".MailboxResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}mailbox\0")
+  static let protoMessageName: String = _protobuf_package + ".MailboxResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}mailbox\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3308,7 +3308,7 @@ nonisolated extension Agent_V1_MailboxResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -3318,7 +3318,7 @@ nonisolated extension Agent_V1_MailboxResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_MailboxResponse, rhs: Agent_V1_MailboxResponse) -> Bool {
+  static func ==(lhs: Agent_V1_MailboxResponse, rhs: Agent_V1_MailboxResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.mailbox != rhs.mailbox {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3327,10 +3327,10 @@ nonisolated extension Agent_V1_MailboxResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_UpdateSettingsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateSettingsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}model\0\u{1}preset\0\u{3}max_turns\0\u{3}system_prompt\0\u{1}locale\0")
+  static let protoMessageName: String = _protobuf_package + ".UpdateSettingsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}model\0\u{1}preset\0\u{3}max_turns\0\u{3}system_prompt\0\u{1}locale\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3347,7 +3347,7 @@ nonisolated extension Agent_V1_UpdateSettingsRequest: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3369,7 +3369,7 @@ nonisolated extension Agent_V1_UpdateSettingsRequest: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UpdateSettingsRequest, rhs: Agent_V1_UpdateSettingsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_UpdateSettingsRequest, rhs: Agent_V1_UpdateSettingsRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.model != rhs.model {return false}
     if lhs.preset != rhs.preset {return false}
@@ -3382,10 +3382,10 @@ nonisolated extension Agent_V1_UpdateSettingsRequest: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_UpdateSettingsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateSettingsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
+  static let protoMessageName: String = _protobuf_package + ".UpdateSettingsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}session\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3397,7 +3397,7 @@ nonisolated extension Agent_V1_UpdateSettingsResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3408,7 +3408,7 @@ nonisolated extension Agent_V1_UpdateSettingsResponse: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UpdateSettingsResponse, rhs: Agent_V1_UpdateSettingsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_UpdateSettingsResponse, rhs: Agent_V1_UpdateSettingsResponse) -> Bool {
     if lhs._session != rhs._session {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3416,10 +3416,10 @@ nonisolated extension Agent_V1_UpdateSettingsResponse: SwiftProtobuf.Message, Sw
 }
 
 nonisolated extension Agent_V1_InterruptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".InterruptRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".InterruptRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3431,14 +3431,14 @@ nonisolated extension Agent_V1_InterruptRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_InterruptRequest, rhs: Agent_V1_InterruptRequest) -> Bool {
+  static func ==(lhs: Agent_V1_InterruptRequest, rhs: Agent_V1_InterruptRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3446,10 +3446,10 @@ nonisolated extension Agent_V1_InterruptRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 nonisolated extension Agent_V1_InterruptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".InterruptResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}interrupted\0")
+  static let protoMessageName: String = _protobuf_package + ".InterruptResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}interrupted\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3462,7 +3462,7 @@ nonisolated extension Agent_V1_InterruptResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -3472,7 +3472,7 @@ nonisolated extension Agent_V1_InterruptResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_InterruptResponse, rhs: Agent_V1_InterruptResponse) -> Bool {
+  static func ==(lhs: Agent_V1_InterruptResponse, rhs: Agent_V1_InterruptResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.interrupted != rhs.interrupted {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3481,10 +3481,10 @@ nonisolated extension Agent_V1_InterruptResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_CompactRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CompactRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".CompactRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3496,14 +3496,14 @@ nonisolated extension Agent_V1_CompactRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_CompactRequest, rhs: Agent_V1_CompactRequest) -> Bool {
+  static func ==(lhs: Agent_V1_CompactRequest, rhs: Agent_V1_CompactRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3511,10 +3511,10 @@ nonisolated extension Agent_V1_CompactRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 nonisolated extension Agent_V1_CompactResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CompactResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".CompactResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3526,14 +3526,14 @@ nonisolated extension Agent_V1_CompactResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_CompactResponse, rhs: Agent_V1_CompactResponse) -> Bool {
+  static func ==(lhs: Agent_V1_CompactResponse, rhs: Agent_V1_CompactResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3541,29 +3541,29 @@ nonisolated extension Agent_V1_CompactResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_ListProvidersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListProvidersRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".ListProvidersRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListProvidersRequest, rhs: Agent_V1_ListProvidersRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListProvidersRequest, rhs: Agent_V1_ListProvidersRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_ListProvidersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListProvidersResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}providers\0")
+  static let protoMessageName: String = _protobuf_package + ".ListProvidersResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}providers\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3575,14 +3575,14 @@ nonisolated extension Agent_V1_ListProvidersResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.providers.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.providers, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListProvidersResponse, rhs: Agent_V1_ListProvidersResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListProvidersResponse, rhs: Agent_V1_ListProvidersResponse) -> Bool {
     if lhs.providers != rhs.providers {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3590,29 +3590,29 @@ nonisolated extension Agent_V1_ListProvidersResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_ListProvidersCatalogRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListProvidersCatalogRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".ListProvidersCatalogRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListProvidersCatalogRequest, rhs: Agent_V1_ListProvidersCatalogRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListProvidersCatalogRequest, rhs: Agent_V1_ListProvidersCatalogRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_ListProvidersCatalogResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListProvidersCatalogResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}providers\0")
+  static let protoMessageName: String = _protobuf_package + ".ListProvidersCatalogResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}providers\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3624,14 +3624,14 @@ nonisolated extension Agent_V1_ListProvidersCatalogResponse: SwiftProtobuf.Messa
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.providers.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Agent_V1_CatalogProvider>.self, value: self.providers, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListProvidersCatalogResponse, rhs: Agent_V1_ListProvidersCatalogResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListProvidersCatalogResponse, rhs: Agent_V1_ListProvidersCatalogResponse) -> Bool {
     if lhs.providers != rhs.providers {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3639,10 +3639,10 @@ nonisolated extension Agent_V1_ListProvidersCatalogResponse: SwiftProtobuf.Messa
 }
 
 nonisolated extension Agent_V1_CatalogProvider: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CatalogProvider"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}api\0\u{1}npm\0\u{1}env\0\u{1}models\0")
+  static let protoMessageName: String = _protobuf_package + ".CatalogProvider"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}api\0\u{1}npm\0\u{1}env\0\u{1}models\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3659,7 +3659,7 @@ nonisolated extension Agent_V1_CatalogProvider: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3681,7 +3681,7 @@ nonisolated extension Agent_V1_CatalogProvider: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_CatalogProvider, rhs: Agent_V1_CatalogProvider) -> Bool {
+  static func ==(lhs: Agent_V1_CatalogProvider, rhs: Agent_V1_CatalogProvider) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.api != rhs.api {return false}
@@ -3694,10 +3694,10 @@ nonisolated extension Agent_V1_CatalogProvider: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_RegisterProviderRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RegisterProviderRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}provider\0")
+  static let protoMessageName: String = _protobuf_package + ".RegisterProviderRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}provider\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3709,7 +3709,7 @@ nonisolated extension Agent_V1_RegisterProviderRequest: SwiftProtobuf.Message, S
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3720,7 +3720,7 @@ nonisolated extension Agent_V1_RegisterProviderRequest: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_RegisterProviderRequest, rhs: Agent_V1_RegisterProviderRequest) -> Bool {
+  static func ==(lhs: Agent_V1_RegisterProviderRequest, rhs: Agent_V1_RegisterProviderRequest) -> Bool {
     if lhs._provider != rhs._provider {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3728,10 +3728,10 @@ nonisolated extension Agent_V1_RegisterProviderRequest: SwiftProtobuf.Message, S
 }
 
 nonisolated extension Agent_V1_RegisterProviderResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RegisterProviderResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".RegisterProviderResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3743,14 +3743,14 @@ nonisolated extension Agent_V1_RegisterProviderResponse: SwiftProtobuf.Message, 
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_RegisterProviderResponse, rhs: Agent_V1_RegisterProviderResponse) -> Bool {
+  static func ==(lhs: Agent_V1_RegisterProviderResponse, rhs: Agent_V1_RegisterProviderResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3758,10 +3758,10 @@ nonisolated extension Agent_V1_RegisterProviderResponse: SwiftProtobuf.Message, 
 }
 
 nonisolated extension Agent_V1_DeleteProviderRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteProviderRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0")
+  static let protoMessageName: String = _protobuf_package + ".DeleteProviderRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3773,14 +3773,14 @@ nonisolated extension Agent_V1_DeleteProviderRequest: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.providerID.isEmpty {
       try visitor.visitSingularStringField(value: self.providerID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeleteProviderRequest, rhs: Agent_V1_DeleteProviderRequest) -> Bool {
+  static func ==(lhs: Agent_V1_DeleteProviderRequest, rhs: Agent_V1_DeleteProviderRequest) -> Bool {
     if lhs.providerID != rhs.providerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3788,10 +3788,10 @@ nonisolated extension Agent_V1_DeleteProviderRequest: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_DeleteProviderResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteProviderResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".DeleteProviderResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3803,14 +3803,14 @@ nonisolated extension Agent_V1_DeleteProviderResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeleteProviderResponse, rhs: Agent_V1_DeleteProviderResponse) -> Bool {
+  static func ==(lhs: Agent_V1_DeleteProviderResponse, rhs: Agent_V1_DeleteProviderResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3818,10 +3818,10 @@ nonisolated extension Agent_V1_DeleteProviderResponse: SwiftProtobuf.Message, Sw
 }
 
 nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TestProviderRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}model\0")
+  static let protoMessageName: String = _protobuf_package + ".TestProviderRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}model\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3837,7 +3837,7 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.providerID.isEmpty {
       try visitor.visitSingularStringField(value: self.providerID, fieldNumber: 1)
     }
@@ -3856,7 +3856,7 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_TestProviderRequest, rhs: Agent_V1_TestProviderRequest) -> Bool {
+  static func ==(lhs: Agent_V1_TestProviderRequest, rhs: Agent_V1_TestProviderRequest) -> Bool {
     if lhs.providerID != rhs.providerID {return false}
     if lhs.apiType != rhs.apiType {return false}
     if lhs.baseURL != rhs.baseURL {return false}
@@ -3868,10 +3868,10 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_TestProviderResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TestProviderResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}result\0")
+  static let protoMessageName: String = _protobuf_package + ".TestProviderResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}result\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3884,7 +3884,7 @@ nonisolated extension Agent_V1_TestProviderResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -3894,7 +3894,7 @@ nonisolated extension Agent_V1_TestProviderResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_TestProviderResponse, rhs: Agent_V1_TestProviderResponse) -> Bool {
+  static func ==(lhs: Agent_V1_TestProviderResponse, rhs: Agent_V1_TestProviderResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3903,29 +3903,29 @@ nonisolated extension Agent_V1_TestProviderResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_ListModelsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListModelsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".ListModelsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListModelsRequest, rhs: Agent_V1_ListModelsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListModelsRequest, rhs: Agent_V1_ListModelsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_ListModelsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListModelsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}models\0")
+  static let protoMessageName: String = _protobuf_package + ".ListModelsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}models\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3937,14 +3937,14 @@ nonisolated extension Agent_V1_ListModelsResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.models.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.models, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListModelsResponse, rhs: Agent_V1_ListModelsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListModelsResponse, rhs: Agent_V1_ListModelsResponse) -> Bool {
     if lhs.models != rhs.models {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3952,10 +3952,10 @@ nonisolated extension Agent_V1_ListModelsResponse: SwiftProtobuf.Message, SwiftP
 }
 
 nonisolated extension Agent_V1_ModelInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ModelInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
+  static let protoMessageName: String = _protobuf_package + ".ModelInfo"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3968,7 +3968,7 @@ nonisolated extension Agent_V1_ModelInfo: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -3978,7 +3978,7 @@ nonisolated extension Agent_V1_ModelInfo: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ModelInfo, rhs: Agent_V1_ModelInfo) -> Bool {
+  static func ==(lhs: Agent_V1_ModelInfo, rhs: Agent_V1_ModelInfo) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3987,29 +3987,29 @@ nonisolated extension Agent_V1_ModelInfo: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 nonisolated extension Agent_V1_ListPresetsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListPresetsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".ListPresetsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListPresetsRequest, rhs: Agent_V1_ListPresetsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListPresetsRequest, rhs: Agent_V1_ListPresetsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_ListPresetsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListPresetsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}presets\0")
+  static let protoMessageName: String = _protobuf_package + ".ListPresetsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}presets\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4021,14 +4021,14 @@ nonisolated extension Agent_V1_ListPresetsResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.presets.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.presets, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListPresetsResponse, rhs: Agent_V1_ListPresetsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListPresetsResponse, rhs: Agent_V1_ListPresetsResponse) -> Bool {
     if lhs.presets != rhs.presets {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4036,10 +4036,10 @@ nonisolated extension Agent_V1_ListPresetsResponse: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_UpsertPresetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpsertPresetRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}preset\0")
+  static let protoMessageName: String = _protobuf_package + ".UpsertPresetRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}preset\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4051,7 +4051,7 @@ nonisolated extension Agent_V1_UpsertPresetRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4062,7 +4062,7 @@ nonisolated extension Agent_V1_UpsertPresetRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UpsertPresetRequest, rhs: Agent_V1_UpsertPresetRequest) -> Bool {
+  static func ==(lhs: Agent_V1_UpsertPresetRequest, rhs: Agent_V1_UpsertPresetRequest) -> Bool {
     if lhs._preset != rhs._preset {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4070,10 +4070,10 @@ nonisolated extension Agent_V1_UpsertPresetRequest: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_UpsertPresetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpsertPresetResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".UpsertPresetResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4085,14 +4085,14 @@ nonisolated extension Agent_V1_UpsertPresetResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UpsertPresetResponse, rhs: Agent_V1_UpsertPresetResponse) -> Bool {
+  static func ==(lhs: Agent_V1_UpsertPresetResponse, rhs: Agent_V1_UpsertPresetResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4100,10 +4100,10 @@ nonisolated extension Agent_V1_UpsertPresetResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_DeletePresetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeletePresetRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".DeletePresetRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4115,14 +4115,14 @@ nonisolated extension Agent_V1_DeletePresetRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeletePresetRequest, rhs: Agent_V1_DeletePresetRequest) -> Bool {
+  static func ==(lhs: Agent_V1_DeletePresetRequest, rhs: Agent_V1_DeletePresetRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4130,10 +4130,10 @@ nonisolated extension Agent_V1_DeletePresetRequest: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_DeletePresetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeletePresetResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".DeletePresetResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4145,14 +4145,14 @@ nonisolated extension Agent_V1_DeletePresetResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DeletePresetResponse, rhs: Agent_V1_DeletePresetResponse) -> Bool {
+  static func ==(lhs: Agent_V1_DeletePresetResponse, rhs: Agent_V1_DeletePresetResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4160,10 +4160,10 @@ nonisolated extension Agent_V1_DeletePresetResponse: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_PreviewPresetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".PreviewPresetRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".PreviewPresetRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4175,14 +4175,14 @@ nonisolated extension Agent_V1_PreviewPresetRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_PreviewPresetRequest, rhs: Agent_V1_PreviewPresetRequest) -> Bool {
+  static func ==(lhs: Agent_V1_PreviewPresetRequest, rhs: Agent_V1_PreviewPresetRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4190,10 +4190,10 @@ nonisolated extension Agent_V1_PreviewPresetRequest: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_PreviewPresetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".PreviewPresetResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}template\0\u{1}rendered\0")
+  static let protoMessageName: String = _protobuf_package + ".PreviewPresetResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}template\0\u{1}rendered\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4206,7 +4206,7 @@ nonisolated extension Agent_V1_PreviewPresetResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.template.isEmpty {
       try visitor.visitSingularStringField(value: self.template, fieldNumber: 1)
     }
@@ -4216,7 +4216,7 @@ nonisolated extension Agent_V1_PreviewPresetResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_PreviewPresetResponse, rhs: Agent_V1_PreviewPresetResponse) -> Bool {
+  static func ==(lhs: Agent_V1_PreviewPresetResponse, rhs: Agent_V1_PreviewPresetResponse) -> Bool {
     if lhs.template != rhs.template {return false}
     if lhs.rendered != rhs.rendered {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4225,10 +4225,10 @@ nonisolated extension Agent_V1_PreviewPresetResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_GetConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0")
+  static let protoMessageName: String = _protobuf_package + ".GetConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4240,14 +4240,14 @@ nonisolated extension Agent_V1_GetConfigRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetConfigRequest, rhs: Agent_V1_GetConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetConfigRequest, rhs: Agent_V1_GetConfigRequest) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4255,10 +4255,10 @@ nonisolated extension Agent_V1_GetConfigRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 nonisolated extension Agent_V1_GetConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0\u{1}value\0")
+  static let protoMessageName: String = _protobuf_package + ".GetConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0\u{1}value\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4271,7 +4271,7 @@ nonisolated extension Agent_V1_GetConfigResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
     }
@@ -4281,7 +4281,7 @@ nonisolated extension Agent_V1_GetConfigResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetConfigResponse, rhs: Agent_V1_GetConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetConfigResponse, rhs: Agent_V1_GetConfigResponse) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4290,10 +4290,10 @@ nonisolated extension Agent_V1_GetConfigResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_SetConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0\u{1}value\0")
+  static let protoMessageName: String = _protobuf_package + ".SetConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0\u{1}value\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4306,7 +4306,7 @@ nonisolated extension Agent_V1_SetConfigRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
     }
@@ -4316,7 +4316,7 @@ nonisolated extension Agent_V1_SetConfigRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetConfigRequest, rhs: Agent_V1_SetConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_SetConfigRequest, rhs: Agent_V1_SetConfigRequest) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4325,10 +4325,10 @@ nonisolated extension Agent_V1_SetConfigRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 nonisolated extension Agent_V1_SetConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".SetConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4340,14 +4340,14 @@ nonisolated extension Agent_V1_SetConfigResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetConfigResponse, rhs: Agent_V1_SetConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_SetConfigResponse, rhs: Agent_V1_SetConfigResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4355,10 +4355,10 @@ nonisolated extension Agent_V1_SetConfigResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_ListToolsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListToolsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}locale\0")
+  static let protoMessageName: String = _protobuf_package + ".ListToolsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}locale\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4370,14 +4370,14 @@ nonisolated extension Agent_V1_ListToolsRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.locale.isEmpty {
       try visitor.visitSingularStringField(value: self.locale, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListToolsRequest, rhs: Agent_V1_ListToolsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListToolsRequest, rhs: Agent_V1_ListToolsRequest) -> Bool {
     if lhs.locale != rhs.locale {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4385,10 +4385,10 @@ nonisolated extension Agent_V1_ListToolsRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 nonisolated extension Agent_V1_ListToolsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListToolsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tools\0")
+  static let protoMessageName: String = _protobuf_package + ".ListToolsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tools\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4400,14 +4400,14 @@ nonisolated extension Agent_V1_ListToolsResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.tools.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.tools, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListToolsResponse, rhs: Agent_V1_ListToolsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListToolsResponse, rhs: Agent_V1_ListToolsResponse) -> Bool {
     if lhs.tools != rhs.tools {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4415,29 +4415,29 @@ nonisolated extension Agent_V1_ListToolsResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_GetToolConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetToolConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".GetToolConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetToolConfigRequest, rhs: Agent_V1_GetToolConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetToolConfigRequest, rhs: Agent_V1_GetToolConfigRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_GetToolConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetToolConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
+  static let protoMessageName: String = _protobuf_package + ".GetToolConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4449,7 +4449,7 @@ nonisolated extension Agent_V1_GetToolConfigResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4460,7 +4460,7 @@ nonisolated extension Agent_V1_GetToolConfigResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetToolConfigResponse, rhs: Agent_V1_GetToolConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetToolConfigResponse, rhs: Agent_V1_GetToolConfigResponse) -> Bool {
     if lhs._config != rhs._config {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4468,10 +4468,10 @@ nonisolated extension Agent_V1_GetToolConfigResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_SetToolConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetToolConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
+  static let protoMessageName: String = _protobuf_package + ".SetToolConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4483,7 +4483,7 @@ nonisolated extension Agent_V1_SetToolConfigRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4494,7 +4494,7 @@ nonisolated extension Agent_V1_SetToolConfigRequest: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetToolConfigRequest, rhs: Agent_V1_SetToolConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_SetToolConfigRequest, rhs: Agent_V1_SetToolConfigRequest) -> Bool {
     if lhs._config != rhs._config {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4502,10 +4502,10 @@ nonisolated extension Agent_V1_SetToolConfigRequest: SwiftProtobuf.Message, Swif
 }
 
 nonisolated extension Agent_V1_SetToolConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetToolConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".SetToolConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4517,14 +4517,14 @@ nonisolated extension Agent_V1_SetToolConfigResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetToolConfigResponse, rhs: Agent_V1_SetToolConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_SetToolConfigResponse, rhs: Agent_V1_SetToolConfigResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4532,10 +4532,10 @@ nonisolated extension Agent_V1_SetToolConfigResponse: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_SetExtensionConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetExtensionConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ext_id\0\u{1}name\0\u{1}value\0")
+  static let protoMessageName: String = _protobuf_package + ".SetExtensionConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ext_id\0\u{1}name\0\u{1}value\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4549,7 +4549,7 @@ nonisolated extension Agent_V1_SetExtensionConfigRequest: SwiftProtobuf.Message,
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4566,7 +4566,7 @@ nonisolated extension Agent_V1_SetExtensionConfigRequest: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetExtensionConfigRequest, rhs: Agent_V1_SetExtensionConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_SetExtensionConfigRequest, rhs: Agent_V1_SetExtensionConfigRequest) -> Bool {
     if lhs.extID != rhs.extID {return false}
     if lhs.name != rhs.name {return false}
     if lhs._value != rhs._value {return false}
@@ -4576,10 +4576,10 @@ nonisolated extension Agent_V1_SetExtensionConfigRequest: SwiftProtobuf.Message,
 }
 
 nonisolated extension Agent_V1_SetExtensionConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SetExtensionConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".SetExtensionConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4591,14 +4591,14 @@ nonisolated extension Agent_V1_SetExtensionConfigResponse: SwiftProtobuf.Message
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_SetExtensionConfigResponse, rhs: Agent_V1_SetExtensionConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_SetExtensionConfigResponse, rhs: Agent_V1_SetExtensionConfigResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4606,10 +4606,10 @@ nonisolated extension Agent_V1_SetExtensionConfigResponse: SwiftProtobuf.Message
 }
 
 nonisolated extension Agent_V1_UploadFileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UploadFileRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}file\0\u{1}data\0")
+  static let protoMessageName: String = _protobuf_package + ".UploadFileRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}file\0\u{1}data\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4622,7 +4622,7 @@ nonisolated extension Agent_V1_UploadFileRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4636,7 +4636,7 @@ nonisolated extension Agent_V1_UploadFileRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UploadFileRequest, rhs: Agent_V1_UploadFileRequest) -> Bool {
+  static func ==(lhs: Agent_V1_UploadFileRequest, rhs: Agent_V1_UploadFileRequest) -> Bool {
     if lhs._file != rhs._file {return false}
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4645,10 +4645,10 @@ nonisolated extension Agent_V1_UploadFileRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_UploadFileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UploadFileResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}code\0")
+  static let protoMessageName: String = _protobuf_package + ".UploadFileResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}code\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4661,7 +4661,7 @@ nonisolated extension Agent_V1_UploadFileResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -4671,7 +4671,7 @@ nonisolated extension Agent_V1_UploadFileResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_UploadFileResponse, rhs: Agent_V1_UploadFileResponse) -> Bool {
+  static func ==(lhs: Agent_V1_UploadFileResponse, rhs: Agent_V1_UploadFileResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.code != rhs.code {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4680,10 +4680,10 @@ nonisolated extension Agent_V1_UploadFileResponse: SwiftProtobuf.Message, SwiftP
 }
 
 nonisolated extension Agent_V1_IngestFileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".IngestFileRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}data\0\u{1}name\0\u{1}mime\0")
+  static let protoMessageName: String = _protobuf_package + ".IngestFileRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}data\0\u{1}name\0\u{1}mime\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4698,7 +4698,7 @@ nonisolated extension Agent_V1_IngestFileRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.code.isEmpty {
       try visitor.visitSingularStringField(value: self.code, fieldNumber: 1)
     }
@@ -4714,7 +4714,7 @@ nonisolated extension Agent_V1_IngestFileRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_IngestFileRequest, rhs: Agent_V1_IngestFileRequest) -> Bool {
+  static func ==(lhs: Agent_V1_IngestFileRequest, rhs: Agent_V1_IngestFileRequest) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.data != rhs.data {return false}
     if lhs.name != rhs.name {return false}
@@ -4725,10 +4725,10 @@ nonisolated extension Agent_V1_IngestFileRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 nonisolated extension Agent_V1_IngestFileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".IngestFileResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}code\0")
+  static let protoMessageName: String = _protobuf_package + ".IngestFileResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}code\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4741,7 +4741,7 @@ nonisolated extension Agent_V1_IngestFileResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -4751,7 +4751,7 @@ nonisolated extension Agent_V1_IngestFileResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_IngestFileResponse, rhs: Agent_V1_IngestFileResponse) -> Bool {
+  static func ==(lhs: Agent_V1_IngestFileResponse, rhs: Agent_V1_IngestFileResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.code != rhs.code {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -4760,10 +4760,10 @@ nonisolated extension Agent_V1_IngestFileResponse: SwiftProtobuf.Message, SwiftP
 }
 
 nonisolated extension Agent_V1_GetFileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetFileRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0")
+  static let protoMessageName: String = _protobuf_package + ".GetFileRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4775,14 +4775,14 @@ nonisolated extension Agent_V1_GetFileRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.code.isEmpty {
       try visitor.visitSingularStringField(value: self.code, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetFileRequest, rhs: Agent_V1_GetFileRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetFileRequest, rhs: Agent_V1_GetFileRequest) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4790,10 +4790,10 @@ nonisolated extension Agent_V1_GetFileRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 nonisolated extension Agent_V1_GetFileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetFileResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0\u{1}name\0\u{1}mime\0")
+  static let protoMessageName: String = _protobuf_package + ".GetFileResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0\u{1}name\0\u{1}mime\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4807,7 +4807,7 @@ nonisolated extension Agent_V1_GetFileResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.data.isEmpty {
       try visitor.visitSingularStringField(value: self.data, fieldNumber: 1)
     }
@@ -4820,7 +4820,7 @@ nonisolated extension Agent_V1_GetFileResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetFileResponse, rhs: Agent_V1_GetFileResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetFileResponse, rhs: Agent_V1_GetFileResponse) -> Bool {
     if lhs.data != rhs.data {return false}
     if lhs.name != rhs.name {return false}
     if lhs.mime != rhs.mime {return false}
@@ -4830,10 +4830,10 @@ nonisolated extension Agent_V1_GetFileResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 nonisolated extension Agent_V1_GetFileMetaRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetFileMetaRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0")
+  static let protoMessageName: String = _protobuf_package + ".GetFileMetaRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4845,14 +4845,14 @@ nonisolated extension Agent_V1_GetFileMetaRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.code.isEmpty {
       try visitor.visitSingularStringField(value: self.code, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetFileMetaRequest, rhs: Agent_V1_GetFileMetaRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetFileMetaRequest, rhs: Agent_V1_GetFileMetaRequest) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4860,10 +4860,10 @@ nonisolated extension Agent_V1_GetFileMetaRequest: SwiftProtobuf.Message, SwiftP
 }
 
 nonisolated extension Agent_V1_GetFileMetaResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetFileMetaResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}mime\0\u{1}size\0")
+  static let protoMessageName: String = _protobuf_package + ".GetFileMetaResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}mime\0\u{1}size\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4877,7 +4877,7 @@ nonisolated extension Agent_V1_GetFileMetaResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -4890,7 +4890,7 @@ nonisolated extension Agent_V1_GetFileMetaResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetFileMetaResponse, rhs: Agent_V1_GetFileMetaResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetFileMetaResponse, rhs: Agent_V1_GetFileMetaResponse) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.mime != rhs.mime {return false}
     if lhs.size != rhs.size {return false}
@@ -4900,10 +4900,10 @@ nonisolated extension Agent_V1_GetFileMetaResponse: SwiftProtobuf.Message, Swift
 }
 
 nonisolated extension Agent_V1_ListWorksheetsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListWorksheetsRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  static let protoMessageName: String = _protobuf_package + ".ListWorksheetsRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4915,14 +4915,14 @@ nonisolated extension Agent_V1_ListWorksheetsRequest: SwiftProtobuf.Message, Swi
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListWorksheetsRequest, rhs: Agent_V1_ListWorksheetsRequest) -> Bool {
+  static func ==(lhs: Agent_V1_ListWorksheetsRequest, rhs: Agent_V1_ListWorksheetsRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4930,10 +4930,10 @@ nonisolated extension Agent_V1_ListWorksheetsRequest: SwiftProtobuf.Message, Swi
 }
 
 nonisolated extension Agent_V1_ListWorksheetsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListWorksheetsResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}worksheets\0")
+  static let protoMessageName: String = _protobuf_package + ".ListWorksheetsResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}worksheets\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4945,14 +4945,14 @@ nonisolated extension Agent_V1_ListWorksheetsResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.worksheets.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.worksheets, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_ListWorksheetsResponse, rhs: Agent_V1_ListWorksheetsResponse) -> Bool {
+  static func ==(lhs: Agent_V1_ListWorksheetsResponse, rhs: Agent_V1_ListWorksheetsResponse) -> Bool {
     if lhs.worksheets != rhs.worksheets {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -4960,10 +4960,10 @@ nonisolated extension Agent_V1_ListWorksheetsResponse: SwiftProtobuf.Message, Sw
 }
 
 nonisolated extension Agent_V1_DecideWorksheetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DecideWorksheetRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}wid\0\u{1}decision\0")
+  static let protoMessageName: String = _protobuf_package + ".DecideWorksheetRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}wid\0\u{1}decision\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -4977,7 +4977,7 @@ nonisolated extension Agent_V1_DecideWorksheetRequest: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -4990,7 +4990,7 @@ nonisolated extension Agent_V1_DecideWorksheetRequest: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DecideWorksheetRequest, rhs: Agent_V1_DecideWorksheetRequest) -> Bool {
+  static func ==(lhs: Agent_V1_DecideWorksheetRequest, rhs: Agent_V1_DecideWorksheetRequest) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.wid != rhs.wid {return false}
     if lhs.decision != rhs.decision {return false}
@@ -5000,10 +5000,10 @@ nonisolated extension Agent_V1_DecideWorksheetRequest: SwiftProtobuf.Message, Sw
 }
 
 nonisolated extension Agent_V1_DecideWorksheetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DecideWorksheetResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
+  static let protoMessageName: String = _protobuf_package + ".DecideWorksheetResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -5015,14 +5015,14 @@ nonisolated extension Agent_V1_DecideWorksheetResponse: SwiftProtobuf.Message, S
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_DecideWorksheetResponse, rhs: Agent_V1_DecideWorksheetResponse) -> Bool {
+  static func ==(lhs: Agent_V1_DecideWorksheetResponse, rhs: Agent_V1_DecideWorksheetResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -5030,29 +5030,29 @@ nonisolated extension Agent_V1_DecideWorksheetResponse: SwiftProtobuf.Message, S
 }
 
 nonisolated extension Agent_V1_GetAgentConfigRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetAgentConfigRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".GetAgentConfigRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetAgentConfigRequest, rhs: Agent_V1_GetAgentConfigRequest) -> Bool {
+  static func ==(lhs: Agent_V1_GetAgentConfigRequest, rhs: Agent_V1_GetAgentConfigRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_GetAgentConfigResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetAgentConfigResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
+  static let protoMessageName: String = _protobuf_package + ".GetAgentConfigResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}config\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -5064,7 +5064,7 @@ nonisolated extension Agent_V1_GetAgentConfigResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -5075,7 +5075,7 @@ nonisolated extension Agent_V1_GetAgentConfigResponse: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_GetAgentConfigResponse, rhs: Agent_V1_GetAgentConfigResponse) -> Bool {
+  static func ==(lhs: Agent_V1_GetAgentConfigResponse, rhs: Agent_V1_GetAgentConfigResponse) -> Bool {
     if lhs._config != rhs._config {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -5083,29 +5083,29 @@ nonisolated extension Agent_V1_GetAgentConfigResponse: SwiftProtobuf.Message, Sw
 }
 
 nonisolated extension Agent_V1_HealthRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".HealthRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let protoMessageName: String = _protobuf_package + ".HealthRequest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_HealthRequest, rhs: Agent_V1_HealthRequest) -> Bool {
+  static func ==(lhs: Agent_V1_HealthRequest, rhs: Agent_V1_HealthRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 nonisolated extension Agent_V1_HealthResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".HealthResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}name\0")
+  static let protoMessageName: String = _protobuf_package + ".HealthResponse"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}name\0")
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -5118,7 +5118,7 @@ nonisolated extension Agent_V1_HealthResponse: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.ok != false {
       try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
     }
@@ -5128,7 +5128,7 @@ nonisolated extension Agent_V1_HealthResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Agent_V1_HealthResponse, rhs: Agent_V1_HealthResponse) -> Bool {
+  static func ==(lhs: Agent_V1_HealthResponse, rhs: Agent_V1_HealthResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 /// AgentService is the session-backend API.
-public protocol Agent_V1_AgentServiceClientInterface: Sendable {
+internal protocol Agent_V1_AgentServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `health`(request: Agent_V1_HealthRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_HealthResponse>
@@ -134,255 +134,255 @@ public protocol Agent_V1_AgentServiceClientInterface: Sendable {
 }
 
 /// Concrete implementation of `Agent_V1_AgentServiceClientInterface`.
-public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInterface, Sendable {
+internal final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
-    public init(client: Connect.ProtocolClientInterface) {
+    internal init(client: Connect.ProtocolClientInterface) {
         self.client = client
     }
 
     @available(iOS 13, *)
-    public func `health`(request: Agent_V1_HealthRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_HealthResponse> {
+    internal func `health`(request: Agent_V1_HealthRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_HealthResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Health", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listSessions`(request: Agent_V1_ListSessionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListSessionsResponse> {
+    internal func `listSessions`(request: Agent_V1_ListSessionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListSessionsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListSessions", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `createSession`(request: Agent_V1_CreateSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_CreateSessionResponse> {
+    internal func `createSession`(request: Agent_V1_CreateSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_CreateSessionResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/CreateSession", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getSession`(request: Agent_V1_GetSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetSessionResponse> {
+    internal func `getSession`(request: Agent_V1_GetSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetSessionResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetSession", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deleteSession`(request: Agent_V1_DeleteSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteSessionResponse> {
+    internal func `deleteSession`(request: Agent_V1_DeleteSessionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteSessionResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/DeleteSession", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listMessages`(request: Agent_V1_ListMessagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListMessagesResponse> {
+    internal func `listMessages`(request: Agent_V1_ListMessagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListMessagesResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListMessages", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `prompt`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_PromptRequest, Agent_V1_PromptResponse> {
+    internal func `prompt`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_PromptRequest, Agent_V1_PromptResponse> {
         return self.client.serverOnlyStream(path: "/agent.v1.AgentService/Prompt", headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `watchSession`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionRequest, Agent_V1_WatchSessionResponse> {
+    internal func `watchSession`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionRequest, Agent_V1_WatchSessionResponse> {
         return self.client.serverOnlyStream(path: "/agent.v1.AgentService/WatchSession", headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `fork`(request: Agent_V1_ForkRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ForkResponse> {
+    internal func `fork`(request: Agent_V1_ForkRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ForkResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Fork", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `rename`(request: Agent_V1_RenameRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RenameResponse> {
+    internal func `rename`(request: Agent_V1_RenameRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RenameResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Rename", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `setModel`(request: Agent_V1_SetModelRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetModelResponse> {
+    internal func `setModel`(request: Agent_V1_SetModelRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetModelResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/SetModel", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `undo`(request: Agent_V1_UndoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UndoResponse> {
+    internal func `undo`(request: Agent_V1_UndoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UndoResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Undo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `state`(request: Agent_V1_StateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_StateResponse> {
+    internal func `state`(request: Agent_V1_StateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_StateResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/State", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `mailbox`(request: Agent_V1_MailboxRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_MailboxResponse> {
+    internal func `mailbox`(request: Agent_V1_MailboxRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_MailboxResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Mailbox", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `updateSettings`(request: Agent_V1_UpdateSettingsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UpdateSettingsResponse> {
+    internal func `updateSettings`(request: Agent_V1_UpdateSettingsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UpdateSettingsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/UpdateSettings", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `interrupt`(request: Agent_V1_InterruptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_InterruptResponse> {
+    internal func `interrupt`(request: Agent_V1_InterruptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_InterruptResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Interrupt", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `compact`(request: Agent_V1_CompactRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_CompactResponse> {
+    internal func `compact`(request: Agent_V1_CompactRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_CompactResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/Compact", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listProviders`(request: Agent_V1_ListProvidersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListProvidersResponse> {
+    internal func `listProviders`(request: Agent_V1_ListProvidersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListProvidersResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListProviders", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listProvidersCatalog`(request: Agent_V1_ListProvidersCatalogRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListProvidersCatalogResponse> {
+    internal func `listProvidersCatalog`(request: Agent_V1_ListProvidersCatalogRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListProvidersCatalogResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListProvidersCatalog", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `registerProvider`(request: Agent_V1_RegisterProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RegisterProviderResponse> {
+    internal func `registerProvider`(request: Agent_V1_RegisterProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RegisterProviderResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/RegisterProvider", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deleteProvider`(request: Agent_V1_DeleteProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteProviderResponse> {
+    internal func `deleteProvider`(request: Agent_V1_DeleteProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteProviderResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/DeleteProvider", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `testProvider`(request: Agent_V1_TestProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_TestProviderResponse> {
+    internal func `testProvider`(request: Agent_V1_TestProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_TestProviderResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/TestProvider", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listModels`(request: Agent_V1_ListModelsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListModelsResponse> {
+    internal func `listModels`(request: Agent_V1_ListModelsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListModelsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListModels", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listPresets`(request: Agent_V1_ListPresetsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListPresetsResponse> {
+    internal func `listPresets`(request: Agent_V1_ListPresetsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListPresetsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListPresets", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `upsertPreset`(request: Agent_V1_UpsertPresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UpsertPresetResponse> {
+    internal func `upsertPreset`(request: Agent_V1_UpsertPresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UpsertPresetResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/UpsertPreset", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `deletePreset`(request: Agent_V1_DeletePresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeletePresetResponse> {
+    internal func `deletePreset`(request: Agent_V1_DeletePresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeletePresetResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/DeletePreset", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `previewPreset`(request: Agent_V1_PreviewPresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_PreviewPresetResponse> {
+    internal func `previewPreset`(request: Agent_V1_PreviewPresetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_PreviewPresetResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/PreviewPreset", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getConfig`(request: Agent_V1_GetConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetConfigResponse> {
+    internal func `getConfig`(request: Agent_V1_GetConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `setConfig`(request: Agent_V1_SetConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetConfigResponse> {
+    internal func `setConfig`(request: Agent_V1_SetConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/SetConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listTools`(request: Agent_V1_ListToolsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListToolsResponse> {
+    internal func `listTools`(request: Agent_V1_ListToolsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListToolsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListTools", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getToolConfig`(request: Agent_V1_GetToolConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetToolConfigResponse> {
+    internal func `getToolConfig`(request: Agent_V1_GetToolConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetToolConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetToolConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `setToolConfig`(request: Agent_V1_SetToolConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetToolConfigResponse> {
+    internal func `setToolConfig`(request: Agent_V1_SetToolConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetToolConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/SetToolConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `setExtensionConfig`(request: Agent_V1_SetExtensionConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetExtensionConfigResponse> {
+    internal func `setExtensionConfig`(request: Agent_V1_SetExtensionConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_SetExtensionConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/SetExtensionConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `uploadFile`(request: Agent_V1_UploadFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UploadFileResponse> {
+    internal func `uploadFile`(request: Agent_V1_UploadFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UploadFileResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/UploadFile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `ingestFile`(request: Agent_V1_IngestFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_IngestFileResponse> {
+    internal func `ingestFile`(request: Agent_V1_IngestFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_IngestFileResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/IngestFile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getFile`(request: Agent_V1_GetFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetFileResponse> {
+    internal func `getFile`(request: Agent_V1_GetFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetFileResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetFile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getFileMeta`(request: Agent_V1_GetFileMetaRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetFileMetaResponse> {
+    internal func `getFileMeta`(request: Agent_V1_GetFileMetaRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetFileMetaResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetFileMeta", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `listWorksheets`(request: Agent_V1_ListWorksheetsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListWorksheetsResponse> {
+    internal func `listWorksheets`(request: Agent_V1_ListWorksheetsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListWorksheetsResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/ListWorksheets", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `decideWorksheet`(request: Agent_V1_DecideWorksheetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DecideWorksheetResponse> {
+    internal func `decideWorksheet`(request: Agent_V1_DecideWorksheetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DecideWorksheetResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/DecideWorksheet", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @available(iOS 13, *)
-    public func `getAgentConfig`(request: Agent_V1_GetAgentConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetAgentConfigResponse> {
+    internal func `getAgentConfig`(request: Agent_V1_GetAgentConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetAgentConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetAgentConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
-    public enum Metadata {
-        public enum Methods {
-            public static let health = Connect.MethodSpec(name: "Health", service: "agent.v1.AgentService", type: .unary)
-            public static let listSessions = Connect.MethodSpec(name: "ListSessions", service: "agent.v1.AgentService", type: .unary)
-            public static let createSession = Connect.MethodSpec(name: "CreateSession", service: "agent.v1.AgentService", type: .unary)
-            public static let getSession = Connect.MethodSpec(name: "GetSession", service: "agent.v1.AgentService", type: .unary)
-            public static let deleteSession = Connect.MethodSpec(name: "DeleteSession", service: "agent.v1.AgentService", type: .unary)
-            public static let listMessages = Connect.MethodSpec(name: "ListMessages", service: "agent.v1.AgentService", type: .unary)
-            public static let prompt = Connect.MethodSpec(name: "Prompt", service: "agent.v1.AgentService", type: .serverStream)
-            public static let watchSession = Connect.MethodSpec(name: "WatchSession", service: "agent.v1.AgentService", type: .serverStream)
-            public static let fork = Connect.MethodSpec(name: "Fork", service: "agent.v1.AgentService", type: .unary)
-            public static let rename = Connect.MethodSpec(name: "Rename", service: "agent.v1.AgentService", type: .unary)
-            public static let setModel = Connect.MethodSpec(name: "SetModel", service: "agent.v1.AgentService", type: .unary)
-            public static let undo = Connect.MethodSpec(name: "Undo", service: "agent.v1.AgentService", type: .unary)
-            public static let state = Connect.MethodSpec(name: "State", service: "agent.v1.AgentService", type: .unary)
-            public static let mailbox = Connect.MethodSpec(name: "Mailbox", service: "agent.v1.AgentService", type: .unary)
-            public static let updateSettings = Connect.MethodSpec(name: "UpdateSettings", service: "agent.v1.AgentService", type: .unary)
-            public static let interrupt = Connect.MethodSpec(name: "Interrupt", service: "agent.v1.AgentService", type: .unary)
-            public static let compact = Connect.MethodSpec(name: "Compact", service: "agent.v1.AgentService", type: .unary)
-            public static let listProviders = Connect.MethodSpec(name: "ListProviders", service: "agent.v1.AgentService", type: .unary)
-            public static let listProvidersCatalog = Connect.MethodSpec(name: "ListProvidersCatalog", service: "agent.v1.AgentService", type: .unary)
-            public static let registerProvider = Connect.MethodSpec(name: "RegisterProvider", service: "agent.v1.AgentService", type: .unary)
-            public static let deleteProvider = Connect.MethodSpec(name: "DeleteProvider", service: "agent.v1.AgentService", type: .unary)
-            public static let testProvider = Connect.MethodSpec(name: "TestProvider", service: "agent.v1.AgentService", type: .unary)
-            public static let listModels = Connect.MethodSpec(name: "ListModels", service: "agent.v1.AgentService", type: .unary)
-            public static let listPresets = Connect.MethodSpec(name: "ListPresets", service: "agent.v1.AgentService", type: .unary)
-            public static let upsertPreset = Connect.MethodSpec(name: "UpsertPreset", service: "agent.v1.AgentService", type: .unary)
-            public static let deletePreset = Connect.MethodSpec(name: "DeletePreset", service: "agent.v1.AgentService", type: .unary)
-            public static let previewPreset = Connect.MethodSpec(name: "PreviewPreset", service: "agent.v1.AgentService", type: .unary)
-            public static let getConfig = Connect.MethodSpec(name: "GetConfig", service: "agent.v1.AgentService", type: .unary)
-            public static let setConfig = Connect.MethodSpec(name: "SetConfig", service: "agent.v1.AgentService", type: .unary)
-            public static let listTools = Connect.MethodSpec(name: "ListTools", service: "agent.v1.AgentService", type: .unary)
-            public static let getToolConfig = Connect.MethodSpec(name: "GetToolConfig", service: "agent.v1.AgentService", type: .unary)
-            public static let setToolConfig = Connect.MethodSpec(name: "SetToolConfig", service: "agent.v1.AgentService", type: .unary)
-            public static let setExtensionConfig = Connect.MethodSpec(name: "SetExtensionConfig", service: "agent.v1.AgentService", type: .unary)
-            public static let uploadFile = Connect.MethodSpec(name: "UploadFile", service: "agent.v1.AgentService", type: .unary)
-            public static let ingestFile = Connect.MethodSpec(name: "IngestFile", service: "agent.v1.AgentService", type: .unary)
-            public static let getFile = Connect.MethodSpec(name: "GetFile", service: "agent.v1.AgentService", type: .unary)
-            public static let getFileMeta = Connect.MethodSpec(name: "GetFileMeta", service: "agent.v1.AgentService", type: .unary)
-            public static let listWorksheets = Connect.MethodSpec(name: "ListWorksheets", service: "agent.v1.AgentService", type: .unary)
-            public static let decideWorksheet = Connect.MethodSpec(name: "DecideWorksheet", service: "agent.v1.AgentService", type: .unary)
-            public static let getAgentConfig = Connect.MethodSpec(name: "GetAgentConfig", service: "agent.v1.AgentService", type: .unary)
+    internal enum Metadata {
+        internal enum Methods {
+            internal static let health = Connect.MethodSpec(name: "Health", service: "agent.v1.AgentService", type: .unary)
+            internal static let listSessions = Connect.MethodSpec(name: "ListSessions", service: "agent.v1.AgentService", type: .unary)
+            internal static let createSession = Connect.MethodSpec(name: "CreateSession", service: "agent.v1.AgentService", type: .unary)
+            internal static let getSession = Connect.MethodSpec(name: "GetSession", service: "agent.v1.AgentService", type: .unary)
+            internal static let deleteSession = Connect.MethodSpec(name: "DeleteSession", service: "agent.v1.AgentService", type: .unary)
+            internal static let listMessages = Connect.MethodSpec(name: "ListMessages", service: "agent.v1.AgentService", type: .unary)
+            internal static let prompt = Connect.MethodSpec(name: "Prompt", service: "agent.v1.AgentService", type: .serverStream)
+            internal static let watchSession = Connect.MethodSpec(name: "WatchSession", service: "agent.v1.AgentService", type: .serverStream)
+            internal static let fork = Connect.MethodSpec(name: "Fork", service: "agent.v1.AgentService", type: .unary)
+            internal static let rename = Connect.MethodSpec(name: "Rename", service: "agent.v1.AgentService", type: .unary)
+            internal static let setModel = Connect.MethodSpec(name: "SetModel", service: "agent.v1.AgentService", type: .unary)
+            internal static let undo = Connect.MethodSpec(name: "Undo", service: "agent.v1.AgentService", type: .unary)
+            internal static let state = Connect.MethodSpec(name: "State", service: "agent.v1.AgentService", type: .unary)
+            internal static let mailbox = Connect.MethodSpec(name: "Mailbox", service: "agent.v1.AgentService", type: .unary)
+            internal static let updateSettings = Connect.MethodSpec(name: "UpdateSettings", service: "agent.v1.AgentService", type: .unary)
+            internal static let interrupt = Connect.MethodSpec(name: "Interrupt", service: "agent.v1.AgentService", type: .unary)
+            internal static let compact = Connect.MethodSpec(name: "Compact", service: "agent.v1.AgentService", type: .unary)
+            internal static let listProviders = Connect.MethodSpec(name: "ListProviders", service: "agent.v1.AgentService", type: .unary)
+            internal static let listProvidersCatalog = Connect.MethodSpec(name: "ListProvidersCatalog", service: "agent.v1.AgentService", type: .unary)
+            internal static let registerProvider = Connect.MethodSpec(name: "RegisterProvider", service: "agent.v1.AgentService", type: .unary)
+            internal static let deleteProvider = Connect.MethodSpec(name: "DeleteProvider", service: "agent.v1.AgentService", type: .unary)
+            internal static let testProvider = Connect.MethodSpec(name: "TestProvider", service: "agent.v1.AgentService", type: .unary)
+            internal static let listModels = Connect.MethodSpec(name: "ListModels", service: "agent.v1.AgentService", type: .unary)
+            internal static let listPresets = Connect.MethodSpec(name: "ListPresets", service: "agent.v1.AgentService", type: .unary)
+            internal static let upsertPreset = Connect.MethodSpec(name: "UpsertPreset", service: "agent.v1.AgentService", type: .unary)
+            internal static let deletePreset = Connect.MethodSpec(name: "DeletePreset", service: "agent.v1.AgentService", type: .unary)
+            internal static let previewPreset = Connect.MethodSpec(name: "PreviewPreset", service: "agent.v1.AgentService", type: .unary)
+            internal static let getConfig = Connect.MethodSpec(name: "GetConfig", service: "agent.v1.AgentService", type: .unary)
+            internal static let setConfig = Connect.MethodSpec(name: "SetConfig", service: "agent.v1.AgentService", type: .unary)
+            internal static let listTools = Connect.MethodSpec(name: "ListTools", service: "agent.v1.AgentService", type: .unary)
+            internal static let getToolConfig = Connect.MethodSpec(name: "GetToolConfig", service: "agent.v1.AgentService", type: .unary)
+            internal static let setToolConfig = Connect.MethodSpec(name: "SetToolConfig", service: "agent.v1.AgentService", type: .unary)
+            internal static let setExtensionConfig = Connect.MethodSpec(name: "SetExtensionConfig", service: "agent.v1.AgentService", type: .unary)
+            internal static let uploadFile = Connect.MethodSpec(name: "UploadFile", service: "agent.v1.AgentService", type: .unary)
+            internal static let ingestFile = Connect.MethodSpec(name: "IngestFile", service: "agent.v1.AgentService", type: .unary)
+            internal static let getFile = Connect.MethodSpec(name: "GetFile", service: "agent.v1.AgentService", type: .unary)
+            internal static let getFileMeta = Connect.MethodSpec(name: "GetFileMeta", service: "agent.v1.AgentService", type: .unary)
+            internal static let listWorksheets = Connect.MethodSpec(name: "ListWorksheets", service: "agent.v1.AgentService", type: .unary)
+            internal static let decideWorksheet = Connect.MethodSpec(name: "DecideWorksheet", service: "agent.v1.AgentService", type: .unary)
+            internal static let getAgentConfig = Connect.MethodSpec(name: "GetAgentConfig", service: "agent.v1.AgentService", type: .unary)
         }
     }
 }
