@@ -124,12 +124,6 @@ internal protocol Agent_V1_AgentServiceClientInterface: Sendable {
     func `getFileMeta`(request: Agent_V1_GetFileMetaRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_GetFileMetaResponse>
 
     @available(iOS 13, *)
-    func `listWorksheets`(request: Agent_V1_ListWorksheetsRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_ListWorksheetsResponse>
-
-    @available(iOS 13, *)
-    func `decideWorksheet`(request: Agent_V1_DecideWorksheetRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_DecideWorksheetResponse>
-
-    @available(iOS 13, *)
     func `getAgentConfig`(request: Agent_V1_GetAgentConfigRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_GetAgentConfigResponse>
 }
 
@@ -327,16 +321,6 @@ internal final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInt
     }
 
     @available(iOS 13, *)
-    internal func `listWorksheets`(request: Agent_V1_ListWorksheetsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListWorksheetsResponse> {
-        return await self.client.unary(path: "/agent.v1.AgentService/ListWorksheets", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @available(iOS 13, *)
-    internal func `decideWorksheet`(request: Agent_V1_DecideWorksheetRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DecideWorksheetResponse> {
-        return await self.client.unary(path: "/agent.v1.AgentService/DecideWorksheet", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @available(iOS 13, *)
     internal func `getAgentConfig`(request: Agent_V1_GetAgentConfigRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_GetAgentConfigResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/GetAgentConfig", idempotencyLevel: .unknown, request: request, headers: headers)
     }
@@ -380,8 +364,6 @@ internal final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInt
             internal static let ingestFile = Connect.MethodSpec(name: "IngestFile", service: "agent.v1.AgentService", type: .unary)
             internal static let getFile = Connect.MethodSpec(name: "GetFile", service: "agent.v1.AgentService", type: .unary)
             internal static let getFileMeta = Connect.MethodSpec(name: "GetFileMeta", service: "agent.v1.AgentService", type: .unary)
-            internal static let listWorksheets = Connect.MethodSpec(name: "ListWorksheets", service: "agent.v1.AgentService", type: .unary)
-            internal static let decideWorksheet = Connect.MethodSpec(name: "DecideWorksheet", service: "agent.v1.AgentService", type: .unary)
             internal static let getAgentConfig = Connect.MethodSpec(name: "GetAgentConfig", service: "agent.v1.AgentService", type: .unary)
         }
     }
