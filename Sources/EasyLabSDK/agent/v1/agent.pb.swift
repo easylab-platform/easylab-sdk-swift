@@ -1112,6 +1112,10 @@ public nonisolated struct Agent_V1_TestProviderRequest: Sendable {
   /// Optional reasoning variant id to exercise in the test generation.
   public var variant: String = String()
 
+  /// What the model under test generates: "text" (default). Only text models
+  /// are testable today; image/video/speech are rejected with a clear message.
+  public var capability: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3890,7 +3894,7 @@ nonisolated extension Agent_V1_DeleteProviderResponse: SwiftProtobuf.Message, Sw
 
 nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TestProviderRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}model\0\u{1}variant\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}model\0\u{1}variant\0\u{1}capability\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3904,6 +3908,7 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
       case 4: try { try decoder.decodeSingularStringField(value: &self.apiKey) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.model) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self.variant) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.capability) }()
       default: break
       }
     }
@@ -3928,6 +3933,9 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
     if !self.variant.isEmpty {
       try visitor.visitSingularStringField(value: self.variant, fieldNumber: 6)
     }
+    if !self.capability.isEmpty {
+      try visitor.visitSingularStringField(value: self.capability, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3938,6 +3946,7 @@ nonisolated extension Agent_V1_TestProviderRequest: SwiftProtobuf.Message, Swift
     if lhs.apiKey != rhs.apiKey {return false}
     if lhs.model != rhs.model {return false}
     if lhs.variant != rhs.variant {return false}
+    if lhs.capability != rhs.capability {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
