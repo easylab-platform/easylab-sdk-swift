@@ -293,7 +293,15 @@ public nonisolated struct Agent_V1_ProviderModel: Sendable {
 
   public var name: String = String()
 
+  /// Context window (tokens). REQUIRED (> 0) for text models (drives
+  /// compaction budgets); ignored for generation models (image/video/speech).
   public var contextLimit: Int64 = 0
+
+  /// What the model generates: "text" (default, chat/vision), "image",
+  /// "video", or "speech". Text models feed sessions; generation models are
+  /// resolved by tools (image-generate / image-edit / video-generate /
+  /// tts-generate) via the same provider registry.
+  public var capability: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2168,7 +2176,7 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
 
 nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ProviderModel"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0\u{1}capability\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2179,6 +2187,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.contextLimit) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.capability) }()
       default: break
       }
     }
@@ -2194,6 +2203,9 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if self.contextLimit != 0 {
       try visitor.visitSingularInt64Field(value: self.contextLimit, fieldNumber: 3)
     }
+    if !self.capability.isEmpty {
+      try visitor.visitSingularStringField(value: self.capability, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2201,6 +2213,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.contextLimit != rhs.contextLimit {return false}
+    if lhs.capability != rhs.capability {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
