@@ -37,6 +37,9 @@ public protocol Agent_V1_AgentServiceClientInterface: Sendable {
     func `watchSession`(headers: Connect.Headers) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionRequest, Agent_V1_WatchSessionResponse>
 
     @available(iOS 13, *)
+    func `watchSessions`(headers: Connect.Headers) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionsRequest, Agent_V1_WatchSessionsResponse>
+
+    @available(iOS 13, *)
     func `fork`(request: Agent_V1_ForkRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_ForkResponse>
 
     @available(iOS 13, *)
@@ -173,6 +176,11 @@ public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInter
     @available(iOS 13, *)
     public func `watchSession`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionRequest, Agent_V1_WatchSessionResponse> {
         return self.client.serverOnlyStream(path: "/agent.v1.AgentService/WatchSession", headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `watchSessions`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Agent_V1_WatchSessionsRequest, Agent_V1_WatchSessionsResponse> {
+        return self.client.serverOnlyStream(path: "/agent.v1.AgentService/WatchSessions", headers: headers)
     }
 
     @available(iOS 13, *)
@@ -335,6 +343,7 @@ public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInter
             public static let listMessages = Connect.MethodSpec(name: "ListMessages", service: "agent.v1.AgentService", type: .unary)
             public static let prompt = Connect.MethodSpec(name: "Prompt", service: "agent.v1.AgentService", type: .serverStream)
             public static let watchSession = Connect.MethodSpec(name: "WatchSession", service: "agent.v1.AgentService", type: .serverStream)
+            public static let watchSessions = Connect.MethodSpec(name: "WatchSessions", service: "agent.v1.AgentService", type: .serverStream)
             public static let fork = Connect.MethodSpec(name: "Fork", service: "agent.v1.AgentService", type: .unary)
             public static let rename = Connect.MethodSpec(name: "Rename", service: "agent.v1.AgentService", type: .unary)
             public static let setModel = Connect.MethodSpec(name: "SetModel", service: "agent.v1.AgentService", type: .unary)
