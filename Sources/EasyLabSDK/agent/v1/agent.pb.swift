@@ -281,9 +281,13 @@ public nonisolated struct Agent_V1_Provider: Sendable {
   public init() {}
 }
 
-/// Provider model entry. `context_limit` (the model's context window in
-/// tokens) is REQUIRED and user-supplied: it drives compaction budgets, and it
-/// is never inferred from an external catalog.
+/// Provider model entry. Text providers (api_type != vercel-compatible-gateway)
+/// carry only text models: `context_limit` (> 0) is REQUIRED and drives
+/// compaction budgets. The single `vercel-compatible-gateway` provider is a
+/// SUPERSET — it may carry text models (context_limit > 0) AND multimodal
+/// models used by tools (image/video/speech/transcription, context_limit 0);
+/// which capability a multimodal model serves is implied by the tool's config
+/// knob (image_model / video_model / tts_model / asr_model), not stored here.
 public nonisolated struct Agent_V1_ProviderModel: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -293,15 +297,7 @@ public nonisolated struct Agent_V1_ProviderModel: Sendable {
 
   public var name: String = String()
 
-  /// Context window (tokens). REQUIRED (> 0) for text models (drives
-  /// compaction budgets); ignored for generation models (image/video/speech).
   public var contextLimit: Int64 = 0
-
-  /// What the model generates: "text" (default, chat/vision), "image",
-  /// "video", or "speech". Text models feed sessions; generation models are
-  /// resolved by tools (image-generate / image-edit / video-generate /
-  /// tts-generate) via the same provider registry.
-  public var capability: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2180,7 +2176,7 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
 
 nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ProviderModel"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0\u{1}capability\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2191,7 +2187,6 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.contextLimit) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.capability) }()
       default: break
       }
     }
@@ -2207,9 +2202,6 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if self.contextLimit != 0 {
       try visitor.visitSingularInt64Field(value: self.contextLimit, fieldNumber: 3)
     }
-    if !self.capability.isEmpty {
-      try visitor.visitSingularStringField(value: self.capability, fieldNumber: 4)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2217,7 +2209,6 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.contextLimit != rhs.contextLimit {return false}
-    if lhs.capability != rhs.capability {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
