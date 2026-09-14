@@ -76,6 +76,9 @@ public protocol Agent_V1_AgentServiceClientInterface: Sendable {
     func `registerProvider`(request: Agent_V1_RegisterProviderRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_RegisterProviderResponse>
 
     @available(iOS 13, *)
+    func `discoverGatewayModels`(request: Agent_V1_DiscoverGatewayModelsRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_DiscoverGatewayModelsResponse>
+
+    @available(iOS 13, *)
     func `deleteProvider`(request: Agent_V1_DeleteProviderRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_DeleteProviderResponse>
 
     @available(iOS 13, *)
@@ -244,6 +247,11 @@ public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInter
     }
 
     @available(iOS 13, *)
+    public func `discoverGatewayModels`(request: Agent_V1_DiscoverGatewayModelsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DiscoverGatewayModelsResponse> {
+        return await self.client.unary(path: "/agent.v1.AgentService/DiscoverGatewayModels", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
     public func `deleteProvider`(request: Agent_V1_DeleteProviderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteProviderResponse> {
         return await self.client.unary(path: "/agent.v1.AgentService/DeleteProvider", idempotencyLevel: .unknown, request: request, headers: headers)
     }
@@ -356,6 +364,7 @@ public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInter
             public static let listProviders = Connect.MethodSpec(name: "ListProviders", service: "agent.v1.AgentService", type: .unary)
             public static let listProvidersCatalog = Connect.MethodSpec(name: "ListProvidersCatalog", service: "agent.v1.AgentService", type: .unary)
             public static let registerProvider = Connect.MethodSpec(name: "RegisterProvider", service: "agent.v1.AgentService", type: .unary)
+            public static let discoverGatewayModels = Connect.MethodSpec(name: "DiscoverGatewayModels", service: "agent.v1.AgentService", type: .unary)
             public static let deleteProvider = Connect.MethodSpec(name: "DeleteProvider", service: "agent.v1.AgentService", type: .unary)
             public static let testProvider = Connect.MethodSpec(name: "TestProvider", service: "agent.v1.AgentService", type: .unary)
             public static let listModels = Connect.MethodSpec(name: "ListModels", service: "agent.v1.AgentService", type: .unary)

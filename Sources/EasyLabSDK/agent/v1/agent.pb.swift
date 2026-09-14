@@ -285,9 +285,14 @@ public nonisolated struct Agent_V1_Provider: Sendable {
 /// carry only text models: `context_limit` (> 0) is REQUIRED and drives
 /// compaction budgets. The single `vercel-compatible-gateway` provider is a
 /// SUPERSET — it may carry text models (context_limit > 0) AND multimodal
-/// models used by tools (image/video/speech/transcription, context_limit 0);
-/// which capability a multimodal model serves is implied by the tool's config
-/// knob (image_model / video_model / tts_model / asr_model), not stored here.
+/// models used by tools (image/video/speech/transcription, context_limit 0).
+///
+/// `model_type` is the model's KIND as advertised by the gateway `/config`
+/// (`language` / `image` / `video` / `speech` / `transcription` / `embedding` /
+/// `reranking` / `realtime`), normalized to a short tag (`text` for language).
+/// It is DISPLAY/classification metadata only: which tool serves a given
+/// multimodal model is still implied by the tool's config knob
+/// (image_model / video_model / tts_model / asr_model). Empty when unknown.
 public nonisolated struct Agent_V1_ProviderModel: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -298,6 +303,11 @@ public nonisolated struct Agent_V1_ProviderModel: Sendable {
   public var name: String = String()
 
   public var contextLimit: Int64 = 0
+
+  /// Display-only kind: text | image | video | speech | transcription |
+  /// embedding | reranking | realtime (normalized from the gateway /config
+  /// modelType). Empty for a plain text provider or an unknown kind.
+  public var modelType: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -401,12 +411,17 @@ public nonisolated struct Agent_V1_PromptResponse: Sendable {
 
 /// WatchSession streams live session events (the Connect replacement for the
 /// SSE /stream endpoint): turn deltas, tool calls, errors and completions.
+/// `since` is a message id ANCHOR for incremental replay: when set, a replay
+/// starts AFTER that message (so a client that was offline still catches the
+/// turns that completed meanwhile). Empty = live-from-now (or the active run).
 public nonisolated struct Agent_V1_WatchSessionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var id: String = String()
+
+  public var since: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -609,6 +624,18 @@ public nonisolated struct Agent_V1_DeleteSessionResponse: Sendable {
   public init() {}
 }
 
+/// ListMessages reads a session's message chain. Two modes:
+///   * ANCHORED / incremental: `after` is a message id ANCHOR (a pin) the
+///     client already has. The response is the chain segment AFTER it, i.e. the
+///     walk from the current tip back to (excluding) that anchor — the messages
+///     appended since the client last synced. If the anchor is NOT on the
+///     current chain (it was withdrawn via undo, or the chain was forked), the
+///     response sets `resync=true` and the client must drop its cache and
+///     re-fetch. `tip_id` always echoes the current tip so the client can store
+///     it as the next anchor.
+///   * BACKWARD paging (existing): with `before` set (and `after` empty) the
+///     chain is read oldest→newest for `limit` messages BEFORE that cursor;
+///     with neither set, the newest `limit` messages.
 public nonisolated struct Agent_V1_ListMessagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -618,7 +645,12 @@ public nonisolated struct Agent_V1_ListMessagesRequest: Sendable {
 
   public var limit: Int32 = 0
 
+  /// Backward-paging cursor (exclusive): return messages before this id.
   public var before: String = String()
+
+  /// Incremental anchor (exclusive): return messages after this id. When the
+  /// anchor is absent from the current chain, the server signals `resync`.
+  public var after: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -633,6 +665,13 @@ public nonisolated struct Agent_V1_ListMessagesResponse: Sendable {
   public var ok: Bool = false
 
   public var messages: [Agent_V1_Message] = []
+
+  /// The anchor was not on the current chain (withdrawn/forked): the client
+  /// must discard its local copy of this session and re-fetch from scratch.
+  public var resync: Bool = false
+
+  /// Current chain tip id (store as the next `after` anchor).
+  public var tipID: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1060,6 +1099,48 @@ public nonisolated struct Agent_V1_RegisterProviderResponse: Sendable {
   // methods supported on all messages.
 
   public var ok: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// DiscoverGatewayModels asks a `vercel-compatible-gateway` for the models it
+/// serves (the gateway's `/config`) and classifies each by the advertised
+/// `modelType`: language models get a real context limit, all other kinds
+/// (image/video/speech/transcription/embedding/reranking) get 0. The gateway is
+/// the only provider that can answer this, so a non-gateway api_type is
+/// rejected.
+public nonisolated struct Agent_V1_DiscoverGatewayModelsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var providerID: String = String()
+
+  public var apiType: String = String()
+
+  public var baseURL: String = String()
+
+  public var apiKey: String = String()
+
+  public var headers: Dictionary<String,String> = [:]
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Agent_V1_DiscoverGatewayModelsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var models: [Agent_V1_ProviderModel] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2176,7 +2257,7 @@ nonisolated extension Agent_V1_Provider: SwiftProtobuf.Message, SwiftProtobuf._M
 
 nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ProviderModel"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{3}context_limit\0\u{3}model_type\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2187,6 +2268,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.contextLimit) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.modelType) }()
       default: break
       }
     }
@@ -2202,6 +2284,9 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if self.contextLimit != 0 {
       try visitor.visitSingularInt64Field(value: self.contextLimit, fieldNumber: 3)
     }
+    if !self.modelType.isEmpty {
+      try visitor.visitSingularStringField(value: self.modelType, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2209,6 +2294,7 @@ nonisolated extension Agent_V1_ProviderModel: SwiftProtobuf.Message, SwiftProtob
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.contextLimit != rhs.contextLimit {return false}
+    if lhs.modelType != rhs.modelType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2404,7 +2490,7 @@ nonisolated extension Agent_V1_PromptResponse: SwiftProtobuf.Message, SwiftProto
 
 nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".WatchSessionRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}since\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2413,6 +2499,7 @@ nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, Swift
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.since) }()
       default: break
       }
     }
@@ -2422,11 +2509,15 @@ nonisolated extension Agent_V1_WatchSessionRequest: SwiftProtobuf.Message, Swift
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
+    if !self.since.isEmpty {
+      try visitor.visitSingularStringField(value: self.since, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Agent_V1_WatchSessionRequest, rhs: Agent_V1_WatchSessionRequest) -> Bool {
     if lhs.id != rhs.id {return false}
+    if lhs.since != rhs.since {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2850,7 +2941,7 @@ nonisolated extension Agent_V1_DeleteSessionResponse: SwiftProtobuf.Message, Swi
 
 nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ListMessagesRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}limit\0\u{1}before\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}limit\0\u{1}before\0\u{1}after\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2861,6 +2952,7 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.limit) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.before) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.after) }()
       default: break
       }
     }
@@ -2876,6 +2968,9 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
     if !self.before.isEmpty {
       try visitor.visitSingularStringField(value: self.before, fieldNumber: 3)
     }
+    if !self.after.isEmpty {
+      try visitor.visitSingularStringField(value: self.after, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2883,6 +2978,7 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
     if lhs.id != rhs.id {return false}
     if lhs.limit != rhs.limit {return false}
     if lhs.before != rhs.before {return false}
+    if lhs.after != rhs.after {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2890,7 +2986,7 @@ nonisolated extension Agent_V1_ListMessagesRequest: SwiftProtobuf.Message, Swift
 
 nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ListMessagesResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}messages\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}messages\0\u{1}resync\0\u{3}tip_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2900,6 +2996,8 @@ nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, Swif
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.messages) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.resync) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.tipID) }()
       default: break
       }
     }
@@ -2912,12 +3010,20 @@ nonisolated extension Agent_V1_ListMessagesResponse: SwiftProtobuf.Message, Swif
     if !self.messages.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.messages, fieldNumber: 2)
     }
+    if self.resync != false {
+      try visitor.visitSingularBoolField(value: self.resync, fieldNumber: 3)
+    }
+    if !self.tipID.isEmpty {
+      try visitor.visitSingularStringField(value: self.tipID, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Agent_V1_ListMessagesResponse, rhs: Agent_V1_ListMessagesResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
     if lhs.messages != rhs.messages {return false}
+    if lhs.resync != rhs.resync {return false}
+    if lhs.tipID != rhs.tipID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3818,6 +3924,96 @@ nonisolated extension Agent_V1_RegisterProviderResponse: SwiftProtobuf.Message, 
 
   public static func ==(lhs: Agent_V1_RegisterProviderResponse, rhs: Agent_V1_RegisterProviderResponse) -> Bool {
     if lhs.ok != rhs.ok {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Agent_V1_DiscoverGatewayModelsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DiscoverGatewayModelsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}provider_id\0\u{3}api_type\0\u{3}base_url\0\u{3}api_key\0\u{1}headers\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.providerID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.apiType) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.baseURL) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.apiKey) }()
+      case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.headers) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.providerID.isEmpty {
+      try visitor.visitSingularStringField(value: self.providerID, fieldNumber: 1)
+    }
+    if !self.apiType.isEmpty {
+      try visitor.visitSingularStringField(value: self.apiType, fieldNumber: 2)
+    }
+    if !self.baseURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.baseURL, fieldNumber: 3)
+    }
+    if !self.apiKey.isEmpty {
+      try visitor.visitSingularStringField(value: self.apiKey, fieldNumber: 4)
+    }
+    if !self.headers.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.headers, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Agent_V1_DiscoverGatewayModelsRequest, rhs: Agent_V1_DiscoverGatewayModelsRequest) -> Bool {
+    if lhs.providerID != rhs.providerID {return false}
+    if lhs.apiType != rhs.apiType {return false}
+    if lhs.baseURL != rhs.baseURL {return false}
+    if lhs.apiKey != rhs.apiKey {return false}
+    if lhs.headers != rhs.headers {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Agent_V1_DiscoverGatewayModelsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DiscoverGatewayModelsResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{1}models\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.models) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.models.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.models, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Agent_V1_DiscoverGatewayModelsResponse, rhs: Agent_V1_DiscoverGatewayModelsResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.models != rhs.models {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

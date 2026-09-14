@@ -617,6 +617,26 @@ public protocol Easylab_V1_SandboxServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `fileList`(request: Easylab_V1_FileListRequest, headers: Connect.Headers) async -> ResponseMessage<Worker_V1_FileListResponse>
+
+    /// RegisterExternalSandbox adopts an externally-run worker (not launched by
+    /// easylab). It either claims the worker with its one-time enrollment code
+    /// (exclusive; the worker then issues a bearer token), or accepts a token
+    /// already provisioned on the worker. easylab persists the token + address so
+    /// its worker passthroughs keep working across restarts.
+    @available(iOS 13, *)
+    func `registerExternalSandbox`(request: Easylab_V1_RegisterExternalSandboxRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_RegisterExternalSandboxResponse>
+
+    /// ListExternalSandboxes returns the externally-registered workers (mode =
+    /// external), including address and owner — managed sandboxes are excluded.
+    @available(iOS 13, *)
+    func `listExternalSandboxes`(request: Easylab_V1_ListExternalSandboxesRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ListExternalSandboxesResponse>
+
+    /// ReleaseExternalSandbox revokes easylab's token on the worker and returns
+    /// the worker to the claimable state with a fresh one-time code. After a
+    /// release any caller presenting the new code may claim it. Managed sandboxes
+    /// cannot be released.
+    @available(iOS 13, *)
+    func `releaseExternalSandbox`(request: Easylab_V1_ReleaseExternalSandboxRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ReleaseExternalSandboxResponse>
 }
 
 /// Concrete implementation of `Easylab_V1_SandboxServiceClientInterface`.
@@ -707,6 +727,21 @@ public final class Easylab_V1_SandboxServiceClient: Easylab_V1_SandboxServiceCli
         return await self.client.unary(path: "/easylab.v1.SandboxService/FileList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @available(iOS 13, *)
+    public func `registerExternalSandbox`(request: Easylab_V1_RegisterExternalSandboxRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RegisterExternalSandboxResponse> {
+        return await self.client.unary(path: "/easylab.v1.SandboxService/RegisterExternalSandbox", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `listExternalSandboxes`(request: Easylab_V1_ListExternalSandboxesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListExternalSandboxesResponse> {
+        return await self.client.unary(path: "/easylab.v1.SandboxService/ListExternalSandboxes", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `releaseExternalSandbox`(request: Easylab_V1_ReleaseExternalSandboxRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ReleaseExternalSandboxResponse> {
+        return await self.client.unary(path: "/easylab.v1.SandboxService/ReleaseExternalSandbox", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let listSandboxes = Connect.MethodSpec(name: "ListSandboxes", service: "easylab.v1.SandboxService", type: .unary)
@@ -725,6 +760,9 @@ public final class Easylab_V1_SandboxServiceClient: Easylab_V1_SandboxServiceCli
             public static let syncWorkspace = Connect.MethodSpec(name: "SyncWorkspace", service: "easylab.v1.SandboxService", type: .unary)
             public static let fileWrite = Connect.MethodSpec(name: "FileWrite", service: "easylab.v1.SandboxService", type: .unary)
             public static let fileList = Connect.MethodSpec(name: "FileList", service: "easylab.v1.SandboxService", type: .unary)
+            public static let registerExternalSandbox = Connect.MethodSpec(name: "RegisterExternalSandbox", service: "easylab.v1.SandboxService", type: .unary)
+            public static let listExternalSandboxes = Connect.MethodSpec(name: "ListExternalSandboxes", service: "easylab.v1.SandboxService", type: .unary)
+            public static let releaseExternalSandbox = Connect.MethodSpec(name: "ReleaseExternalSandbox", service: "easylab.v1.SandboxService", type: .unary)
         }
     }
 }
@@ -760,6 +798,12 @@ public protocol Easylab_V1_WorkflowServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `listRunners`(request: Easylab_V1_ListRunnersRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ListRunnersResponse>
+
+    /// RunWorkflowFile loads .easylab/workflows.yaml from the branch tree and runs
+    /// the named workflow (or all when name is empty). Asynchronous: returns the
+    /// created runs (pending/running); poll GetRun / stream RunJobLog.
+    @available(iOS 13, *)
+    func `runWorkflowFile`(request: Easylab_V1_RunWorkflowFileRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_RunWorkflowFileResponse>
 }
 
 /// Concrete implementation of `Easylab_V1_WorkflowServiceClientInterface`.
@@ -820,6 +864,11 @@ public final class Easylab_V1_WorkflowServiceClient: Easylab_V1_WorkflowServiceC
         return await self.client.unary(path: "/easylab.v1.WorkflowService/ListRunners", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @available(iOS 13, *)
+    public func `runWorkflowFile`(request: Easylab_V1_RunWorkflowFileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_RunWorkflowFileResponse> {
+        return await self.client.unary(path: "/easylab.v1.WorkflowService/RunWorkflowFile", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let createWorkflow = Connect.MethodSpec(name: "CreateWorkflow", service: "easylab.v1.WorkflowService", type: .unary)
@@ -832,6 +881,99 @@ public final class Easylab_V1_WorkflowServiceClient: Easylab_V1_WorkflowServiceC
             public static let cancelRun = Connect.MethodSpec(name: "CancelRun", service: "easylab.v1.WorkflowService", type: .unary)
             public static let registerRunner = Connect.MethodSpec(name: "RegisterRunner", service: "easylab.v1.WorkflowService", type: .unary)
             public static let listRunners = Connect.MethodSpec(name: "ListRunners", service: "easylab.v1.WorkflowService", type: .unary)
+            public static let runWorkflowFile = Connect.MethodSpec(name: "RunWorkflowFile", service: "easylab.v1.WorkflowService", type: .unary)
+        }
+    }
+}
+
+/// UserService is the user administration surface. Create/Update/Delete and
+/// token minting require the admin credential (EASYLAB_ADMIN_TOKEN); reads
+/// require an authenticated caller.
+public protocol Easylab_V1_UserServiceClientInterface: Sendable {
+
+    @available(iOS 13, *)
+    func `createUser`(request: Easylab_V1_CreateUserRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_CreateUserResponse>
+
+    @available(iOS 13, *)
+    func `getUser`(request: Easylab_V1_GetUserRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_GetUserResponse>
+
+    @available(iOS 13, *)
+    func `listUsers`(request: Easylab_V1_ListUsersRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ListUsersResponse>
+
+    @available(iOS 13, *)
+    func `updateUser`(request: Easylab_V1_UpdateUserRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_UpdateUserResponse>
+
+    @available(iOS 13, *)
+    func `deleteUser`(request: Easylab_V1_DeleteUserRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_DeleteUserResponse>
+
+    @available(iOS 13, *)
+    func `listUserTokens`(request: Easylab_V1_ListUserTokensRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_ListUserTokensResponse>
+
+    @available(iOS 13, *)
+    func `createUserToken`(request: Easylab_V1_CreateUserTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_CreateUserTokenResponse>
+
+    @available(iOS 13, *)
+    func `deleteUserToken`(request: Easylab_V1_DeleteUserTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_DeleteUserTokenResponse>
+}
+
+/// Concrete implementation of `Easylab_V1_UserServiceClientInterface`.
+public final class Easylab_V1_UserServiceClient: Easylab_V1_UserServiceClientInterface, Sendable {
+    private let client: Connect.ProtocolClientInterface
+
+    public init(client: Connect.ProtocolClientInterface) {
+        self.client = client
+    }
+
+    @available(iOS 13, *)
+    public func `createUser`(request: Easylab_V1_CreateUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateUserResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/CreateUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `getUser`(request: Easylab_V1_GetUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_GetUserResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/GetUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `listUsers`(request: Easylab_V1_ListUsersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListUsersResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/ListUsers", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `updateUser`(request: Easylab_V1_UpdateUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_UpdateUserResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/UpdateUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `deleteUser`(request: Easylab_V1_DeleteUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteUserResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/DeleteUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `listUserTokens`(request: Easylab_V1_ListUserTokensRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_ListUserTokensResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/ListUserTokens", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `createUserToken`(request: Easylab_V1_CreateUserTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_CreateUserTokenResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/CreateUserToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `deleteUserToken`(request: Easylab_V1_DeleteUserTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_DeleteUserTokenResponse> {
+        return await self.client.unary(path: "/easylab.v1.UserService/DeleteUserToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    public enum Metadata {
+        public enum Methods {
+            public static let createUser = Connect.MethodSpec(name: "CreateUser", service: "easylab.v1.UserService", type: .unary)
+            public static let getUser = Connect.MethodSpec(name: "GetUser", service: "easylab.v1.UserService", type: .unary)
+            public static let listUsers = Connect.MethodSpec(name: "ListUsers", service: "easylab.v1.UserService", type: .unary)
+            public static let updateUser = Connect.MethodSpec(name: "UpdateUser", service: "easylab.v1.UserService", type: .unary)
+            public static let deleteUser = Connect.MethodSpec(name: "DeleteUser", service: "easylab.v1.UserService", type: .unary)
+            public static let listUserTokens = Connect.MethodSpec(name: "ListUserTokens", service: "easylab.v1.UserService", type: .unary)
+            public static let createUserToken = Connect.MethodSpec(name: "CreateUserToken", service: "easylab.v1.UserService", type: .unary)
+            public static let deleteUserToken = Connect.MethodSpec(name: "DeleteUserToken", service: "easylab.v1.UserService", type: .unary)
         }
     }
 }
