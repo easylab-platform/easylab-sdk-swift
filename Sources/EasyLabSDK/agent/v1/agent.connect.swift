@@ -386,3 +386,94 @@ public final class Agent_V1_AgentServiceClient: Agent_V1_AgentServiceClientInter
         }
     }
 }
+
+/// AdminService manages tenants and their tokens. All RPCs require the static
+/// admin bearer token and are never reachable with a tenant token.
+public protocol Agent_V1_AdminServiceClientInterface: Sendable {
+
+    @available(iOS 13, *)
+    func `listTenants`(request: Agent_V1_ListTenantsRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_ListTenantsResponse>
+
+    @available(iOS 13, *)
+    func `createTenant`(request: Agent_V1_CreateTenantRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_CreateTenantResponse>
+
+    @available(iOS 13, *)
+    func `updateTenant`(request: Agent_V1_UpdateTenantRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_UpdateTenantResponse>
+
+    @available(iOS 13, *)
+    func `deleteTenant`(request: Agent_V1_DeleteTenantRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_DeleteTenantResponse>
+
+    @available(iOS 13, *)
+    func `issueTenantToken`(request: Agent_V1_IssueTenantTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_IssueTenantTokenResponse>
+
+    @available(iOS 13, *)
+    func `listTenantTokens`(request: Agent_V1_ListTenantTokensRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_ListTenantTokensResponse>
+
+    @available(iOS 13, *)
+    func `revokeTenantToken`(request: Agent_V1_RevokeTenantTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_RevokeTenantTokenResponse>
+
+    @available(iOS 13, *)
+    func `rotateTenantToken`(request: Agent_V1_RotateTenantTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Agent_V1_RotateTenantTokenResponse>
+}
+
+/// Concrete implementation of `Agent_V1_AdminServiceClientInterface`.
+public final class Agent_V1_AdminServiceClient: Agent_V1_AdminServiceClientInterface, Sendable {
+    private let client: Connect.ProtocolClientInterface
+
+    public init(client: Connect.ProtocolClientInterface) {
+        self.client = client
+    }
+
+    @available(iOS 13, *)
+    public func `listTenants`(request: Agent_V1_ListTenantsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListTenantsResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/ListTenants", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `createTenant`(request: Agent_V1_CreateTenantRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_CreateTenantResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/CreateTenant", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `updateTenant`(request: Agent_V1_UpdateTenantRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_UpdateTenantResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/UpdateTenant", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `deleteTenant`(request: Agent_V1_DeleteTenantRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_DeleteTenantResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/DeleteTenant", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `issueTenantToken`(request: Agent_V1_IssueTenantTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_IssueTenantTokenResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/IssueTenantToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `listTenantTokens`(request: Agent_V1_ListTenantTokensRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_ListTenantTokensResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/ListTenantTokens", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `revokeTenantToken`(request: Agent_V1_RevokeTenantTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RevokeTenantTokenResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/RevokeTenantToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
+    public func `rotateTenantToken`(request: Agent_V1_RotateTenantTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Agent_V1_RotateTenantTokenResponse> {
+        return await self.client.unary(path: "/agent.v1.AdminService/RotateTenantToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    public enum Metadata {
+        public enum Methods {
+            public static let listTenants = Connect.MethodSpec(name: "ListTenants", service: "agent.v1.AdminService", type: .unary)
+            public static let createTenant = Connect.MethodSpec(name: "CreateTenant", service: "agent.v1.AdminService", type: .unary)
+            public static let updateTenant = Connect.MethodSpec(name: "UpdateTenant", service: "agent.v1.AdminService", type: .unary)
+            public static let deleteTenant = Connect.MethodSpec(name: "DeleteTenant", service: "agent.v1.AdminService", type: .unary)
+            public static let issueTenantToken = Connect.MethodSpec(name: "IssueTenantToken", service: "agent.v1.AdminService", type: .unary)
+            public static let listTenantTokens = Connect.MethodSpec(name: "ListTenantTokens", service: "agent.v1.AdminService", type: .unary)
+            public static let revokeTenantToken = Connect.MethodSpec(name: "RevokeTenantToken", service: "agent.v1.AdminService", type: .unary)
+            public static let rotateTenantToken = Connect.MethodSpec(name: "RotateTenantToken", service: "agent.v1.AdminService", type: .unary)
+        }
+    }
+}
