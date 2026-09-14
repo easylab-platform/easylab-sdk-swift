@@ -1204,95 +1204,6 @@ public nonisolated struct Easylab_V1_SandboxJobKillResponse: Sendable {
   public init() {}
 }
 
-public nonisolated struct Easylab_V1_TaskLogRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var id: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public nonisolated struct Easylab_V1_ListTasksRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public nonisolated struct Easylab_V1_TaskEntry: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var id: String = String()
-
-  public var kind: String = String()
-
-  public var state: String = String()
-
-  public var session: String = String()
-
-  public var command: String = String()
-
-  public var createdAt: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public nonisolated struct Easylab_V1_ListTasksResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var tasks: [Easylab_V1_TaskEntry] = []
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public nonisolated struct Easylab_V1_GetTaskRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var id: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public nonisolated struct Easylab_V1_GetTaskResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var task: Easylab_V1_TaskEntry {
-    get {_task ?? Easylab_V1_TaskEntry()}
-    set {_task = newValue}
-  }
-  /// Returns true if `task` has been explicitly set.
-  public var hasTask: Bool {self._task != nil}
-  /// Clears the value of `task`. Subsequent reads from it will return its default value.
-  public mutating func clearTask() {self._task = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _task: Easylab_V1_TaskEntry? = nil
-}
-
 public nonisolated struct Easylab_V1_OpsStatusRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1872,21 +1783,6 @@ public nonisolated struct Easylab_V1_SyncResponse: Sendable {
   public init() {}
 }
 
-public nonisolated struct Easylab_V1_TaskLogResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  /// stdout | stderr | state
-  public var stream: String = String()
-
-  public var line: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
 public nonisolated struct Easylab_V1_DeleteOrgRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2211,6 +2107,953 @@ public nonisolated struct Easylab_V1_OCICatalogResponse: Sendable {
   // methods supported on all messages.
 
   public var repositories: [String] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// UpdateRepo patches a repository's hosting metadata (owner-only fields like
+/// visibility are authorized server-side).
+public nonisolated struct Easylab_V1_UpdateRepoRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var description_p: String {
+    get {_description_p ?? String()}
+    set {_description_p = newValue}
+  }
+  /// Returns true if `description_p` has been explicitly set.
+  public var hasDescription_p: Bool {self._description_p != nil}
+  /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
+  public mutating func clearDescription_p() {self._description_p = nil}
+
+  /// public | private
+  public var visibility: String {
+    get {_visibility ?? String()}
+    set {_visibility = newValue}
+  }
+  /// Returns true if `visibility` has been explicitly set.
+  public var hasVisibility: Bool {self._visibility != nil}
+  /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
+  public mutating func clearVisibility() {self._visibility = nil}
+
+  public var defaultBranch: String {
+    get {_defaultBranch ?? String()}
+    set {_defaultBranch = newValue}
+  }
+  /// Returns true if `defaultBranch` has been explicitly set.
+  public var hasDefaultBranch: Bool {self._defaultBranch != nil}
+  /// Clears the value of `defaultBranch`. Subsequent reads from it will return its default value.
+  public mutating func clearDefaultBranch() {self._defaultBranch = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _description_p: String? = nil
+  fileprivate var _visibility: String? = nil
+  fileprivate var _defaultBranch: String? = nil
+}
+
+public nonisolated struct Easylab_V1_UpdateRepoResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Repo permission roles (a user IS the ownership boundary; owner comes from
+/// the namespace owner, maintainer/developer are explicit grants).
+public nonisolated struct Easylab_V1_RepoMember: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var username: String = String()
+
+  /// owner | maintainer | developer
+  public var role: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListRepoMembersRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListRepoMembersResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var members: [Easylab_V1_RepoMember] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SetRepoMemberRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var username: String = String()
+
+  /// maintainer | developer (owner is the namespace owner)
+  public var role: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SetRepoMemberResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RemoveRepoMemberRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var username: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RemoveRepoMemberResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// SetTag / DeleteTag manage immutable tag refs; DeleteBranch already exists.
+public nonisolated struct Easylab_V1_SetTagRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var name: String = String()
+
+  public var target: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SetTagResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_DeleteTagRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var name: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_DeleteTagResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// FileChange is one atomic path action inside WriteFiles.
+public nonisolated struct Easylab_V1_FileChange: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var path: String = String()
+
+  public var content: String = String()
+
+  public var raw: Data = Data()
+
+  public var delete: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// WriteFiles commits one or more file changes onto a branch in a single
+/// revision (the REST /files endpoint's RPC form).
+public nonisolated struct Easylab_V1_WriteFilesRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var ref: String = String()
+
+  public var message: String = String()
+
+  public var changes: [Easylab_V1_FileChange] = []
+
+  public var newCommit: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_WriteFilesResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var changeID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Drop/Revert/Resolve/Squash/RebaseMany are the remaining history-edit ops.
+public nonisolated struct Easylab_V1_DropRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var rev: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_DropResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var changeID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RevertRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var rev: String = String()
+
+  public var target: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RevertResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var changeID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ResolveRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var path: String = String()
+
+  public var content: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ResolveResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var changeID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SquashRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var rev: String = String()
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SquashResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var changeID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RebaseManyRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var revs: [String] = []
+
+  public var onto: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_RebaseManyResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Releases (write side; List/Download already exist).
+public nonisolated struct Easylab_V1_CreateReleaseRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var tag: String = String()
+
+  public var name: String = String()
+
+  public var description_p: String = String()
+
+  public var draft: Bool = false
+
+  public var prerelease: Bool = false
+
+  public var target: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_CreateReleaseResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var tag: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_UploadReleaseAssetRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var tag: String = String()
+
+  public var name: String = String()
+
+  public var data: Data = Data()
+
+  public var contentType: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_UploadReleaseAssetResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var name: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_DeleteReleaseRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var tag: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_DeleteReleaseResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Merge requests (fork→upstream change requests).
+public nonisolated struct Easylab_V1_MergeRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var iid: String = String()
+
+  public var title: String = String()
+
+  public var description_p: String = String()
+
+  public var source: String = String()
+
+  public var target: String = String()
+
+  public var state: String = String()
+
+  public var author: String = String()
+
+  public var createdAt: String = String()
+
+  public var updatedAt: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListMergeRequestsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var state: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListMergeRequestsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var mergeRequests: [Easylab_V1_MergeRequest] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_GetMergeRequestRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_GetMergeRequestResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var mergeRequest: Easylab_V1_MergeRequest {
+    get {_mergeRequest ?? Easylab_V1_MergeRequest()}
+    set {_mergeRequest = newValue}
+  }
+  /// Returns true if `mergeRequest` has been explicitly set.
+  public var hasMergeRequest: Bool {self._mergeRequest != nil}
+  /// Clears the value of `mergeRequest`. Subsequent reads from it will return its default value.
+  public mutating func clearMergeRequest() {self._mergeRequest = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _mergeRequest: Easylab_V1_MergeRequest? = nil
+}
+
+public nonisolated struct Easylab_V1_CreateMergeRequestRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var title: String = String()
+
+  public var description_p: String = String()
+
+  public var source: String = String()
+
+  public var target: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_CreateMergeRequestResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var mergeRequest: Easylab_V1_MergeRequest {
+    get {_mergeRequest ?? Easylab_V1_MergeRequest()}
+    set {_mergeRequest = newValue}
+  }
+  /// Returns true if `mergeRequest` has been explicitly set.
+  public var hasMergeRequest: Bool {self._mergeRequest != nil}
+  /// Clears the value of `mergeRequest`. Subsequent reads from it will return its default value.
+  public mutating func clearMergeRequest() {self._mergeRequest = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _mergeRequest: Easylab_V1_MergeRequest? = nil
+}
+
+public nonisolated struct Easylab_V1_UpdateMergeRequestRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var state: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_UpdateMergeRequestResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_MergeMergeRequestRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_MergeMergeRequestResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var revisionID: String = String()
+
+  public var snapshot: String = String()
+
+  public var conflicts: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_MergeReview: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var reviewer: String = String()
+
+  public var state: String = String()
+
+  public var body: String = String()
+
+  public var createdAt: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListReviewsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListReviewsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var reviews: [Easylab_V1_MergeReview] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_AddReviewRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var state: String = String()
+
+  public var body: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_AddReviewResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_MergeComment: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var author: String = String()
+
+  public var body: String = String()
+
+  public var path: String = String()
+
+  public var createdAt: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListCommentsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_ListCommentsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var comments: [Easylab_V1_MergeComment] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_AddCommentRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
+  public var iid: String = String()
+
+  public var body: String = String()
+
+  public var path: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_AddCommentResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6592,204 +7435,6 @@ nonisolated extension Easylab_V1_SandboxJobKillResponse: SwiftProtobuf.Message, 
   }
 }
 
-nonisolated extension Easylab_V1_TaskLogRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TaskLogRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.id.isEmpty {
-      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_TaskLogRequest, rhs: Easylab_V1_TaskLogRequest) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-nonisolated extension Easylab_V1_ListTasksRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListTasksRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_ListTasksRequest, rhs: Easylab_V1_ListTasksRequest) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-nonisolated extension Easylab_V1_TaskEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TaskEntry"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}kind\0\u{1}state\0\u{1}session\0\u{1}command\0\u{3}created_at\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.kind) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.state) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.session) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.command) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.createdAt) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.id.isEmpty {
-      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
-    }
-    if !self.kind.isEmpty {
-      try visitor.visitSingularStringField(value: self.kind, fieldNumber: 2)
-    }
-    if !self.state.isEmpty {
-      try visitor.visitSingularStringField(value: self.state, fieldNumber: 3)
-    }
-    if !self.session.isEmpty {
-      try visitor.visitSingularStringField(value: self.session, fieldNumber: 4)
-    }
-    if !self.command.isEmpty {
-      try visitor.visitSingularStringField(value: self.command, fieldNumber: 5)
-    }
-    if !self.createdAt.isEmpty {
-      try visitor.visitSingularStringField(value: self.createdAt, fieldNumber: 6)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_TaskEntry, rhs: Easylab_V1_TaskEntry) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.kind != rhs.kind {return false}
-    if lhs.state != rhs.state {return false}
-    if lhs.session != rhs.session {return false}
-    if lhs.command != rhs.command {return false}
-    if lhs.createdAt != rhs.createdAt {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-nonisolated extension Easylab_V1_ListTasksResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListTasksResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tasks\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.tasks) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.tasks.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.tasks, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_ListTasksResponse, rhs: Easylab_V1_ListTasksResponse) -> Bool {
-    if lhs.tasks != rhs.tasks {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-nonisolated extension Easylab_V1_GetTaskRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetTaskRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.id.isEmpty {
-      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_GetTaskRequest, rhs: Easylab_V1_GetTaskRequest) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-nonisolated extension Easylab_V1_GetTaskResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetTaskResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}task\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._task) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._task {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_GetTaskResponse, rhs: Easylab_V1_GetTaskResponse) -> Bool {
-    if lhs._task != rhs._task {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 nonisolated extension Easylab_V1_OpsStatusRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".OpsStatusRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -8189,41 +8834,6 @@ nonisolated extension Easylab_V1_SyncResponse: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-nonisolated extension Easylab_V1_TaskLogResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TaskLogResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stream\0\u{1}line\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.stream) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.line) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.stream.isEmpty {
-      try visitor.visitSingularStringField(value: self.stream, fieldNumber: 1)
-    }
-    if !self.line.isEmpty {
-      try visitor.visitSingularStringField(value: self.line, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Easylab_V1_TaskLogResponse, rhs: Easylab_V1_TaskLogResponse) -> Bool {
-    if lhs.stream != rhs.stream {return false}
-    if lhs.line != rhs.line {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 nonisolated extension Easylab_V1_DeleteOrgRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteOrgRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0")
@@ -9017,6 +9627,2243 @@ nonisolated extension Easylab_V1_OCICatalogResponse: SwiftProtobuf.Message, Swif
 
   public static func ==(lhs: Easylab_V1_OCICatalogResponse, rhs: Easylab_V1_OCICatalogResponse) -> Bool {
     if lhs.repositories != rhs.repositories {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UpdateRepoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateRepoRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}description\0\u{1}visibility\0\u{3}default_branch\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._description_p) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self._visibility) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self._defaultBranch) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    try { if let v = self._description_p {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._visibility {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._defaultBranch {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UpdateRepoRequest, rhs: Easylab_V1_UpdateRepoRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs._description_p != rhs._description_p {return false}
+    if lhs._visibility != rhs._visibility {return false}
+    if lhs._defaultBranch != rhs._defaultBranch {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UpdateRepoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateRepoResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UpdateRepoResponse, rhs: Easylab_V1_UpdateRepoResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RepoMember: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RepoMember"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}username\0\u{1}role\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.username) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.role) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.username.isEmpty {
+      try visitor.visitSingularStringField(value: self.username, fieldNumber: 1)
+    }
+    if !self.role.isEmpty {
+      try visitor.visitSingularStringField(value: self.role, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RepoMember, rhs: Easylab_V1_RepoMember) -> Bool {
+    if lhs.username != rhs.username {return false}
+    if lhs.role != rhs.role {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListRepoMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListRepoMembersRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListRepoMembersRequest, rhs: Easylab_V1_ListRepoMembersRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListRepoMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListRepoMembersResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}members\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.members) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.members.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.members, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListRepoMembersResponse, rhs: Easylab_V1_ListRepoMembersResponse) -> Bool {
+    if lhs.members != rhs.members {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetRepoMemberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetRepoMemberRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}username\0\u{1}role\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.username) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.role) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.username.isEmpty {
+      try visitor.visitSingularStringField(value: self.username, fieldNumber: 3)
+    }
+    if !self.role.isEmpty {
+      try visitor.visitSingularStringField(value: self.role, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetRepoMemberRequest, rhs: Easylab_V1_SetRepoMemberRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.username != rhs.username {return false}
+    if lhs.role != rhs.role {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetRepoMemberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetRepoMemberResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetRepoMemberResponse, rhs: Easylab_V1_SetRepoMemberResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RemoveRepoMemberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RemoveRepoMemberRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}username\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.username) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.username.isEmpty {
+      try visitor.visitSingularStringField(value: self.username, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RemoveRepoMemberRequest, rhs: Easylab_V1_RemoveRepoMemberRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.username != rhs.username {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RemoveRepoMemberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RemoveRepoMemberResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RemoveRepoMemberResponse, rhs: Easylab_V1_RemoveRepoMemberResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetTagRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}name\0\u{1}target\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.target) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
+    }
+    if !self.target.isEmpty {
+      try visitor.visitSingularStringField(value: self.target, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetTagRequest, rhs: Easylab_V1_SetTagRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.target != rhs.target {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetTagResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetTagResponse, rhs: Easylab_V1_SetTagResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DeleteTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteTagRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}name\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DeleteTagRequest, rhs: Easylab_V1_DeleteTagRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DeleteTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteTagResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DeleteTagResponse, rhs: Easylab_V1_DeleteTagResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_FileChange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FileChange"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}path\0\u{1}content\0\u{1}raw\0\u{1}delete\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.path) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.raw) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.delete) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.path.isEmpty {
+      try visitor.visitSingularStringField(value: self.path, fieldNumber: 1)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
+    }
+    if !self.raw.isEmpty {
+      try visitor.visitSingularBytesField(value: self.raw, fieldNumber: 3)
+    }
+    if self.delete != false {
+      try visitor.visitSingularBoolField(value: self.delete, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_FileChange, rhs: Easylab_V1_FileChange) -> Bool {
+    if lhs.path != rhs.path {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.raw != rhs.raw {return false}
+    if lhs.delete != rhs.delete {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_WriteFilesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".WriteFilesRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}ref\0\u{1}message\0\u{1}changes\0\u{3}new_commit\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.ref) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.changes) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.newCommit) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.ref.isEmpty {
+      try visitor.visitSingularStringField(value: self.ref, fieldNumber: 3)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 4)
+    }
+    if !self.changes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.changes, fieldNumber: 5)
+    }
+    if self.newCommit != false {
+      try visitor.visitSingularBoolField(value: self.newCommit, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_WriteFilesRequest, rhs: Easylab_V1_WriteFilesRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.ref != rhs.ref {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.changes != rhs.changes {return false}
+    if lhs.newCommit != rhs.newCommit {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_WriteFilesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".WriteFilesResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{3}change_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.changeID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.changeID.isEmpty {
+      try visitor.visitSingularStringField(value: self.changeID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_WriteFilesResponse, rhs: Easylab_V1_WriteFilesResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.changeID != rhs.changeID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DropRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DropRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}rev\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.rev) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.rev.isEmpty {
+      try visitor.visitSingularStringField(value: self.rev, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DropRequest, rhs: Easylab_V1_DropRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.rev != rhs.rev {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DropResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DropResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{3}change_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.changeID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.changeID.isEmpty {
+      try visitor.visitSingularStringField(value: self.changeID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DropResponse, rhs: Easylab_V1_DropResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.changeID != rhs.changeID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RevertRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RevertRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}rev\0\u{1}target\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.rev) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.target) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.rev.isEmpty {
+      try visitor.visitSingularStringField(value: self.rev, fieldNumber: 3)
+    }
+    if !self.target.isEmpty {
+      try visitor.visitSingularStringField(value: self.target, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RevertRequest, rhs: Easylab_V1_RevertRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.rev != rhs.rev {return false}
+    if lhs.target != rhs.target {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RevertResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RevertResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{3}change_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.changeID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.changeID.isEmpty {
+      try visitor.visitSingularStringField(value: self.changeID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RevertResponse, rhs: Easylab_V1_RevertResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.changeID != rhs.changeID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ResolveRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ResolveRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}path\0\u{1}content\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.path) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.path.isEmpty {
+      try visitor.visitSingularStringField(value: self.path, fieldNumber: 3)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ResolveRequest, rhs: Easylab_V1_ResolveRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.path != rhs.path {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ResolveResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ResolveResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{3}change_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.changeID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.changeID.isEmpty {
+      try visitor.visitSingularStringField(value: self.changeID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ResolveResponse, rhs: Easylab_V1_ResolveResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.changeID != rhs.changeID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SquashRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SquashRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}rev\0\u{1}message\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.rev) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.rev.isEmpty {
+      try visitor.visitSingularStringField(value: self.rev, fieldNumber: 3)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SquashRequest, rhs: Easylab_V1_SquashRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.rev != rhs.rev {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SquashResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SquashResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{3}change_id\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.changeID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.changeID.isEmpty {
+      try visitor.visitSingularStringField(value: self.changeID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SquashResponse, rhs: Easylab_V1_SquashResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.changeID != rhs.changeID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RebaseManyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RebaseManyRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}revs\0\u{1}onto\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.revs) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.onto) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.revs.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.revs, fieldNumber: 3)
+    }
+    if !self.onto.isEmpty {
+      try visitor.visitSingularStringField(value: self.onto, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RebaseManyRequest, rhs: Easylab_V1_RebaseManyRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.revs != rhs.revs {return false}
+    if lhs.onto != rhs.onto {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_RebaseManyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RebaseManyResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_RebaseManyResponse, rhs: Easylab_V1_RebaseManyResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_CreateReleaseRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateReleaseRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}tag\0\u{1}name\0\u{1}description\0\u{1}draft\0\u{1}prerelease\0\u{1}target\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.tag) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.draft) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.prerelease) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.target) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.tag.isEmpty {
+      try visitor.visitSingularStringField(value: self.tag, fieldNumber: 3)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 5)
+    }
+    if self.draft != false {
+      try visitor.visitSingularBoolField(value: self.draft, fieldNumber: 6)
+    }
+    if self.prerelease != false {
+      try visitor.visitSingularBoolField(value: self.prerelease, fieldNumber: 7)
+    }
+    if !self.target.isEmpty {
+      try visitor.visitSingularStringField(value: self.target, fieldNumber: 8)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_CreateReleaseRequest, rhs: Easylab_V1_CreateReleaseRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.tag != rhs.tag {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.draft != rhs.draft {return false}
+    if lhs.prerelease != rhs.prerelease {return false}
+    if lhs.target != rhs.target {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_CreateReleaseResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateReleaseResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{1}tag\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.tag) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.tag.isEmpty {
+      try visitor.visitSingularStringField(value: self.tag, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_CreateReleaseResponse, rhs: Easylab_V1_CreateReleaseResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.tag != rhs.tag {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UploadReleaseAssetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UploadReleaseAssetRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}tag\0\u{1}name\0\u{1}data\0\u{3}content_type\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.tag) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 5: try { try decoder.decodeSingularBytesField(value: &self.data) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.contentType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.tag.isEmpty {
+      try visitor.visitSingularStringField(value: self.tag, fieldNumber: 3)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
+    }
+    if !self.data.isEmpty {
+      try visitor.visitSingularBytesField(value: self.data, fieldNumber: 5)
+    }
+    if !self.contentType.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentType, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UploadReleaseAssetRequest, rhs: Easylab_V1_UploadReleaseAssetRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.tag != rhs.tag {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.data != rhs.data {return false}
+    if lhs.contentType != rhs.contentType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UploadReleaseAssetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UploadReleaseAssetResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{1}name\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UploadReleaseAssetResponse, rhs: Easylab_V1_UploadReleaseAssetResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DeleteReleaseRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteReleaseRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}tag\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.tag) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.tag.isEmpty {
+      try visitor.visitSingularStringField(value: self.tag, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DeleteReleaseRequest, rhs: Easylab_V1_DeleteReleaseRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.tag != rhs.tag {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_DeleteReleaseResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteReleaseResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_DeleteReleaseResponse, rhs: Easylab_V1_DeleteReleaseResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_MergeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MergeRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}iid\0\u{1}title\0\u{1}description\0\u{1}source\0\u{1}target\0\u{1}state\0\u{1}author\0\u{3}created_at\0\u{3}updated_at\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.source) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.target) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.state) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.author) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.createdAt) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.updatedAt) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 1)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 2)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 3)
+    }
+    if !self.source.isEmpty {
+      try visitor.visitSingularStringField(value: self.source, fieldNumber: 4)
+    }
+    if !self.target.isEmpty {
+      try visitor.visitSingularStringField(value: self.target, fieldNumber: 5)
+    }
+    if !self.state.isEmpty {
+      try visitor.visitSingularStringField(value: self.state, fieldNumber: 6)
+    }
+    if !self.author.isEmpty {
+      try visitor.visitSingularStringField(value: self.author, fieldNumber: 7)
+    }
+    if !self.createdAt.isEmpty {
+      try visitor.visitSingularStringField(value: self.createdAt, fieldNumber: 8)
+    }
+    if !self.updatedAt.isEmpty {
+      try visitor.visitSingularStringField(value: self.updatedAt, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_MergeRequest, rhs: Easylab_V1_MergeRequest) -> Bool {
+    if lhs.iid != rhs.iid {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.source != rhs.source {return false}
+    if lhs.target != rhs.target {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.author != rhs.author {return false}
+    if lhs.createdAt != rhs.createdAt {return false}
+    if lhs.updatedAt != rhs.updatedAt {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListMergeRequestsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListMergeRequestsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}state\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.state) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.state.isEmpty {
+      try visitor.visitSingularStringField(value: self.state, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListMergeRequestsRequest, rhs: Easylab_V1_ListMergeRequestsRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListMergeRequestsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListMergeRequestsResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}merge_requests\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.mergeRequests) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.mergeRequests.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.mergeRequests, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListMergeRequestsResponse, rhs: Easylab_V1_ListMergeRequestsResponse) -> Bool {
+    if lhs.mergeRequests != rhs.mergeRequests {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_GetMergeRequestRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetMergeRequestRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_GetMergeRequestRequest, rhs: Easylab_V1_GetMergeRequestRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_GetMergeRequestResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetMergeRequestResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}merge_request\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._mergeRequest) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._mergeRequest {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_GetMergeRequestResponse, rhs: Easylab_V1_GetMergeRequestResponse) -> Bool {
+    if lhs._mergeRequest != rhs._mergeRequest {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_CreateMergeRequestRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateMergeRequestRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}title\0\u{1}description\0\u{1}source\0\u{1}target\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.source) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.target) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 3)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 4)
+    }
+    if !self.source.isEmpty {
+      try visitor.visitSingularStringField(value: self.source, fieldNumber: 5)
+    }
+    if !self.target.isEmpty {
+      try visitor.visitSingularStringField(value: self.target, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_CreateMergeRequestRequest, rhs: Easylab_V1_CreateMergeRequestRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.source != rhs.source {return false}
+    if lhs.target != rhs.target {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_CreateMergeRequestResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateMergeRequestResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}merge_request\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._mergeRequest) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try { if let v = self._mergeRequest {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_CreateMergeRequestResponse, rhs: Easylab_V1_CreateMergeRequestResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs._mergeRequest != rhs._mergeRequest {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UpdateMergeRequestRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateMergeRequestRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0\u{1}state\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.state) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    if !self.state.isEmpty {
+      try visitor.visitSingularStringField(value: self.state, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UpdateMergeRequestRequest, rhs: Easylab_V1_UpdateMergeRequestRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_UpdateMergeRequestResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateMergeRequestResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_UpdateMergeRequestResponse, rhs: Easylab_V1_UpdateMergeRequestResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_MergeMergeRequestRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MergeMergeRequestRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_MergeMergeRequestRequest, rhs: Easylab_V1_MergeMergeRequestRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_MergeMergeRequestResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MergeMergeRequestResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0\u{3}revision_id\0\u{1}snapshot\0\u{1}conflicts\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.snapshot) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.conflicts) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 3)
+    }
+    if !self.snapshot.isEmpty {
+      try visitor.visitSingularStringField(value: self.snapshot, fieldNumber: 4)
+    }
+    if self.conflicts != 0 {
+      try visitor.visitSingularInt32Field(value: self.conflicts, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_MergeMergeRequestResponse, rhs: Easylab_V1_MergeMergeRequestResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.snapshot != rhs.snapshot {return false}
+    if lhs.conflicts != rhs.conflicts {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_MergeReview: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MergeReview"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}reviewer\0\u{1}state\0\u{1}body\0\u{3}created_at\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.reviewer) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.state) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.body) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.createdAt) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.reviewer.isEmpty {
+      try visitor.visitSingularStringField(value: self.reviewer, fieldNumber: 1)
+    }
+    if !self.state.isEmpty {
+      try visitor.visitSingularStringField(value: self.state, fieldNumber: 2)
+    }
+    if !self.body.isEmpty {
+      try visitor.visitSingularStringField(value: self.body, fieldNumber: 3)
+    }
+    if !self.createdAt.isEmpty {
+      try visitor.visitSingularStringField(value: self.createdAt, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_MergeReview, rhs: Easylab_V1_MergeReview) -> Bool {
+    if lhs.reviewer != rhs.reviewer {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.body != rhs.body {return false}
+    if lhs.createdAt != rhs.createdAt {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListReviewsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListReviewsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListReviewsRequest, rhs: Easylab_V1_ListReviewsRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListReviewsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListReviewsResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}reviews\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.reviews) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.reviews.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.reviews, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListReviewsResponse, rhs: Easylab_V1_ListReviewsResponse) -> Bool {
+    if lhs.reviews != rhs.reviews {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_AddReviewRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AddReviewRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0\u{1}state\0\u{1}body\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.state) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.body) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    if !self.state.isEmpty {
+      try visitor.visitSingularStringField(value: self.state, fieldNumber: 4)
+    }
+    if !self.body.isEmpty {
+      try visitor.visitSingularStringField(value: self.body, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_AddReviewRequest, rhs: Easylab_V1_AddReviewRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.body != rhs.body {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_AddReviewResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AddReviewResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_AddReviewResponse, rhs: Easylab_V1_AddReviewResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_MergeComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MergeComment"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}author\0\u{1}body\0\u{1}path\0\u{3}created_at\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.author) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.body) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.path) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.createdAt) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.author.isEmpty {
+      try visitor.visitSingularStringField(value: self.author, fieldNumber: 1)
+    }
+    if !self.body.isEmpty {
+      try visitor.visitSingularStringField(value: self.body, fieldNumber: 2)
+    }
+    if !self.path.isEmpty {
+      try visitor.visitSingularStringField(value: self.path, fieldNumber: 3)
+    }
+    if !self.createdAt.isEmpty {
+      try visitor.visitSingularStringField(value: self.createdAt, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_MergeComment, rhs: Easylab_V1_MergeComment) -> Bool {
+    if lhs.author != rhs.author {return false}
+    if lhs.body != rhs.body {return false}
+    if lhs.path != rhs.path {return false}
+    if lhs.createdAt != rhs.createdAt {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListCommentsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListCommentsRequest, rhs: Easylab_V1_ListCommentsRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_ListCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListCommentsResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}comments\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.comments) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.comments.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.comments, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_ListCommentsResponse, rhs: Easylab_V1_ListCommentsResponse) -> Bool {
+    if lhs.comments != rhs.comments {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_AddCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AddCommentRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}org\0\u{1}repo\0\u{1}iid\0\u{1}body\0\u{1}path\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.repo) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.iid) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.body) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.path) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 1)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 2)
+    }
+    if !self.iid.isEmpty {
+      try visitor.visitSingularStringField(value: self.iid, fieldNumber: 3)
+    }
+    if !self.body.isEmpty {
+      try visitor.visitSingularStringField(value: self.body, fieldNumber: 4)
+    }
+    if !self.path.isEmpty {
+      try visitor.visitSingularStringField(value: self.path, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_AddCommentRequest, rhs: Easylab_V1_AddCommentRequest) -> Bool {
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
+    if lhs.iid != rhs.iid {return false}
+    if lhs.body != rhs.body {return false}
+    if lhs.path != rhs.path {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_AddCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AddCommentResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_AddCommentResponse, rhs: Easylab_V1_AddCommentResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
