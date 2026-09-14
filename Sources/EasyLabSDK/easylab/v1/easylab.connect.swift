@@ -504,6 +504,11 @@ public protocol Easylab_V1_RegistryServiceClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `ocicatalog`(request: Easylab_V1_OCICatalogRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_OCICatalogResponse>
+
+    /// SetPackageVisibility flips a package's visibility (public|private). Requires
+    /// maintainer+ on the package's scope (mapped repository, else owning user).
+    @available(iOS 13, *)
+    func `setPackageVisibility`(request: Easylab_V1_SetPackageVisibilityRequest, headers: Connect.Headers) async -> ResponseMessage<Easylab_V1_SetPackageVisibilityResponse>
 }
 
 /// Concrete implementation of `Easylab_V1_RegistryServiceClientInterface`.
@@ -549,6 +554,11 @@ public final class Easylab_V1_RegistryServiceClient: Easylab_V1_RegistryServiceC
         return await self.client.unary(path: "/easylab.v1.RegistryService/OCICatalog", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @available(iOS 13, *)
+    public func `setPackageVisibility`(request: Easylab_V1_SetPackageVisibilityRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Easylab_V1_SetPackageVisibilityResponse> {
+        return await self.client.unary(path: "/easylab.v1.RegistryService/SetPackageVisibility", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let listPackageTypes = Connect.MethodSpec(name: "ListPackageTypes", service: "easylab.v1.RegistryService", type: .unary)
@@ -558,6 +568,7 @@ public final class Easylab_V1_RegistryServiceClient: Easylab_V1_RegistryServiceC
             public static let deletePackageVersion = Connect.MethodSpec(name: "DeletePackageVersion", service: "easylab.v1.RegistryService", type: .unary)
             public static let listPublishSpecs = Connect.MethodSpec(name: "ListPublishSpecs", service: "easylab.v1.RegistryService", type: .unary)
             public static let ocicatalog = Connect.MethodSpec(name: "OCICatalog", service: "easylab.v1.RegistryService", type: .unary)
+            public static let setPackageVisibility = Connect.MethodSpec(name: "SetPackageVisibility", service: "easylab.v1.RegistryService", type: .unary)
         }
     }
 }

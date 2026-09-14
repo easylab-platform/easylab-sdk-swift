@@ -843,6 +843,14 @@ public nonisolated struct Easylab_V1_ServiceInfo: Sendable {
   /// running | pending | ...
   public var phase: String = String()
 
+  /// Owning user id and repository coordinates (ownership labels). Empty for a
+  /// standalone service (owned by its creator only).
+  public var owner: String = String()
+
+  public var org: String = String()
+
+  public var repo: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -914,27 +922,30 @@ public nonisolated struct Easylab_V1_GetServiceRequest: Sendable {
   public init() {}
 }
 
-public nonisolated struct Easylab_V1_GetServiceResponse: Sendable {
+public nonisolated struct Easylab_V1_GetServiceResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var service: Easylab_V1_ServiceInfo {
-    get {_service ?? Easylab_V1_ServiceInfo()}
-    set {_service = newValue}
+    get {_storage._service ?? Easylab_V1_ServiceInfo()}
+    set {_uniqueStorage()._service = newValue}
   }
   /// Returns true if `service` has been explicitly set.
-  public var hasService: Bool {self._service != nil}
+  public var hasService: Bool {_storage._service != nil}
   /// Clears the value of `service`. Subsequent reads from it will return its default value.
-  public mutating func clearService() {self._service = nil}
+  public mutating func clearService() {_uniqueStorage()._service = nil}
 
-  public var pods: [Easylab_V1_ServicePod] = []
+  public var pods: [Easylab_V1_ServicePod] {
+    get {_storage._pods}
+    set {_uniqueStorage()._pods = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _service: Easylab_V1_ServiceInfo? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// PortSpec maps a container port to a published service port.
@@ -1426,6 +1437,43 @@ public nonisolated struct Easylab_V1_PackageInfo: Sendable {
   public var name: String = String()
 
   public var versions: [Easylab_V1_PackageVersion] = []
+
+  /// Ownership visibility: "public" (default) or "private".
+  public var visibility: String = String()
+
+  /// Owning user id ("" when unclaimed, e.g. a pull-through cache entry).
+  public var owner: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SetPackageVisibilityRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var type: String = String()
+
+  public var name: String = String()
+
+  /// public | private
+  public var visibility: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public nonisolated struct Easylab_V1_SetPackageVisibilityResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var ok: Bool = false
+
+  public var error: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2169,57 +2217,113 @@ public nonisolated struct Easylab_V1_OCICatalogResponse: Sendable {
   public init() {}
 }
 
-public nonisolated struct Easylab_V1_SandboxInfo: Sendable {
+public nonisolated struct Easylab_V1_SandboxInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// container/service name (session key or standalone)
-  public var name: String = String()
+  public var name: String {
+    get {_storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
 
   /// association: '' org = standalone sandbox (no sync)
-  public var org: String = String()
+  public var org: String {
+    get {_storage._org}
+    set {_uniqueStorage()._org = newValue}
+  }
 
-  public var repo: String = String()
+  public var repo: String {
+    get {_storage._repo}
+    set {_uniqueStorage()._repo = newValue}
+  }
 
-  public var branch: String = String()
+  public var branch: String {
+    get {_storage._branch}
+    set {_uniqueStorage()._branch = newValue}
+  }
 
   /// e.g. docker.io/library/golang:1.26
-  public var baseImage: String = String()
+  public var baseImage: String {
+    get {_storage._baseImage}
+    set {_uniqueStorage()._baseImage = newValue}
+  }
 
   /// injected-worker image tag
-  public var derivedImage: String = String()
+  public var derivedImage: String {
+    get {_storage._derivedImage}
+    set {_uniqueStorage()._derivedImage = newValue}
+  }
 
   /// default /workspace ('/tmp' for nonroot bases)
-  public var workspace: String = String()
+  public var workspace: String {
+    get {_storage._workspace}
+    set {_uniqueStorage()._workspace = newValue}
+  }
 
   /// live podman phase (Running/Pending/Exited/gone)
-  public var phase: String = String()
+  public var phase: String {
+    get {_storage._phase}
+    set {_uniqueStorage()._phase = newValue}
+  }
 
-  public var podIp: String = String()
+  public var podIp: String {
+    get {_storage._podIp}
+    set {_uniqueStorage()._podIp = newValue}
+  }
 
   /// live worker boot id (changed = worker restarted)
-  public var bootID: String = String()
+  public var bootID: String {
+    get {_storage._bootID}
+    set {_uniqueStorage()._bootID = newValue}
+  }
 
-  public var runningJobs: Int32 = 0
+  public var runningJobs: Int32 {
+    get {_storage._runningJobs}
+    set {_uniqueStorage()._runningJobs = newValue}
+  }
 
   /// worker window (24h retention)
-  public var totalJobs: Int32 = 0
+  public var totalJobs: Int32 {
+    get {_storage._totalJobs}
+    set {_uniqueStorage()._totalJobs = newValue}
+  }
 
   /// easylab rev-coherence metadata
-  public var syncedRev: String = String()
+  public var syncedRev: String {
+    get {_storage._syncedRev}
+    set {_uniqueStorage()._syncedRev = newValue}
+  }
 
-  public var syncedBootID: String = String()
+  public var syncedBootID: String {
+    get {_storage._syncedBootID}
+    set {_uniqueStorage()._syncedBootID = newValue}
+  }
 
   /// aggregation note (worker unreachable etc.)
-  public var error: String = String()
+  public var error: String {
+    get {_storage._error}
+    set {_uniqueStorage()._error = newValue}
+  }
 
   /// resolved runtime/profile (linux/windows/macos)
-  public var runtime: String = String()
+  public var runtime: String {
+    get {_storage._runtime}
+    set {_uniqueStorage()._runtime = newValue}
+  }
+
+  /// Owning user id (sandboxes are owner-only). Empty when unknown/legacy.
+  public var owner: String {
+    get {_storage._owner}
+    set {_uniqueStorage()._owner = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public nonisolated struct Easylab_V1_ListSandboxesRequest: Sendable {
@@ -5508,7 +5612,7 @@ nonisolated extension Easylab_V1_FileHistoryResponse: SwiftProtobuf.Message, Swi
 
 nonisolated extension Easylab_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ServiceInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}image\0\u{1}replicas\0\u{1}ready\0\u{1}namespace\0\u{1}age\0\u{1}ports\0\u{1}session\0\u{1}status\0\u{1}url\0\u{1}kind\0\u{3}pod_ip\0\u{1}phase\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}image\0\u{1}replicas\0\u{1}ready\0\u{1}namespace\0\u{1}age\0\u{1}ports\0\u{1}session\0\u{1}status\0\u{1}url\0\u{1}kind\0\u{3}pod_ip\0\u{1}phase\0\u{1}owner\0\u{1}org\0\u{1}repo\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5529,6 +5633,9 @@ nonisolated extension Easylab_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtob
       case 11: try { try decoder.decodeSingularStringField(value: &self.kind) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self.podIp) }()
       case 13: try { try decoder.decodeSingularStringField(value: &self.phase) }()
+      case 14: try { try decoder.decodeSingularStringField(value: &self.owner) }()
+      case 15: try { try decoder.decodeSingularStringField(value: &self.org) }()
+      case 16: try { try decoder.decodeSingularStringField(value: &self.repo) }()
       default: break
       }
     }
@@ -5574,6 +5681,15 @@ nonisolated extension Easylab_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtob
     if !self.phase.isEmpty {
       try visitor.visitSingularStringField(value: self.phase, fieldNumber: 13)
     }
+    if !self.owner.isEmpty {
+      try visitor.visitSingularStringField(value: self.owner, fieldNumber: 14)
+    }
+    if !self.org.isEmpty {
+      try visitor.visitSingularStringField(value: self.org, fieldNumber: 15)
+    }
+    if !self.repo.isEmpty {
+      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 16)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5591,6 +5707,9 @@ nonisolated extension Easylab_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtob
     if lhs.kind != rhs.kind {return false}
     if lhs.podIp != rhs.podIp {return false}
     if lhs.phase != rhs.phase {return false}
+    if lhs.owner != rhs.owner {return false}
+    if lhs.org != rhs.org {return false}
+    if lhs.repo != rhs.repo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -5765,36 +5884,74 @@ nonisolated extension Easylab_V1_GetServiceResponse: SwiftProtobuf.Message, Swif
   public static let protoMessageName: String = _protobuf_package + ".GetServiceResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}service\0\u{1}pods\0")
 
+  fileprivate class _StorageClass {
+    var _service: Easylab_V1_ServiceInfo? = nil
+    var _pods: [Easylab_V1_ServicePod] = []
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _service = source._service
+      _pods = source._pods
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._service) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.pods) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._service) }()
+        case 2: try { try decoder.decodeRepeatedMessageField(value: &_storage._pods) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._service {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.pods.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.pods, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._service {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._pods.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._pods, fieldNumber: 2)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Easylab_V1_GetServiceResponse, rhs: Easylab_V1_GetServiceResponse) -> Bool {
-    if lhs._service != rhs._service {return false}
-    if lhs.pods != rhs.pods {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._service != rhs_storage._service {return false}
+        if _storage._pods != rhs_storage._pods {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6952,7 +7109,7 @@ nonisolated extension Easylab_V1_PackageVersionFile: SwiftProtobuf.Message, Swif
 
 nonisolated extension Easylab_V1_PackageInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PackageInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0\u{1}name\0\u{1}versions\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0\u{1}name\0\u{1}versions\0\u{1}visibility\0\u{1}owner\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6963,6 +7120,8 @@ nonisolated extension Easylab_V1_PackageInfo: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeSingularStringField(value: &self.type) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.versions) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.visibility) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.owner) }()
       default: break
       }
     }
@@ -6978,6 +7137,12 @@ nonisolated extension Easylab_V1_PackageInfo: SwiftProtobuf.Message, SwiftProtob
     if !self.versions.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.versions, fieldNumber: 3)
     }
+    if !self.visibility.isEmpty {
+      try visitor.visitSingularStringField(value: self.visibility, fieldNumber: 4)
+    }
+    if !self.owner.isEmpty {
+      try visitor.visitSingularStringField(value: self.owner, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -6985,6 +7150,83 @@ nonisolated extension Easylab_V1_PackageInfo: SwiftProtobuf.Message, SwiftProtob
     if lhs.type != rhs.type {return false}
     if lhs.name != rhs.name {return false}
     if lhs.versions != rhs.versions {return false}
+    if lhs.visibility != rhs.visibility {return false}
+    if lhs.owner != rhs.owner {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetPackageVisibilityRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetPackageVisibilityRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0\u{1}name\0\u{1}visibility\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.type) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.visibility) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.type.isEmpty {
+      try visitor.visitSingularStringField(value: self.type, fieldNumber: 1)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
+    }
+    if !self.visibility.isEmpty {
+      try visitor.visitSingularStringField(value: self.visibility, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetPackageVisibilityRequest, rhs: Easylab_V1_SetPackageVisibilityRequest) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.visibility != rhs.visibility {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Easylab_V1_SetPackageVisibilityResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SetPackageVisibilityResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ok\0\u{1}error\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.ok) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.error) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.ok != false {
+      try visitor.visitSingularBoolField(value: self.ok, fieldNumber: 1)
+    }
+    if !self.error.isEmpty {
+      try visitor.visitSingularStringField(value: self.error, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Easylab_V1_SetPackageVisibilityResponse, rhs: Easylab_V1_SetPackageVisibilityResponse) -> Bool {
+    if lhs.ok != rhs.ok {return false}
+    if lhs.error != rhs.error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -8782,104 +9024,177 @@ nonisolated extension Easylab_V1_OCICatalogResponse: SwiftProtobuf.Message, Swif
 
 nonisolated extension Easylab_V1_SandboxInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SandboxInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}org\0\u{1}repo\0\u{1}branch\0\u{3}base_image\0\u{3}derived_image\0\u{1}workspace\0\u{1}phase\0\u{3}pod_ip\0\u{3}boot_id\0\u{3}running_jobs\0\u{3}total_jobs\0\u{3}synced_rev\0\u{3}synced_boot_id\0\u{1}error\0\u{1}runtime\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{1}org\0\u{1}repo\0\u{1}branch\0\u{3}base_image\0\u{3}derived_image\0\u{1}workspace\0\u{1}phase\0\u{3}pod_ip\0\u{3}boot_id\0\u{3}running_jobs\0\u{3}total_jobs\0\u{3}synced_rev\0\u{3}synced_boot_id\0\u{1}error\0\u{1}runtime\0\u{1}owner\0")
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _org: String = String()
+    var _repo: String = String()
+    var _branch: String = String()
+    var _baseImage: String = String()
+    var _derivedImage: String = String()
+    var _workspace: String = String()
+    var _phase: String = String()
+    var _podIp: String = String()
+    var _bootID: String = String()
+    var _runningJobs: Int32 = 0
+    var _totalJobs: Int32 = 0
+    var _syncedRev: String = String()
+    var _syncedBootID: String = String()
+    var _error: String = String()
+    var _runtime: String = String()
+    var _owner: String = String()
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _org = source._org
+      _repo = source._repo
+      _branch = source._branch
+      _baseImage = source._baseImage
+      _derivedImage = source._derivedImage
+      _workspace = source._workspace
+      _phase = source._phase
+      _podIp = source._podIp
+      _bootID = source._bootID
+      _runningJobs = source._runningJobs
+      _totalJobs = source._totalJobs
+      _syncedRev = source._syncedRev
+      _syncedBootID = source._syncedBootID
+      _error = source._error
+      _runtime = source._runtime
+      _owner = source._owner
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.org) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.repo) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.branch) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.baseImage) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.derivedImage) }()
-      case 7: try { try decoder.decodeSingularStringField(value: &self.workspace) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.phase) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.podIp) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self.bootID) }()
-      case 11: try { try decoder.decodeSingularInt32Field(value: &self.runningJobs) }()
-      case 12: try { try decoder.decodeSingularInt32Field(value: &self.totalJobs) }()
-      case 13: try { try decoder.decodeSingularStringField(value: &self.syncedRev) }()
-      case 14: try { try decoder.decodeSingularStringField(value: &self.syncedBootID) }()
-      case 15: try { try decoder.decodeSingularStringField(value: &self.error) }()
-      case 16: try { try decoder.decodeSingularStringField(value: &self.runtime) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._org) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._repo) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._branch) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._baseImage) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._derivedImage) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._workspace) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._phase) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._podIp) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._bootID) }()
+        case 11: try { try decoder.decodeSingularInt32Field(value: &_storage._runningJobs) }()
+        case 12: try { try decoder.decodeSingularInt32Field(value: &_storage._totalJobs) }()
+        case 13: try { try decoder.decodeSingularStringField(value: &_storage._syncedRev) }()
+        case 14: try { try decoder.decodeSingularStringField(value: &_storage._syncedBootID) }()
+        case 15: try { try decoder.decodeSingularStringField(value: &_storage._error) }()
+        case 16: try { try decoder.decodeSingularStringField(value: &_storage._runtime) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._owner) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.org.isEmpty {
-      try visitor.visitSingularStringField(value: self.org, fieldNumber: 2)
-    }
-    if !self.repo.isEmpty {
-      try visitor.visitSingularStringField(value: self.repo, fieldNumber: 3)
-    }
-    if !self.branch.isEmpty {
-      try visitor.visitSingularStringField(value: self.branch, fieldNumber: 4)
-    }
-    if !self.baseImage.isEmpty {
-      try visitor.visitSingularStringField(value: self.baseImage, fieldNumber: 5)
-    }
-    if !self.derivedImage.isEmpty {
-      try visitor.visitSingularStringField(value: self.derivedImage, fieldNumber: 6)
-    }
-    if !self.workspace.isEmpty {
-      try visitor.visitSingularStringField(value: self.workspace, fieldNumber: 7)
-    }
-    if !self.phase.isEmpty {
-      try visitor.visitSingularStringField(value: self.phase, fieldNumber: 8)
-    }
-    if !self.podIp.isEmpty {
-      try visitor.visitSingularStringField(value: self.podIp, fieldNumber: 9)
-    }
-    if !self.bootID.isEmpty {
-      try visitor.visitSingularStringField(value: self.bootID, fieldNumber: 10)
-    }
-    if self.runningJobs != 0 {
-      try visitor.visitSingularInt32Field(value: self.runningJobs, fieldNumber: 11)
-    }
-    if self.totalJobs != 0 {
-      try visitor.visitSingularInt32Field(value: self.totalJobs, fieldNumber: 12)
-    }
-    if !self.syncedRev.isEmpty {
-      try visitor.visitSingularStringField(value: self.syncedRev, fieldNumber: 13)
-    }
-    if !self.syncedBootID.isEmpty {
-      try visitor.visitSingularStringField(value: self.syncedBootID, fieldNumber: 14)
-    }
-    if !self.error.isEmpty {
-      try visitor.visitSingularStringField(value: self.error, fieldNumber: 15)
-    }
-    if !self.runtime.isEmpty {
-      try visitor.visitSingularStringField(value: self.runtime, fieldNumber: 16)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
+      }
+      if !_storage._org.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._org, fieldNumber: 2)
+      }
+      if !_storage._repo.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._repo, fieldNumber: 3)
+      }
+      if !_storage._branch.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._branch, fieldNumber: 4)
+      }
+      if !_storage._baseImage.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._baseImage, fieldNumber: 5)
+      }
+      if !_storage._derivedImage.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._derivedImage, fieldNumber: 6)
+      }
+      if !_storage._workspace.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._workspace, fieldNumber: 7)
+      }
+      if !_storage._phase.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._phase, fieldNumber: 8)
+      }
+      if !_storage._podIp.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._podIp, fieldNumber: 9)
+      }
+      if !_storage._bootID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._bootID, fieldNumber: 10)
+      }
+      if _storage._runningJobs != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._runningJobs, fieldNumber: 11)
+      }
+      if _storage._totalJobs != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._totalJobs, fieldNumber: 12)
+      }
+      if !_storage._syncedRev.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._syncedRev, fieldNumber: 13)
+      }
+      if !_storage._syncedBootID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._syncedBootID, fieldNumber: 14)
+      }
+      if !_storage._error.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._error, fieldNumber: 15)
+      }
+      if !_storage._runtime.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._runtime, fieldNumber: 16)
+      }
+      if !_storage._owner.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._owner, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Easylab_V1_SandboxInfo, rhs: Easylab_V1_SandboxInfo) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.org != rhs.org {return false}
-    if lhs.repo != rhs.repo {return false}
-    if lhs.branch != rhs.branch {return false}
-    if lhs.baseImage != rhs.baseImage {return false}
-    if lhs.derivedImage != rhs.derivedImage {return false}
-    if lhs.workspace != rhs.workspace {return false}
-    if lhs.phase != rhs.phase {return false}
-    if lhs.podIp != rhs.podIp {return false}
-    if lhs.bootID != rhs.bootID {return false}
-    if lhs.runningJobs != rhs.runningJobs {return false}
-    if lhs.totalJobs != rhs.totalJobs {return false}
-    if lhs.syncedRev != rhs.syncedRev {return false}
-    if lhs.syncedBootID != rhs.syncedBootID {return false}
-    if lhs.error != rhs.error {return false}
-    if lhs.runtime != rhs.runtime {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._org != rhs_storage._org {return false}
+        if _storage._repo != rhs_storage._repo {return false}
+        if _storage._branch != rhs_storage._branch {return false}
+        if _storage._baseImage != rhs_storage._baseImage {return false}
+        if _storage._derivedImage != rhs_storage._derivedImage {return false}
+        if _storage._workspace != rhs_storage._workspace {return false}
+        if _storage._phase != rhs_storage._phase {return false}
+        if _storage._podIp != rhs_storage._podIp {return false}
+        if _storage._bootID != rhs_storage._bootID {return false}
+        if _storage._runningJobs != rhs_storage._runningJobs {return false}
+        if _storage._totalJobs != rhs_storage._totalJobs {return false}
+        if _storage._syncedRev != rhs_storage._syncedRev {return false}
+        if _storage._syncedBootID != rhs_storage._syncedBootID {return false}
+        if _storage._error != rhs_storage._error {return false}
+        if _storage._runtime != rhs_storage._runtime {return false}
+        if _storage._owner != rhs_storage._owner {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
